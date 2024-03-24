@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Yaan</title>
+  
+  <subtitle>欢迎光临寒舍</subtitle>
+  <link href="https://yaanlaan.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://yaanlaan.github.io/"/>
+  <updated>2024-03-24T05:09:28.630Z</updated>
+  <id>https://yaanlaan.github.io/</id>
+  
+  <author>
+    <name>Yaan</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>测试档案</title>
+    <link href="https://yaanlaan.github.io/2024/03/24/%E6%B5%8B%E8%AF%95%E6%A1%A3%E6%A1%88/"/>
+    <id>https://yaanlaan.github.io/2024/03/24/%E6%B5%8B%E8%AF%95%E6%A1%A3%E6%A1%88/</id>
+    <published>2024-03-24T04:53:41.000Z</published>
+    <updated>2024-03-24T05:09:28.630Z</updated>
+    
+    <content type="html"><![CDATA[<span id="more"></span><p>$$<br>e^{\pi{i}}&#x3D;\cos{x}+i\sin{x}<br>$$</p>]]></content>
+    
+    
+    <summary type="html">这是一份测试文档</summary>
+    
+    
+    
+    <category term="测试模板" scheme="https://yaanlaan.github.io/categories/%E6%B5%8B%E8%AF%95%E6%A8%A1%E6%9D%BF/"/>
+    
+    
+    <category term="测试" scheme="https://yaanlaan.github.io/tags/%E6%B5%8B%E8%AF%95/"/>
+    
+    <category term="模板" scheme="https://yaanlaan.github.io/tags/%E6%A8%A1%E6%9D%BF/"/>
+    
+  </entry>
+  
+</feed>
