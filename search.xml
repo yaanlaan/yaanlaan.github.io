@@ -23,4 +23,363 @@
         <tag>模板</tag>
       </tags>
   </entry>
+  <entry>
+    <title>MATLABweek5(数值运算)</title>
+    <url>/2024/03/27/week5/</url>
+    <content><![CDATA[<h1 id="matlabweek5数值运算">MATLABweek5(数值运算)</h1>
+<h2 id="多项式">多项式</h2>
+<p>创建多项式，只需创建一个系数的向量，元素为多项式系数按照降序排序，例如<span class="math inline"><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.186ex;" xmlns="http://www.w3.org/2000/svg" width="10.239ex" height="2.072ex" role="img" focusable="false" viewBox="0 -833.9 4525.4 915.9"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msup"><g data-mml-node="mi"><path data-c="1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"></path></g><g data-mml-node="mn" transform="translate(605,363) scale(0.707)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g></g><g data-mml-node="mo" transform="translate(1230.8,0)"><path data-c="2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path></g><g data-mml-node="mi" transform="translate(2231,0)"><path data-c="1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"></path></g><g data-mml-node="mo" transform="translate(3025.2,0)"><path data-c="2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path></g><g data-mml-node="mn" transform="translate(4025.4,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g></g></g></svg></mjx-container></span>，表达为x=[1,1,1];要求幂次连续，所以缺少的元素要补0</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">%%</span></span><br><span class="line">y=[<span class="number">3</span> <span class="number">2</span> <span class="number">1</span>];</span><br><span class="line">f=[<span class="number">3</span> <span class="number">0</span> <span class="number">2</span> <span class="number">1</span>];</span><br><span class="line">y+f</span><br><span class="line">&gt;&gt; 这里我们希望将多项式相加，但是会报错</span><br><span class="line">&gt;&gt; 因为矩阵形状不同，需要补<span class="number">0</span>使得相同，但我们希望自动化编程，所以引入函数</span><br></pre></td></tr></table></figure>
+<h2 id="题外话函数前瞻">题外话：函数前瞻</h2>
+<p>函数名和文件名要相同，必须以function开头，上面不要写其他运算</p>
+<blockquote>
+<p>左边finction [返回值列表...] = functionname(x1,x2,x3)</p>
+<p>% 函数帮助，可以在调用时预览说明</p>
+<p>函数主体</p>
+</blockquote>
+<p>polyadd函数示例：</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">%% polyadd.m</span></span><br><span class="line"><span class="function"><span class="keyword">function</span><span class="params">[poly]</span>=<span class="title">polyadd</span><span class="params">(poly1,poly2)</span> </span></span><br><span class="line"><span class="comment">%polyadd(poly1,poly2) adds two polynominals possibly of uneven length </span></span><br><span class="line"><span class="keyword">if</span> <span class="built_in">length</span>(poly1)&lt;<span class="built_in">length</span>(poly2) </span><br><span class="line">        short=poly1; </span><br><span class="line">        long=poly2; </span><br><span class="line"><span class="keyword">else</span> </span><br><span class="line">        short=poly2; </span><br><span class="line">        long=poly1; </span><br><span class="line"><span class="keyword">end</span> </span><br><span class="line">mz=<span class="built_in">length</span>(long)-<span class="built_in">length</span>(short); </span><br><span class="line"><span class="keyword">if</span> mz&gt;<span class="number">0</span> </span><br><span class="line">          poly=[<span class="built_in">zeros</span>(<span class="number">1</span>,mz),short]+long; </span><br><span class="line"><span class="keyword">else</span> </span><br><span class="line">          poly=long+short; </span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>多项式减法可以用相同手法处理</p>
+<p>思考题：编写一个计算圆周长和面积的函数</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="params">[s,c]</span> = <span class="title">circle</span><span class="params">(r)</span></span></span><br><span class="line"><span class="comment">%CIRCLE 计算圆周长和面积</span></span><br><span class="line">s=r^<span class="number">2</span>*<span class="built_in">pi</span>;</span><br><span class="line">c=<span class="number">2</span>*r*<span class="built_in">pi</span>;</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="继续多项式">继续多项式</h2>
+<ul>
+<li>乘法（卷积）: conv(x,y)</li>
+<li>除法（解卷积）:[q,r]=conv(x,y)，q整除多项式，r玉树多项式（高代第一章）</li>
+</ul>
+<p>思考题：求多项式的商和余数</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">s1 = [<span class="number">2</span> <span class="number">0</span> <span class="number">1</span>];</span><br><span class="line">s2 = [<span class="number">1</span> <span class="number">2</span>];</span><br><span class="line">s3 = [<span class="number">1</span>,<span class="number">1</span>];</span><br><span class="line">q = [<span class="number">2</span> <span class="number">1</span> <span class="number">1</span>];</span><br><span class="line">p=conv(s1,conv(s2,s3));</span><br><span class="line">[f,r] = deconv(p,q);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>多项式求值：y=polyval(p,x),p为系数向量，x为所求点的值，支持向量求多点值（polyvalm可以求多个行列式，系数矩阵的各向量在各个点的值）</li>
+<li>poly2sym()：将多项式系数矩阵变成符号表达式</li>
+</ul>
+<h2 id="差值和拟合">差值和拟合</h2>
+<p>这一段需要可视化，可视化可以在另一篇文章了解，这里就不介绍了</p>
+<ul>
+<li>polyfit，差值函数，输入横纵坐标返回多项式，最后一个参数是多项式次数</li>
+<li>polyval，求拟合多项式的值</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">%%</span></span><br><span class="line">x=[<span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span> <span class="number">7</span> <span class="number">8</span> <span class="number">10</span> <span class="number">11</span> <span class="number">14</span> <span class="number">15</span> <span class="number">16</span> <span class="number">18</span> <span class="number">19</span>];  </span><br><span class="line">y=[<span class="number">106.42</span> <span class="number">108.26</span> <span class="number">109.58</span> <span class="number">109.5</span> <span class="number">110</span> <span class="number">109.93</span> <span class="number">110.49</span> <span class="number">110.59</span> <span class="number">110.6</span> <span class="number">110.9</span> <span class="number">110.76</span> <span class="number">111</span> <span class="number">111.2</span>]; </span><br><span class="line">v=polyfit(x,y,<span class="number">3</span>);   <span class="comment">%将已知数据拟合成3 阶多项式 </span></span><br><span class="line">t=<span class="number">1</span>:<span class="number">0.5</span>:<span class="number">19</span>; </span><br><span class="line"><span class="built_in">figure</span></span><br><span class="line">u=polyval(v,t);   <span class="comment">%计算多项式在离散点t 上的值 </span></span><br><span class="line"><span class="built_in">plot</span>(x,y,<span class="string">'b'</span>)     <span class="comment">%蓝色实线原数据</span></span><br><span class="line"><span class="built_in">hold</span> on</span><br><span class="line"><span class="built_in">plot</span>(t,u,<span class="string">'r*'</span>)    <span class="comment">%红色星号，差值曲线比较拟合的多项式曲线与已知数据点的差别</span></span><br><span class="line"><span class="built_in">hold</span> off</span><br></pre></td></tr></table></figure>
+<p>结果如图</p>
+<img data-src="/2024/03/27/week5/1711502253909.png" class="" width="1711502253909">
+<p>作业：完成某地三月份气温最高气温和最低气温图，并进行预测</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">%%</span></span><br><span class="line">clear</span><br><span class="line">close all</span><br><span class="line">clc</span><br><span class="line"><span class="comment">%%</span></span><br><span class="line">legend_size=<span class="number">2</span>;</span><br><span class="line">low = [<span class="number">-3</span> <span class="number">1</span> <span class="number">0</span> <span class="number">8</span> <span class="number">6</span> <span class="number">1</span> <span class="number">0</span> <span class="number">2</span> <span class="number">3</span> <span class="number">8</span> <span class="number">7</span> <span class="number">6</span> <span class="number">7</span> <span class="number">6</span> <span class="number">11</span> ...</span><br><span class="line">    <span class="number">14</span> <span class="number">5</span> <span class="number">2</span> <span class="number">3</span> <span class="number">5</span> <span class="number">12</span> <span class="number">17</span> <span class="number">17</span> <span class="number">12</span> <span class="number">6</span> <span class="number">8</span> <span class="number">9</span>];</span><br><span class="line">high = [<span class="number">10</span> <span class="number">14</span> <span class="number">16</span> <span class="number">14</span> <span class="number">10</span> <span class="number">13</span> <span class="number">15</span> <span class="number">16</span> <span class="number">14</span> <span class="number">17</span> <span class="number">22</span> <span class="number">19</span> <span class="number">16</span> <span class="number">18</span> ...</span><br><span class="line">    <span class="number">22</span> <span class="number">23</span> <span class="number">15</span> <span class="number">10</span> <span class="number">20</span>  <span class="number">21</span> <span class="number">24</span> <span class="number">26</span> <span class="number">22</span> <span class="number">20</span> <span class="number">14</span> <span class="number">17</span> <span class="number">14</span>];</span><br><span class="line">x =[<span class="number">1</span>:<span class="number">1</span>:<span class="built_in">length</span>(low)];</span><br><span class="line">poly_h=polyfit(x,high,<span class="number">2</span>);</span><br><span class="line">poly_l=polyfit(x,low,<span class="number">2</span>);</span><br><span class="line">pre_x=[<span class="number">1</span>:<span class="number">31</span>];</span><br><span class="line">pre_h=polyval(poly_h,pre_x);</span><br><span class="line">pre_l=polyval(poly_l,pre_x);</span><br><span class="line"></span><br><span class="line">y_bounder=[<span class="built_in">min</span>(low),<span class="built_in">max</span>(high)+legend_size];</span><br><span class="line"></span><br><span class="line"><span class="built_in">figure</span></span><br><span class="line"><span class="built_in">hold</span> on</span><br><span class="line"></span><br><span class="line"><span class="built_in">plot</span>(x, high,<span class="string">'-x'</span>,<span class="string">'lineWidth'</span>,<span class="number">1.5</span>,<span class="string">'color'</span>,<span class="string">'#E8696C'</span>,<span class="string">'MarkerSize'</span>,<span class="number">5</span>,...</span><br><span class="line">    <span class="string">'MarkerEdgeColor'</span>,<span class="string">'#b45154'</span>,...</span><br><span class="line">    <span class="string">'MarkerFaceColor'</span>,<span class="string">'#b45154'</span>)</span><br><span class="line"><span class="built_in">plot</span>(x, low,<span class="string">'-x'</span>,<span class="string">'lineWidth'</span>,<span class="number">1.5</span>,<span class="string">'color'</span>,<span class="string">'#00CEF0'</span>,<span class="string">'MarkerSize'</span>,<span class="number">5</span>,...</span><br><span class="line">    <span class="string">'MarkerEdgeColor'</span>,<span class="string">'#0091c2'</span>,...</span><br><span class="line">    <span class="string">'MarkerFaceColor'</span>,<span class="string">'#0091c2'</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">plot</span>(pre_x, pre_h,<span class="string">'--'</span>,<span class="string">'lineWidth'</span>,<span class="number">1.5</span>,<span class="string">'color'</span>,<span class="string">'#E8696C'</span>)</span><br><span class="line"><span class="built_in">plot</span>(pre_x, pre_l,<span class="string">'--'</span>,<span class="string">'lineWidth'</span>,<span class="number">1.5</span>,<span class="string">'color'</span>,<span class="string">'#00B8F5'</span>)</span><br><span class="line"><span class="built_in">plot</span>([<span class="number">27</span>,<span class="number">27</span>],[<span class="number">-40</span>,<span class="number">40</span>],<span class="string">'color'</span>,<span class="string">'#5EC280'</span>,<span class="string">'linestyle'</span>,<span class="string">'-.'</span>,<span class="string">'linewidth'</span>,<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">xlim([<span class="number">1</span>,<span class="number">31</span>+legend_size]);</span><br><span class="line">ylim(y_bounder);</span><br><span class="line">title(<span class="string">"Hefei's March Temperature Forecast"</span>)</span><br><span class="line">xlabel(<span class="string">'Data'</span>)</span><br><span class="line">ylabel(<span class="string">'Temperature'</span>)</span><br><span class="line">grid on</span><br><span class="line">grid minor</span><br><span class="line">x1 = <span class="number">0</span>:<span class="number">5</span>:<span class="built_in">length</span>(pre_x);</span><br><span class="line">x1 = [x1,<span class="number">27</span>,<span class="number">1</span>];</span><br><span class="line">x1=<span class="built_in">sort</span>(x1);</span><br><span class="line">xticks(x1)</span><br><span class="line">legendText = <span class="built_in">legend</span>(<span class="string">'Maximumx'</span>,<span class="string">'Minimum'</span>,<span class="string">'Pre\_Max'</span>,<span class="string">'Pre\_Min'</span>,<span class="string">'Today'</span>,<span class="string">'FontSize'</span>, <span class="number">7</span>,<span class="string">'FontName'</span>,<span class="string">'Times New Roman'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">hold</span> off</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>结果如图：</p>
+<img data-src="/2024/03/27/week5/1711510265793.png" class="" width="1711510265793">
+]]></content>
+      <categories>
+        <category>MATLAB笔记</category>
+      </categories>
+      <tags>
+        <tag>MATLAB</tag>
+        <tag>本科笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MATLABweek4(字符串和章节小结)</title>
+    <url>/2024/03/27/week4/</url>
+    <content><![CDATA[<h1 id="matlabweek4字符串和章节小结">MATLABweek4(字符串和章节小结)</h1>
+<h2 id="数组">数组</h2>
+<p>数组和矩阵没有严格的分别，数组和矩阵的操作是相通的。</p>
+<p>自行了解。有些常用函数这里列出</p>
+<img data-src="/2024/03/27/week4/1710893571587.png" class="" width="1710893571587">
+<ul>
+<li><p>[a,b]=max(x)：返回最大值及其下标，a为最大值，b为其下标</p></li>
+<li><p>[a,b]=min(x)：返回最小值及其下标，a为最小值，b为小标</p></li>
+<li><p>mean(x)：求其元素平均值</p></li>
+<li><p>sum(x)：求和</p>
+<blockquote>
+<p>都是相对下一维度的元素，如果对每个元素，则需要嵌套</p>
+</blockquote></li>
+</ul>
+<h2 id="字符串">字符串</h2>
+<p>使用单引号对字符串赋值
+<code>'str'，每个字符都以ASCII码形式存储。</code></p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">str = <span class="string">'This is a string.'</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>length(),size()：length显示含有下一维度的元素长，size显示下一维度的元素长（例如二维，length是向量个数，size是每个向量长度，是个数组）</li>
+<li>字符的存储形式是ASCII码，所以它可以像数字一样运算。</li>
+<li>disp：显示文本，通常只显示文本，格式化字符串使用其他函数或者拼接而来</li>
+</ul>
+<img data-src="/2024/03/27/week4/1710894817455.png" class="" width="1710894817455">
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">%% 函数法</span></span><br><span class="line">str = <span class="string">'ABc123d4e56Fg9'</span>;</span><br><span class="line">sub_str= str(<span class="number">1</span>:<span class="number">5</span>);</span><br><span class="line">rstr = str(<span class="keyword">end</span>:<span class="number">-1</span>:<span class="number">1</span>);</span><br><span class="line">up_str = upper(str);</span><br><span class="line">count_lower = sum(isstrprop(str,<span class="string">'lower'</span>));</span><br><span class="line"><span class="comment">%% find法</span></span><br><span class="line">str = <span class="string">'ABc123d4e56Fg9'</span>;</span><br><span class="line">sub_str= str(<span class="number">1</span>:<span class="number">5</span>);</span><br><span class="line">rstr = reverse(sub_str);</span><br><span class="line">a = <span class="built_in">find</span>(str&lt;=<span class="string">'z'</span>&amp;str&gt;=<span class="string">'a'</span>);</span><br><span class="line">str(a) = str(a)+<span class="string">'A'</span>-<span class="string">'a'</span>;</span><br><span class="line">count_lower = <span class="built_in">size</span>(a);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>reverse()：字符串翻转</li>
+<li>upper()()：大小写转换</li>
+<li>isstrprop：确定输入字符串中的哪些字符属于指定类别</li>
+<li>find：寻找满足表达式的元素返回下标数组</li>
+</ul>
+<h2 id="单元小结测试题总结节选">单元小结（测试题总结节选）</h2>
+<ul>
+<li><p>对数函数log(x)：是以e为底的对数，log2，log10分别是以2、10为底的对数，如果是其他底数，使用换底公式计算</p></li>
+<li><p>矩阵的翻转</p>
+<ul>
+<li>flipud：上下翻转</li>
+<li>rot90：逆时针旋转九十度，如果加入第二个参数k则旋转k*90°</li>
+</ul></li>
+<li><p>取整函数</p>
+<ul>
+<li>fix：取离得近的整数</li>
+<li>ceil/floor：前者向上，后者向下</li>
+<li>round：四舍五入</li>
+</ul></li>
+</ul>
+]]></content>
+      <categories>
+        <category>MATLAB笔记</category>
+      </categories>
+      <tags>
+        <tag>MATLAB</tag>
+        <tag>本科笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MATLABweek3(图像视角下的矩阵运算)</title>
+    <url>/2024/03/27/week3/</url>
+    <content><![CDATA[<h1 id="matlabweek3图像视角下的矩阵运算">MATLABweek3(图像视角下的矩阵运算)</h1>
+<h2 id="存放次序">存放次序</h2>
+<p>按照列存储</p>
+<img data-src="/2024/03/27/week3/1710288199322.png" class="" width="1710288199322">
+<p>例题：构造矩阵A</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">A=[<span class="number">2</span> <span class="number">3</span> <span class="number">4</span>;</span><br><span class="line"><span class="number">5</span> <span class="number">6</span> <span class="number">7</span>]</span><br><span class="line"></span><br><span class="line">A=[<span class="number">2</span>:<span class="number">4</span>;<span class="number">5</span>:<span class="number">7</span>]</span><br></pre></td></tr></table></figure>
+<h2 id="常用矩阵构造函数">常用矩阵构造函数</h2>
+<table>
+<thead>
+<tr class="header">
+<th>名称</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>zeros(m,n)</td>
+<td>生成m*n的全0矩阵</td>
+</tr>
+<tr class="even">
+<td>ones(m,n)</td>
+<td>生成m*n的全1矩阵</td>
+</tr>
+<tr class="odd">
+<td>rand(m,n)</td>
+<td>在0-1之间均匀分布的随机矩阵</td>
+</tr>
+<tr class="even">
+<td>randn(m,n)</td>
+<td>生成满足正态分布的随机矩阵</td>
+</tr>
+<tr class="odd">
+<td>eye(m,n)</td>
+<td>单位矩阵(仅主对角线元素全为1)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="使用图像举例">使用图像举例</h2>
+<p>图像采用离散形式保存——矩阵</p>
+<p>例如分辨率为1040*1920的彩色图像，可以由三个1024*1920矩阵保存，可以再得到一张二维的灰度矩阵，每个元素的范围是(未归一化0-255，对应黑-白，)</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">image1 = imread(<span class="string">"test_image.png"</span>);<span class="comment">% 读取图像得到三维矩阵</span></span><br><span class="line">image2 = rgb2gray(image1);<span class="comment">% 转为灰度图，变为二维矩阵</span></span><br><span class="line">imshow(image1)</span><br><span class="line"><span class="built_in">figure</span><span class="comment">% 图像窗口</span></span><br><span class="line">imshow(image2)</span><br></pre></td></tr></table></figure>
+
+
+<p>再使用size()命令，可以得到</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">&gt;&gt;<span class="built_in">size</span>(image1)</span><br><span class="line">&gt;&gt;<span class="built_in">ans</span> =</span><br><span class="line"></span><br><span class="line">        <span class="number">1040</span>        <span class="number">1920</span>           <span class="number">3</span></span><br><span class="line"></span><br><span class="line">&gt;&gt;<span class="built_in">size</span>(image2)</span><br><span class="line">&gt;&gt;<span class="built_in">ans</span> =</span><br><span class="line"></span><br><span class="line">        <span class="number">1040</span>        <span class="number">1920</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="读取矩阵元素">读取矩阵元素</h2>
+<ol type="1">
+<li>全下标法，可以取一个或多个</li>
+<li>单下标法，相当于c语言中高维数组实际上是线性存储的，可以将其线性展开（不介绍，注意matlab是按列保存的）</li>
+</ol>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">a=image2(<span class="number">10</span>,<span class="number">100</span>)<span class="comment">% 矩阵某个元素</span></span><br><span class="line">b=image2(<span class="number">10</span>:<span class="number">100</span>,<span class="number">10</span>:<span class="number">100</span>)<span class="comment">% 矩阵10-100行和10-100列组成的子矩阵</span></span><br><span class="line">imshow(b)<span class="comment">% 展示局部图</span></span><br></pre></td></tr></table></figure>
+<img data-src="/2024/03/27/week3/1710291057474.png" class="" width="1710291057474">
+<p>例子：取第10行到100行所有列</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">c = image2(<span class="number">10</span>:<span class="number">100</span>,:);</span><br><span class="line"><span class="comment">% 未写明为最大宽度，也可写为c = image2(10:100,1:end);</span></span><br><span class="line"><span class="comment">% 注意列表写法是闭区间</span></span><br><span class="line">imshow(c)</span><br></pre></td></tr></table></figure>
+
+<h2 id="拼接">拼接</h2>
+<p>如果a,b为同型矩阵，使用[a,b]水平拼接，[a;b]为竖直拼接</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% 读图</span></span><br><span class="line">image1_1 = imread(<span class="string">"test_image1.png"</span>);<span class="comment">% 读取图像得到三维矩阵</span></span><br><span class="line">image1_2 = rgb2gray(image1_1);<span class="comment">% 转为灰度图，变为二维矩阵</span></span><br><span class="line">image2_1 = imread(<span class="string">"test_image2.png"</span>);</span><br><span class="line">image2_2 = rgb2gray(image2_1);</span><br><span class="line">image1_3=image1_2(<span class="number">1</span>:<span class="number">1035</span>,:)</span><br><span class="line"><span class="comment">% 由于两张图象大小不一样一个是1040*1920一个是1035*1920</span></span><br><span class="line"><span class="comment">% 这里截取一部分（可以在变量窗口看或者使用size）</span></span><br><span class="line"><span class="comment">%展示原始图像</span></span><br><span class="line"><span class="built_in">figure</span></span><br><span class="line">imshow(image1_3)</span><br><span class="line"><span class="built_in">figure</span></span><br><span class="line">imshow(image2_2)</span><br><span class="line"><span class="comment">% 展示拼接图像</span></span><br><span class="line">image3 = [image1_3,image2_2]</span><br><span class="line"><span class="built_in">figure</span></span><br><span class="line">imshow(image3)</span><br><span class="line">image4 = [image1_3;image2_2]</span><br><span class="line"><span class="built_in">figure</span></span><br><span class="line">imshow(image4)</span><br></pre></td></tr></table></figure>
+
+<img data-src="/2024/03/27/week3/1710291867893.png" class="" width="1710291867893">
+<p>小练习：</p>
+<p>把图像的某部分变黑</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">tmp = image1_3;</span><br><span class="line">tmp(<span class="number">1</span>:<span class="number">200</span>,<span class="number">1</span>:<span class="number">200</span>)=<span class="number">0</span>;</span><br><span class="line"><span class="built_in">figure</span></span><br><span class="line">imshow(tmp)</span><br></pre></td></tr></table></figure>
+<h2 id="矩阵的加减可视化">矩阵的加减可视化</h2>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">image5 = image1_3+image2_2</span><br><span class="line"><span class="built_in">figure</span></span><br><span class="line">imshow(image5)</span><br><span class="line">image6 = image1_3-image2_2</span><br><span class="line"><span class="built_in">figure</span></span><br><span class="line">imshow(image6)</span><br></pre></td></tr></table></figure>
+<img data-src="/2024/03/27/week3/1710292478774.png" class="" width="1710292478774">
+<h2 id="矩阵的其他运算">矩阵的其他运算</h2>
+<ol type="1">
+<li>求行列式值：det(a)</li>
+<li>求矩阵的逆矩阵：inv(a)矩阵的除法，正反斜杠运算不同，但都相当于求逆相乘，见前章节</li>
+<li>求秩：rank(a)</li>
+<li>乘方^，开放sqrtm(a)</li>
+<li>转置，transpose(a)，只是转置，不是共轭转置</li>
+</ol>
+<p>例：求方程组的解</p>
+<img data-src="/2024/03/27/week3/1710292887489.png" class="" width="1710292887489">
+<p><span class="math display"><mjx-container class="MathJax" jax="SVG" display="true"><svg style="vertical-align: -0.186ex;" xmlns="http://www.w3.org/2000/svg" width="25.17ex" height="2.185ex" role="img" focusable="false" viewBox="0 -883.9 11125.3 965.9"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D434" d="M208 74Q208 50 254 46Q272 46 272 35Q272 34 270 22Q267 8 264 4T251 0Q249 0 239 0T205 1T141 2Q70 2 50 0H42Q35 7 35 11Q37 38 48 46H62Q132 49 164 96Q170 102 345 401T523 704Q530 716 547 716H555H572Q578 707 578 706L606 383Q634 60 636 57Q641 46 701 46Q726 46 726 36Q726 34 723 22Q720 7 718 4T704 0Q701 0 690 0T651 1T578 2Q484 2 455 0H443Q437 6 437 9T439 27Q443 40 445 43L449 46H469Q523 49 533 63L521 213H283L249 155Q208 86 208 74ZM516 260Q516 271 504 416T490 562L463 519Q447 492 400 412L310 260L413 259Q516 259 516 260Z"></path></g><g data-mml-node="mi" transform="translate(750,0)"><path data-c="1D44B" d="M42 0H40Q26 0 26 11Q26 15 29 27Q33 41 36 43T55 46Q141 49 190 98Q200 108 306 224T411 342Q302 620 297 625Q288 636 234 637H206Q200 643 200 645T202 664Q206 677 212 683H226Q260 681 347 681Q380 681 408 681T453 682T473 682Q490 682 490 671Q490 670 488 658Q484 643 481 640T465 637Q434 634 411 620L488 426L541 485Q646 598 646 610Q646 628 622 635Q617 635 609 637Q594 637 594 648Q594 650 596 664Q600 677 606 683H618Q619 683 643 683T697 681T738 680Q828 680 837 683H845Q852 676 852 672Q850 647 840 637H824Q790 636 763 628T722 611T698 593L687 584Q687 585 592 480L505 384Q505 383 536 304T601 142T638 56Q648 47 699 46Q734 46 734 37Q734 35 732 23Q728 7 725 4T711 1Q708 1 678 1T589 2Q528 2 496 2T461 1Q444 1 444 10Q444 11 446 25Q448 35 450 39T455 44T464 46T480 47T506 54Q523 62 523 64Q522 64 476 181L429 299Q241 95 236 84Q232 76 232 72Q232 53 261 47Q262 47 267 47T273 46Q276 46 277 46T280 45T283 42T284 35Q284 26 282 19Q279 6 276 4T261 1Q258 1 243 1T201 2T142 2Q64 2 42 0Z"></path></g><g data-mml-node="mo" transform="translate(1879.8,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="mi" transform="translate(2935.6,0)"><path data-c="1D435" d="M231 637Q204 637 199 638T194 649Q194 676 205 682Q206 683 335 683Q594 683 608 681Q671 671 713 636T756 544Q756 480 698 429T565 360L555 357Q619 348 660 311T702 219Q702 146 630 78T453 1Q446 0 242 0Q42 0 39 2Q35 5 35 10Q35 17 37 24Q42 43 47 45Q51 46 62 46H68Q95 46 128 49Q142 52 147 61Q150 65 219 339T288 628Q288 635 231 637ZM649 544Q649 574 634 600T585 634Q578 636 493 637Q473 637 451 637T416 636H403Q388 635 384 626Q382 622 352 506Q352 503 351 500L320 374H401Q482 374 494 376Q554 386 601 434T649 544ZM595 229Q595 273 572 302T512 336Q506 337 429 337Q311 337 310 336Q310 334 293 263T258 122L240 52Q240 48 252 48T333 46Q422 46 429 47Q491 54 543 105T595 229Z"></path></g><g data-mml-node="mstyle" transform="translate(3694.6,0)"><g data-mml-node="mspace"></g></g><g data-mml-node="mo" transform="translate(4250.3,0)"><path data-c="27F9" d="M1218 514Q1218 525 1234 525Q1239 525 1242 525T1247 525T1251 524T1253 523T1255 520T1257 517T1260 512Q1297 438 1358 381T1469 300T1565 263Q1582 258 1582 250T1573 239T1536 228T1478 204Q1334 134 1260 -12Q1256 -21 1253 -22T1238 -24Q1218 -24 1218 -17Q1218 -13 1223 0Q1258 69 1309 123L1319 133H70Q56 140 56 153Q56 168 72 173H1363L1373 181Q1412 211 1490 250Q1489 251 1472 259T1427 283T1373 319L1363 327H710L707 328L390 327H72Q56 332 56 347Q56 360 70 367H1319L1309 377Q1276 412 1247 458T1218 514Z"></path></g><g data-mml-node="mstyle" transform="translate(5888.3,0)"><g data-mml-node="mspace"></g></g><g data-mml-node="TeXAtom" data-mjx-texclass="ORD" transform="translate(6444.1,0)"></g><g data-mml-node="mi" transform="translate(6444.1,0)"><path data-c="1D44B" d="M42 0H40Q26 0 26 11Q26 15 29 27Q33 41 36 43T55 46Q141 49 190 98Q200 108 306 224T411 342Q302 620 297 625Q288 636 234 637H206Q200 643 200 645T202 664Q206 677 212 683H226Q260 681 347 681Q380 681 408 681T453 682T473 682Q490 682 490 671Q490 670 488 658Q484 643 481 640T465 637Q434 634 411 620L488 426L541 485Q646 598 646 610Q646 628 622 635Q617 635 609 637Q594 637 594 648Q594 650 596 664Q600 677 606 683H618Q619 683 643 683T697 681T738 680Q828 680 837 683H845Q852 676 852 672Q850 647 840 637H824Q790 636 763 628T722 611T698 593L687 584Q687 585 592 480L505 384Q505 383 536 304T601 142T638 56Q648 47 699 46Q734 46 734 37Q734 35 732 23Q728 7 725 4T711 1Q708 1 678 1T589 2Q528 2 496 2T461 1Q444 1 444 10Q444 11 446 25Q448 35 450 39T455 44T464 46T480 47T506 54Q523 62 523 64Q522 64 476 181L429 299Q241 95 236 84Q232 76 232 72Q232 53 261 47Q262 47 267 47T273 46Q276 46 277 46T280 45T283 42T284 35Q284 26 282 19Q279 6 276 4T261 1Q258 1 243 1T201 2T142 2Q64 2 42 0Z"></path></g><g data-mml-node="mo" transform="translate(7573.9,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="msup" transform="translate(8629.7,0)"><g data-mml-node="mi"><path data-c="1D434" d="M208 74Q208 50 254 46Q272 46 272 35Q272 34 270 22Q267 8 264 4T251 0Q249 0 239 0T205 1T141 2Q70 2 50 0H42Q35 7 35 11Q37 38 48 46H62Q132 49 164 96Q170 102 345 401T523 704Q530 716 547 716H555H572Q578 707 578 706L606 383Q634 60 636 57Q641 46 701 46Q726 46 726 36Q726 34 723 22Q720 7 718 4T704 0Q701 0 690 0T651 1T578 2Q484 2 455 0H443Q437 6 437 9T439 27Q443 40 445 43L449 46H469Q523 49 533 63L521 213H283L249 155Q208 86 208 74ZM516 260Q516 271 504 416T490 562L463 519Q447 492 400 412L310 260L413 259Q516 259 516 260Z"></path></g><g data-mml-node="TeXAtom" transform="translate(783,413) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mo"><path data-c="2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path></g><g data-mml-node="mn" transform="translate(778,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g></g></g><g data-mml-node="mi" transform="translate(10366.3,0)"><path data-c="1D435" d="M231 637Q204 637 199 638T194 649Q194 676 205 682Q206 683 335 683Q594 683 608 681Q671 671 713 636T756 544Q756 480 698 429T565 360L555 357Q619 348 660 311T702 219Q702 146 630 78T453 1Q446 0 242 0Q42 0 39 2Q35 5 35 10Q35 17 37 24Q42 43 47 45Q51 46 62 46H68Q95 46 128 49Q142 52 147 61Q150 65 219 339T288 628Q288 635 231 637ZM649 544Q649 574 634 600T585 634Q578 636 493 637Q473 637 451 637T416 636H403Q388 635 384 626Q382 622 352 506Q352 503 351 500L320 374H401Q482 374 494 376Q554 386 601 434T649 544ZM595 229Q595 273 572 302T512 336Q506 337 429 337Q311 337 310 336Q310 334 293 263T258 122L240 52Q240 48 252 48T333 46Q422 46 429 47Q491 54 543 105T595 229Z"></path></g></g></g></svg></mjx-container></span></p>
+<h2 id="小练习">小练习</h2>
+<img data-src="/2024/03/27/week3/1710294121703.png" class="" width="1710294121703">
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">%% </span></span><br><span class="line">clear</span><br><span class="line">close all</span><br><span class="line">clc</span><br><span class="line"></span><br><span class="line">image1_1 = imread(<span class="string">"test_image1.png"</span>);<span class="comment">% 读取图像得到三维矩阵</span></span><br><span class="line">image1_2 = rgb2gray(image1_1);<span class="comment">% 转为灰度图，变为二维矩阵</span></span><br><span class="line">image2_1 = imread(<span class="string">"test_image2.png"</span>);</span><br><span class="line">image2_2 = rgb2gray(image2_1);</span><br><span class="line">image1_3=image1_2(<span class="number">1</span>:<span class="number">1035</span>,:)</span><br><span class="line">I1=image1_3;</span><br><span class="line">I2=image2_2;</span><br><span class="line">I3=I2;</span><br><span class="line"></span><br><span class="line">a1=I1(<span class="number">10</span>,<span class="number">12</span>);</span><br><span class="line">I1_PART=I1(<span class="number">100</span>:<span class="number">200</span>,<span class="number">100</span>:<span class="number">200</span>);</span><br><span class="line">I4=I2;</span><br><span class="line">I4(<span class="number">100</span>,<span class="number">1</span>:<span class="keyword">end</span>)=<span class="number">0</span>;</span><br><span class="line">I2_I3=[I2,I3];</span><br><span class="line">I2_I3_=I2-I3;</span><br><span class="line"></span><br><span class="line"><span class="built_in">figure</span></span><br><span class="line">imshow(I1)</span><br><span class="line"><span class="built_in">figure</span></span><br><span class="line">imshow(I4)</span><br><span class="line"><span class="built_in">figure</span></span><br><span class="line">imshow(I2_I3)</span><br><span class="line"><span class="built_in">figure</span></span><br><span class="line">imshow(I2_I3_)</span><br></pre></td></tr></table></figure>
+<p>运行结果</p>
+
+
+<blockquote>
+<p>变量区主要看a的值；</p>
+<p>注意figure2的黑线；</p>
+<p>由于I3=I2，故figure4为全黑</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>MATLAB笔记</category>
+      </categories>
+      <tags>
+        <tag>MATLAB</tag>
+        <tag>本科笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MATLABweek2(变量与运算)</title>
+    <url>/2024/03/27/week2/</url>
+    <content><![CDATA[<h1 id="matlabweek2变量与运算">MATLABweek2(变量与运算)</h1>
+<h2 id="变量类型">变量类型</h2>
+<h3 id="命名规则">命名规则</h3>
+<img data-src="/2024/03/27/week2/image-20240306083013855.png" class="" title="image-20240306083013855">
+<ul>
+<li>区分大小写</li>
+<li>避免覆盖特殊常量和变量，例如ans，pi等</li>
+<li>数字、字母、下划线组成，不含标点和特殊符号</li>
+</ul>
+<h3 id="变量类型-1">变量类型</h3>
+<img data-src="/2024/03/27/week2/image-20240306083209362.png" class="" title="image-20240306083209362">
+<p>基本类型同C语言</p>
+<h2 id="矩阵运算">矩阵运算</h2>
+<img data-src="/2024/03/27/week2/image-20240306083331728.png" class="" title="image-20240306083331728">
+<img data-src="/2024/03/27/week2/image-20240306083349965.png" class="" title="image-20240306083349965">
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">%% 矩阵创建</span></span><br><span class="line"><span class="comment">% 矩阵由方括号识别，可以逗号和空格分割单个元素，分号分割行，三个点表示编辑器的换行</span></span><br><span class="line"><span class="comment">% 列表表达式[start:step:end]例如[-1:0.1:1]得到的是闭区间</span></span><br><span class="line"><span class="comment">% 矩阵未完成时([]未出栈)matlab不会自己结束，换行会自动加省略符</span></span><br><span class="line">c=[<span class="number">2</span>,<span class="number">3</span>;</span><br><span class="line"><span class="number">1</span>,<span class="number">4</span>];</span><br><span class="line">d=[<span class="number">5</span> <span class="number">6</span>;...</span><br><span class="line"><span class="number">2</span> <span class="number">4</span>];</span><br><span class="line">e=[<span class="number">1</span>,<span class="number">2</span>;<span class="number">3</span>,<span class="number">4</span>];</span><br><span class="line"><span class="comment">%% 乘和点乘</span></span><br><span class="line">c*d <span class="comment">% 矩阵乘法，维度对应</span></span><br><span class="line">c.*d <span class="comment">% 数组乘，同形</span></span><br><span class="line"><span class="comment">%% 左右逆左右除法</span></span><br><span class="line"><span class="comment">% 斜率下方即为逆</span></span><br><span class="line">c/d</span><br><span class="line">c./d</span><br><span class="line"><span class="comment">%% 转置</span></span><br><span class="line">c.^</span><br></pre></td></tr></table></figure>
+<h2 id="关系运算符">关系运算符</h2>
+<p>不赘述，书面答题的时候记得写上=</p>
+<h2 id="向量">向量</h2>
+<h3 id="构造">构造</h3>
+<p>输入同矩阵</p>
+<p>例：创建100以内奇数的向量</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">a=[<span class="number">1</span>:<span class="number">2</span>:<span class="number">100</span>]</span><br></pre></td></tr></table></figure>
+<p>冒号表达式是闭区间，中间缺省默认为1</p>
+<p>例：倒排上述向量</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">a=[99:-2:1]</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>画个图看看吧：plot(a,a,'bo',a,b,'bo')</p>
+</blockquote>
+<h3 id="等分">等分</h3>
+<ol type="1">
+<li>linspace(start,end,nums)</li>
+</ol>
+<img data-src="/2024/03/27/week2/image-20240306090608158.png" class="" title="image-20240306090608158">
+<ol start="2" type="1">
+<li>logspace(start,end,nums)</li>
+</ol>
+<p>可以通过help或者F1来了解函数用法，例如</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">help <span class="built_in">logspace</span></span><br></pre></td></tr></table></figure>
+<img data-src="/2024/03/27/week2/image-20240306090851778.png" class="" title="image-20240306090851778">
+<p>==二者和冒号表达式是等价描述，不过后者无需求得step==</p>
+<h3 id="其他函数">其他函数</h3>
+<ol type="1">
+<li>按列求和sum()（降维求和）</li>
+</ol>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">a=[<span class="number">1</span>,<span class="number">2</span>;</span><br><span class="line"><span class="number">3</span>,<span class="number">4</span>]</span><br><span class="line">b=sum(a)<span class="comment">% a=[4 6]</span></span><br><span class="line">c=sum(b)<span class="comment">% b=[10] </span></span><br></pre></td></tr></table></figure>
+<ol start="2" type="1">
+<li>平方根sqrt()</li>
+</ol>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">a=[<span class="number">1</span> <span class="number">4</span>;</span><br><span class="line"><span class="number">9</span> <span class="number">16</span>]</span><br><span class="line"><span class="built_in">sqrt</span>(a);</span><br></pre></td></tr></table></figure>
+<p>==matlab中的函数都支持多元函数形式，对输入的多元数组会对每个元素采取进行函数运算==</p>
+<ul>
+<li>练习：</li>
+</ul>
+<img data-src="/2024/03/27/week2/image-20240306095615740.png" class="" title="image-20240306095615740">
+<ul>
+<li>答案</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">%% 标准开局</span></span><br><span class="line">clear</span><br><span class="line">close all</span><br><span class="line">clc</span><br><span class="line"><span class="comment">%% 解答</span></span><br><span class="line">a=[<span class="number">1</span>:<span class="number">2</span>:<span class="number">50</span>]</span><br><span class="line">b=[<span class="number">1</span>:<span class="number">50</span>:<span class="number">25</span>]</span><br><span class="line">ans_dot1=<span class="built_in">dot</span>(a,b)</span><br><span class="line">ans_dot2=a*b.^</span><br><span class="line">ans_dot3=sum(a.*b)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>思考：n维空间的欧几里得距离公式</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">d=<span class="built_in">sqrt</span>(sum((a-b).^<span class="number">2</span>))</span><br></pre></td></tr></table></figure></li>
+</ul>
+]]></content>
+      <categories>
+        <category>MATLAB笔记</category>
+      </categories>
+      <tags>
+        <tag>MATLAB</tag>
+        <tag>本科笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MATLABweek1(窗口与命令)</title>
+    <url>/2024/03/27/week1/</url>
+    <content><![CDATA[<h1 id="matlabweek1窗口与命令">MATLABweek1(窗口与命令)</h1>
+<blockquote>
+<p>如无必要，勿增实体：2024/2/28 Yaan</p>
+</blockquote>
+<h2 id="matlab全称">MATLAB全称</h2>
+<p>matrix laboratory 矩阵实验室</p>
+<img data-src="/2024/03/27/week1/image-20240301191923279.png" class="" title="image-20240301191923279">
+<h2 id="窗口介绍">窗口介绍</h2>
+<p>工作窗口，命令行窗口，历史窗口</p>
+<img data-src="/2024/03/27/week1/image-20240301191950730.png" class="" title="image-20240301191950730">
+<p>常用的三条指令</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">clc<span class="comment">%清空命令行窗口</span></span><br><span class="line">clear<span class="comment">%清空变量</span></span><br><span class="line">close all<span class="comment">%关闭所有图形窗口，防止图形遮盖</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<img data-src="/2024/03/27/week1/image-20240301192257665.png" class="" title="image-20240301192257665">
+<img data-src="/2024/03/27/week1/image-20240301192215438.png" class="" title="image-20240301192215438">
+<h2 id="特殊变量">特殊变量</h2>
+<img data-src="/2024/03/27/week1/image-20240301192404150.png" class="" title="image-20240301192404150">
+<table>
+<colgroup>
+<col style="width: 12%">
+<col style="width: 87%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>变量标识符</th>
+<th>意义</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>i,j</td>
+<td>默认为虚数单位，允许变量的覆写，使用*为变量ij，使用代数写法记为虚数单位</td>
+</tr>
+<tr class="even">
+<td>inf或Inf</td>
+<td>正无穷大</td>
+</tr>
+<tr class="odd">
+<td>pi</td>
+<td>默认双精度pi，允许覆写</td>
+</tr>
+<tr class="even">
+<td>NaN</td>
+<td>不定式，相当于一种报错，例如x/0=NaN</td>
+</tr>
+<tr class="odd">
+<td>eps</td>
+<td>极小量，常常用于代替分母位置0</td>
+</tr>
+</tbody>
+</table>
+<p>虚数单位可以不用连接符，使用连接符允许变量覆写。但常量不允许bu使用连接符，但也可以覆写。</p>
+<h2 id="标点符号">标点符号</h2>
+<img data-src="/2024/03/27/week1/image-20240301192013990.png" class="" title="image-20240301192013990">
+<h2 id="矩阵运算">矩阵运算</h2>
+<img data-src="/2024/03/27/week1/image-20240301192522937.png" class="" title="image-20240301192522937">
+<img data-src="/2024/03/27/week1/image-20240301192531393.png" class="" title="image-20240301192531393">
+<p>注意加.和不加的区别，尤其是转置操作，左右除，注意左乘和右乘的区别</p>
+<h2 id="简易代码学习">简易代码学习</h2>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">%% 基础操作</span></span><br><span class="line"><span class="comment">% 百分号是注释，双百分是代码分块,运行节只会运行这部分代码</span></span><br><span class="line"><span class="comment">% 加分号隐藏文本输出</span></span><br><span class="line">clc<span class="comment">% 清空页面</span></span><br><span class="line">clear<span class="comment">% 清空变量</span></span><br><span class="line">close all<span class="comment">%清空窗口</span></span><br><span class="line">a=<span class="number">1</span>;</span><br><span class="line">b=<span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">%% 矩阵</span></span><br><span class="line"><span class="comment">% 用中括号括起来，逗号或者空格分割，分号换行或者回车换行</span></span><br><span class="line">A=[<span class="number">1</span>+<span class="number">1</span><span class="built_in">i</span>,<span class="number">2</span>+<span class="number">1</span><span class="built_in">i</span>;</span><br><span class="line">    <span class="number">3</span>+<span class="number">1</span><span class="built_in">i</span>,<span class="number">4</span>+<span class="number">2</span><span class="built_in">i</span>];</span><br><span class="line">B=[<span class="number">1</span> <span class="number">0</span></span><br><span class="line">    <span class="number">0</span> <span class="number">1</span>];</span><br><span class="line">special=[<span class="built_in">eps</span>,<span class="built_in">inf</span>,NaN,<span class="number">1</span><span class="built_in">i</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">%% 矩阵运算</span></span><br><span class="line">C=A*B;<span class="comment">%矩阵乘法</span></span><br><span class="line">ABp=A+B;</span><br><span class="line">ABd=A-B;</span><br><span class="line">l=A/B;</span><br><span class="line">r=A\B;</span><br><span class="line"><span class="comment">%% 转置</span></span><br><span class="line">At=A';</span><br><span class="line">Bt=B.';</span><br><span class="line"><span class="comment">%% 矩阵数乘1</span></span><br><span class="line">D=A./B;</span><br><span class="line">E=A.\B;</span><br><span class="line">F=A.*B;</span><br><span class="line"><span class="comment">%% 矩阵数乘2</span></span><br><span class="line">A=[<span class="number">1</span>,<span class="number">0</span>;</span><br><span class="line">    <span class="number">0</span>,<span class="number">1</span>];</span><br><span class="line">B=<span class="number">2</span>;</span><br><span class="line">D=A./B;</span><br><span class="line">E=A.\B;</span><br><span class="line">F=A.*B;</span><br></pre></td></tr></table></figure>
+<h2 id="文件名">文件名</h2>
+<p>脚本文件后缀为.m</p>
+<p>不允许数字开头的文件名形式</p>
+]]></content>
+      <categories>
+        <category>MATLAB笔记</category>
+      </categories>
+      <tags>
+        <tag>MATLAB</tag>
+        <tag>本科笔记</tag>
+      </tags>
+  </entry>
 </search>
