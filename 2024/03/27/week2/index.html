@@ -259,18 +259,18 @@ mjx-container[display="true"] + br {
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-count">9</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -391,53 +391,43 @@ mjx-container[display="true"] + br {
     
     
     
-    <div class="post-body" itemprop="articleBody"><h1 id="matlabweek2变量与运算">MATLABweek2(变量与运算)</h1>
-<h2 id="变量类型">变量类型</h2>
-<h3 id="命名规则">命名规则</h3>
-<img data-src="/2024/03/27/week2/image-20240306083013855.png" class="" title="image-20240306083013855">
+    <div class="post-body" itemprop="articleBody"><h1 id="MATLABweek2-变量与运算"><a href="#MATLABweek2-变量与运算" class="headerlink" title="MATLABweek2(变量与运算)"></a>MATLABweek2(变量与运算)</h1><h2 id="变量类型"><a href="#变量类型" class="headerlink" title="变量类型"></a>变量类型</h2><h3 id="命名规则"><a href="#命名规则" class="headerlink" title="命名规则"></a>命名规则</h3><img data-src="/2024/03/27/week2/image-20240306083013855.png" class="" title="image-20240306083013855">
 <ul>
 <li>区分大小写</li>
 <li>避免覆盖特殊常量和变量，例如ans，pi等</li>
 <li>数字、字母、下划线组成，不含标点和特殊符号</li>
 </ul>
-<h3 id="变量类型-1">变量类型</h3>
-<img data-src="/2024/03/27/week2/image-20240306083209362.png" class="" title="image-20240306083209362">
+<h3 id="变量类型-1"><a href="#变量类型-1" class="headerlink" title="变量类型"></a>变量类型</h3><img data-src="/2024/03/27/week2/image-20240306083209362.png" class="" title="image-20240306083209362">
 <p>基本类型同C语言</p>
-<h2 id="矩阵运算">矩阵运算</h2>
-<img data-src="/2024/03/27/week2/image-20240306083331728.png" class="" title="image-20240306083331728">
+<h2 id="矩阵运算"><a href="#矩阵运算" class="headerlink" title="矩阵运算"></a>矩阵运算</h2><img data-src="/2024/03/27/week2/image-20240306083331728.png" class="" title="image-20240306083331728">
 <img data-src="/2024/03/27/week2/image-20240306083349965.png" class="" title="image-20240306083349965">
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%% 矩阵创建</span></span><br><span class="line"><span class="comment">% 矩阵由方括号识别，可以逗号和空格分割单个元素，分号分割行，三个点表示编辑器的换行</span></span><br><span class="line"><span class="comment">% 列表表达式[start:step:end]例如[-1:0.1:1]得到的是闭区间</span></span><br><span class="line"><span class="comment">% 矩阵未完成时([]未出栈)matlab不会自己结束，换行会自动加省略符</span></span><br><span class="line">c=[<span class="number">2</span>,<span class="number">3</span>;</span><br><span class="line"><span class="number">1</span>,<span class="number">4</span>];</span><br><span class="line">d=[<span class="number">5</span> <span class="number">6</span>;...</span><br><span class="line"><span class="number">2</span> <span class="number">4</span>];</span><br><span class="line">e=[<span class="number">1</span>,<span class="number">2</span>;<span class="number">3</span>,<span class="number">4</span>];</span><br><span class="line"><span class="comment">%% 乘和点乘</span></span><br><span class="line">c*d <span class="comment">% 矩阵乘法，维度对应</span></span><br><span class="line">c.*d <span class="comment">% 数组乘，同形</span></span><br><span class="line"><span class="comment">%% 左右逆左右除法</span></span><br><span class="line"><span class="comment">% 斜率下方即为逆</span></span><br><span class="line">c/d</span><br><span class="line">c./d</span><br><span class="line"><span class="comment">%% 转置</span></span><br><span class="line">c.^</span><br></pre></td></tr></table></figure>
-<h2 id="关系运算符">关系运算符</h2>
-<p>不赘述，书面答题的时候记得写上=</p>
-<h2 id="向量">向量</h2>
-<h3 id="构造">构造</h3>
-<p>输入同矩阵</p>
+<h2 id="关系运算符"><a href="#关系运算符" class="headerlink" title="关系运算符"></a>关系运算符</h2><p>不赘述，书面答题的时候记得写上=</p>
+<h2 id="向量"><a href="#向量" class="headerlink" title="向量"></a>向量</h2><h3 id="构造"><a href="#构造" class="headerlink" title="构造"></a>构造</h3><p>输入同矩阵</p>
 <p>例：创建100以内奇数的向量</p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a=[<span class="number">1</span>:<span class="number">2</span>:<span class="number">100</span>]</span><br></pre></td></tr></table></figure>
 <p>冒号表达式是闭区间，中间缺省默认为1</p>
 <p>例：倒排上述向量</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a=[99:-2:1]</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>画个图看看吧：plot(a,a,'bo',a,b,'bo')</p>
+<p>画个图看看吧：plot(a,a,’bo’,a,b,’bo’)</p>
 </blockquote>
-<h3 id="等分">等分</h3>
-<ol type="1">
+<h3 id="等分"><a href="#等分" class="headerlink" title="等分"></a>等分</h3><ol>
 <li>linspace(start,end,nums)</li>
 </ol>
 <img data-src="/2024/03/27/week2/image-20240306090608158.png" class="" title="image-20240306090608158">
-<ol start="2" type="1">
+<ol>
 <li>logspace(start,end,nums)</li>
 </ol>
 <p>可以通过help或者F1来了解函数用法，例如</p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">help <span class="built_in">logspace</span></span><br></pre></td></tr></table></figure>
 <img data-src="/2024/03/27/week2/image-20240306090851778.png" class="" title="image-20240306090851778">
 <p>==二者和冒号表达式是等价描述，不过后者无需求得step==</p>
-<h3 id="其他函数">其他函数</h3>
-<ol type="1">
+<h3 id="其他函数"><a href="#其他函数" class="headerlink" title="其他函数"></a>其他函数</h3><ol>
 <li>按列求和sum()（降维求和）</li>
 </ol>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a=[<span class="number">1</span>,<span class="number">2</span>;</span><br><span class="line"><span class="number">3</span>,<span class="number">4</span>]</span><br><span class="line">b=sum(a)<span class="comment">% a=[4 6]</span></span><br><span class="line">c=sum(b)<span class="comment">% b=[10] </span></span><br></pre></td></tr></table></figure>
-<ol start="2" type="1">
+<ol>
 <li>平方根sqrt()</li>
 </ol>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a=[<span class="number">1</span> <span class="number">4</span>;</span><br><span class="line"><span class="number">9</span> <span class="number">16</span>]</span><br><span class="line"><span class="built_in">sqrt</span>(a);</span><br></pre></td></tr></table></figure>
@@ -452,7 +442,8 @@ mjx-container[display="true"] + br {
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%% 标准开局</span></span><br><span class="line">clear</span><br><span class="line">close all</span><br><span class="line">clc</span><br><span class="line"><span class="comment">%% 解答</span></span><br><span class="line">a=[<span class="number">1</span>:<span class="number">2</span>:<span class="number">50</span>]</span><br><span class="line">b=[<span class="number">1</span>:<span class="number">50</span>:<span class="number">25</span>]</span><br><span class="line">ans_dot1=<span class="built_in">dot</span>(a,b)</span><br><span class="line">ans_dot2=a*b.^</span><br><span class="line">ans_dot3=sum(a.*b)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <ul>
 <li><p>思考：n维空间的欧几里得距离公式</p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">d=<span class="built_in">sqrt</span>(sum((a-b).^<span class="number">2</span>))</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">d=<span class="built_in">sqrt</span>(sum((a-b).^<span class="number">2</span>))</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 
     </div>

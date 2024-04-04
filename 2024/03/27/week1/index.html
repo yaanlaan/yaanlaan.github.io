@@ -259,18 +259,18 @@ mjx-container[display="true"] + br {
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-count">9</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -391,67 +391,57 @@ mjx-container[display="true"] + br {
     
     
     
-    <div class="post-body" itemprop="articleBody"><h1 id="matlabweek1窗口与命令">MATLABweek1(窗口与命令)</h1>
-<blockquote>
+    <div class="post-body" itemprop="articleBody"><h1 id="MATLABweek1-窗口与命令"><a href="#MATLABweek1-窗口与命令" class="headerlink" title="MATLABweek1(窗口与命令)"></a>MATLABweek1(窗口与命令)</h1><blockquote>
 <p>如无必要，勿增实体：2024/2/28 Yaan</p>
 </blockquote>
-<h2 id="matlab全称">MATLAB全称</h2>
-<p>matrix laboratory 矩阵实验室</p>
+<h2 id="MATLAB全称"><a href="#MATLAB全称" class="headerlink" title="MATLAB全称"></a>MATLAB全称</h2><p>matrix laboratory 矩阵实验室</p>
 <img data-src="/2024/03/27/week1/image-20240301191923279.png" class="" title="image-20240301191923279">
-<h2 id="窗口介绍">窗口介绍</h2>
-<p>工作窗口，命令行窗口，历史窗口</p>
+<h2 id="窗口介绍"><a href="#窗口介绍" class="headerlink" title="窗口介绍"></a>窗口介绍</h2><p>工作窗口，命令行窗口，历史窗口</p>
 <img data-src="/2024/03/27/week1/image-20240301191950730.png" class="" title="image-20240301191950730">
 <p>常用的三条指令</p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">clc<span class="comment">%清空命令行窗口</span></span><br><span class="line">clear<span class="comment">%清空变量</span></span><br><span class="line">close all<span class="comment">%关闭所有图形窗口，防止图形遮盖</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <img data-src="/2024/03/27/week1/image-20240301192257665.png" class="" title="image-20240301192257665">
 <img data-src="/2024/03/27/week1/image-20240301192215438.png" class="" title="image-20240301192215438">
-<h2 id="特殊变量">特殊变量</h2>
-<img data-src="/2024/03/27/week1/image-20240301192404150.png" class="" title="image-20240301192404150">
+<h2 id="特殊变量"><a href="#特殊变量" class="headerlink" title="特殊变量"></a>特殊变量</h2><img data-src="/2024/03/27/week1/image-20240301192404150.png" class="" title="image-20240301192404150">
+<div class="table-container">
 <table>
-<colgroup>
-<col style="width: 12%">
-<col style="width: 87%">
-</colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th>变量标识符</th>
 <th>意义</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>i,j</td>
 <td>默认为虚数单位，允许变量的覆写，使用*为变量ij，使用代数写法记为虚数单位</td>
 </tr>
-<tr class="even">
+<tr>
 <td>inf或Inf</td>
 <td>正无穷大</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>pi</td>
 <td>默认双精度pi，允许覆写</td>
 </tr>
-<tr class="even">
+<tr>
 <td>NaN</td>
 <td>不定式，相当于一种报错，例如x/0=NaN</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>eps</td>
 <td>极小量，常常用于代替分母位置0</td>
 </tr>
 </tbody>
 </table>
+</div>
 <p>虚数单位可以不用连接符，使用连接符允许变量覆写。但常量不允许bu使用连接符，但也可以覆写。</p>
-<h2 id="标点符号">标点符号</h2>
-<img data-src="/2024/03/27/week1/image-20240301192013990.png" class="" title="image-20240301192013990">
-<h2 id="矩阵运算">矩阵运算</h2>
-<img data-src="/2024/03/27/week1/image-20240301192522937.png" class="" title="image-20240301192522937">
+<h2 id="标点符号"><a href="#标点符号" class="headerlink" title="标点符号"></a>标点符号</h2><img data-src="/2024/03/27/week1/image-20240301192013990.png" class="" title="image-20240301192013990">
+<h2 id="矩阵运算"><a href="#矩阵运算" class="headerlink" title="矩阵运算"></a>矩阵运算</h2><img data-src="/2024/03/27/week1/image-20240301192522937.png" class="" title="image-20240301192522937">
 <img data-src="/2024/03/27/week1/image-20240301192531393.png" class="" title="image-20240301192531393">
 <p>注意加.和不加的区别，尤其是转置操作，左右除，注意左乘和右乘的区别</p>
-<h2 id="简易代码学习">简易代码学习</h2>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%% 基础操作</span></span><br><span class="line"><span class="comment">% 百分号是注释，双百分是代码分块,运行节只会运行这部分代码</span></span><br><span class="line"><span class="comment">% 加分号隐藏文本输出</span></span><br><span class="line">clc<span class="comment">% 清空页面</span></span><br><span class="line">clear<span class="comment">% 清空变量</span></span><br><span class="line">close all<span class="comment">%清空窗口</span></span><br><span class="line">a=<span class="number">1</span>;</span><br><span class="line">b=<span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">%% 矩阵</span></span><br><span class="line"><span class="comment">% 用中括号括起来，逗号或者空格分割，分号换行或者回车换行</span></span><br><span class="line">A=[<span class="number">1</span>+<span class="number">1</span><span class="built_in">i</span>,<span class="number">2</span>+<span class="number">1</span><span class="built_in">i</span>;</span><br><span class="line">    <span class="number">3</span>+<span class="number">1</span><span class="built_in">i</span>,<span class="number">4</span>+<span class="number">2</span><span class="built_in">i</span>];</span><br><span class="line">B=[<span class="number">1</span> <span class="number">0</span></span><br><span class="line">    <span class="number">0</span> <span class="number">1</span>];</span><br><span class="line">special=[<span class="built_in">eps</span>,<span class="built_in">inf</span>,NaN,<span class="number">1</span><span class="built_in">i</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">%% 矩阵运算</span></span><br><span class="line">C=A*B;<span class="comment">%矩阵乘法</span></span><br><span class="line">ABp=A+B;</span><br><span class="line">ABd=A-B;</span><br><span class="line">l=A/B;</span><br><span class="line">r=A\B;</span><br><span class="line"><span class="comment">%% 转置</span></span><br><span class="line">At=A';</span><br><span class="line">Bt=B.';</span><br><span class="line"><span class="comment">%% 矩阵数乘1</span></span><br><span class="line">D=A./B;</span><br><span class="line">E=A.\B;</span><br><span class="line">F=A.*B;</span><br><span class="line"><span class="comment">%% 矩阵数乘2</span></span><br><span class="line">A=[<span class="number">1</span>,<span class="number">0</span>;</span><br><span class="line">    <span class="number">0</span>,<span class="number">1</span>];</span><br><span class="line">B=<span class="number">2</span>;</span><br><span class="line">D=A./B;</span><br><span class="line">E=A.\B;</span><br><span class="line">F=A.*B;</span><br></pre></td></tr></table></figure>
-<h2 id="文件名">文件名</h2>
-<p>脚本文件后缀为.m</p>
+<h2 id="简易代码学习"><a href="#简易代码学习" class="headerlink" title="简易代码学习"></a>简易代码学习</h2><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%% 基础操作</span></span><br><span class="line"><span class="comment">% 百分号是注释，双百分是代码分块,运行节只会运行这部分代码</span></span><br><span class="line"><span class="comment">% 加分号隐藏文本输出</span></span><br><span class="line">clc<span class="comment">% 清空页面</span></span><br><span class="line">clear<span class="comment">% 清空变量</span></span><br><span class="line">close all<span class="comment">%清空窗口</span></span><br><span class="line">a=<span class="number">1</span>;</span><br><span class="line">b=<span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">%% 矩阵</span></span><br><span class="line"><span class="comment">% 用中括号括起来，逗号或者空格分割，分号换行或者回车换行</span></span><br><span class="line">A=[<span class="number">1</span>+<span class="number">1</span><span class="built_in">i</span>,<span class="number">2</span>+<span class="number">1</span><span class="built_in">i</span>;</span><br><span class="line">    <span class="number">3</span>+<span class="number">1</span><span class="built_in">i</span>,<span class="number">4</span>+<span class="number">2</span><span class="built_in">i</span>];</span><br><span class="line">B=[<span class="number">1</span> <span class="number">0</span></span><br><span class="line">    <span class="number">0</span> <span class="number">1</span>];</span><br><span class="line">special=[<span class="built_in">eps</span>,<span class="built_in">inf</span>,NaN,<span class="number">1</span><span class="built_in">i</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">%% 矩阵运算</span></span><br><span class="line">C=A*B;<span class="comment">%矩阵乘法</span></span><br><span class="line">ABp=A+B;</span><br><span class="line">ABd=A-B;</span><br><span class="line">l=A/B;</span><br><span class="line">r=A\B;</span><br><span class="line"><span class="comment">%% 转置</span></span><br><span class="line">At=A';</span><br><span class="line">Bt=B.';</span><br><span class="line"><span class="comment">%% 矩阵数乘1</span></span><br><span class="line">D=A./B;</span><br><span class="line">E=A.\B;</span><br><span class="line">F=A.*B;</span><br><span class="line"><span class="comment">%% 矩阵数乘2</span></span><br><span class="line">A=[<span class="number">1</span>,<span class="number">0</span>;</span><br><span class="line">    <span class="number">0</span>,<span class="number">1</span>];</span><br><span class="line">B=<span class="number">2</span>;</span><br><span class="line">D=A./B;</span><br><span class="line">E=A.\B;</span><br><span class="line">F=A.*B;</span><br></pre></td></tr></table></figure>
+<h2 id="文件名"><a href="#文件名" class="headerlink" title="文件名"></a>文件名</h2><p>脚本文件后缀为.m</p>
 <p>不允许数字开头的文件名形式</p>
 
     </div>
