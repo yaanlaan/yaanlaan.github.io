@@ -22,14 +22,14 @@
 
 
 
-<link rel="canonical" href="https://yaanlaan.github.io/2024/03/27/week4/">
+<link rel="canonical" href="https://yaanlaan.github.io/2024/05/27/haffman-tree/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://yaanlaan.github.io/2024/03/27/week4/","path":"2024/03/27/week4/","title":"MATLABweek4(字符串和章节小结)"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://yaanlaan.github.io/2024/05/27/haffman-tree/","path":"2024/05/27/haffman-tree/","title":"Haffman树和编码"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>MATLABweek4(字符串和章节小结) | Yaan</title>
+<title>Haffman树和编码 | Yaan</title>
   
 
 
@@ -322,7 +322,7 @@ mjx-container[display="true"] + br {
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://yaanlaan.github.io/2024/03/27/week4/">
+    <link itemprop="mainEntityOfPage" href="https://yaanlaan.github.io/2024/05/27/haffman-tree/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/yaanblog.jpg">
@@ -335,12 +335,12 @@ mjx-container[display="true"] + br {
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="MATLABweek4(字符串和章节小结) | Yaan">
-      <meta itemprop="description" content="MATLAB第四周笔记">
+      <meta itemprop="name" content="Haffman树和编码 | Yaan">
+      <meta itemprop="description" content="Haffman编码的代码实现">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          MATLABweek4(字符串和章节小结)
+          Haffman树和编码
         </h1>
 
         <div class="post-meta-container">
@@ -352,7 +352,7 @@ mjx-container[display="true"] + br {
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2024-03-27 21:45:04 / 修改时间：21:53:53" itemprop="dateCreated datePublished" datetime="2024-03-27T21:45:04+08:00">2024-03-27</time>
+      <time title="创建时间：2024-05-27 22:41:43 / 修改时间：22:46:20" itemprop="dateCreated datePublished" datetime="2024-05-27T22:41:43+08:00">2024-05-27</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -360,7 +360,7 @@ mjx-container[display="true"] + br {
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/MATLAB%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">MATLAB笔记</span></a>
+          <a href="/categories/Mind-Walk/" itemprop="url" rel="index"><span itemprop="name">Mind Walk</span></a>
         </span>
     </span>
 
@@ -371,70 +371,46 @@ mjx-container[display="true"] + br {
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1k</span>
+      <span>2.6k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
+      <span>2 分钟</span>
     </span>
 </div>
 
 
 
-            <div class="post-description">MATLAB第四周笔记</div>
+            <div class="post-description">Haffman编码的代码实现</div>
         </div>
       </header>
 
     
     
     
-    <div class="post-body" itemprop="articleBody"><h1 id="MATLABweek4-字符串和章节小结"><a href="#MATLABweek4-字符串和章节小结" class="headerlink" title="MATLABweek4(字符串和章节小结)"></a>MATLABweek4(字符串和章节小结)</h1><h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><p>数组和矩阵没有严格的分别，数组和矩阵的操作是相通的。</p>
-<p>自行了解。有些常用函数这里列出</p>
-<img data-src="/2024/03/27/week4/1710893571587.png" class="" width="1710893571587">
-<ul>
-<li>[a,b]=max(x)：返回最大值及其下标，a为最大值，b为其下标</li>
-<li>[a,b]=min(x)：返回最小值及其下标，a为最小值，b为小标</li>
-<li>mean(x)：求其元素平均值</li>
-<li><p>sum(x)：求和</p>
-<blockquote>
-<p>都是相对下一维度的元素，如果对每个元素，则需要嵌套</p>
+    <div class="post-body" itemprop="articleBody"><h1 id="Haffman树和编码"><a href="#Haffman树和编码" class="headerlink" title="Haffman树和编码"></a>Haffman树和编码</h1><blockquote>
+<p>好久没有写blog了,haffman树在大一的时候就了解过,一两个星期前写信息论作业的时候遇到了手算哈夫曼编码,当时想着要编程解决,结果给忘了,今天正好想起来,就顺便完成了这篇博客.</p>
 </blockquote>
-</li>
-</ul>
-<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><p>使用单引号对字符串赋值 <code>'str'，每个字符都以ASCII码形式存储。</code></p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str = <span class="string">'This is a string.'</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>length(),size()：length显示含有下一维度的元素长，size显示下一维度的元素长（例如二维，length是向量个数，size是每个向量长度，是个数组）</li>
-<li>字符的存储形式是ASCII码，所以它可以像数字一样运算。</li>
-<li>disp：显示文本，通常只显示文本，格式化字符串使用其他函数或者拼接而来</li>
-</ul>
-<img data-src="/2024/03/27/week4/1710894817455.png" class="" width="1710894817455">
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%% 函数法</span></span><br><span class="line">str = <span class="string">'ABc123d4e56Fg9'</span>;</span><br><span class="line">sub_str= str(<span class="number">1</span>:<span class="number">5</span>);</span><br><span class="line">rstr = str(<span class="keyword">end</span>:<span class="number">-1</span>:<span class="number">1</span>);</span><br><span class="line">up_str = upper(str);</span><br><span class="line">count_lower = sum(isstrprop(str,<span class="string">'lower'</span>));</span><br><span class="line"><span class="comment">%% find法</span></span><br><span class="line">str = <span class="string">'ABc123d4e56Fg9'</span>;</span><br><span class="line">sub_str= str(<span class="number">1</span>:<span class="number">5</span>);</span><br><span class="line">rstr = reverse(sub_str);</span><br><span class="line">a = <span class="built_in">find</span>(str&lt;=<span class="string">'z'</span>&amp;str&gt;=<span class="string">'a'</span>);</span><br><span class="line">str(a) = str(a)+<span class="string">'A'</span>-<span class="string">'a'</span>;</span><br><span class="line">count_lower = <span class="built_in">size</span>(a);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<ul>
-<li>reverse()：字符串翻转</li>
-<li>upper()\lower()：大小写转换</li>
-<li>isstrprop：确定输入字符串中的哪些字符属于指定类别</li>
-<li>find：寻找满足表达式的元素返回下标数组</li>
-</ul>
-<h2 id="单元小结（测试题总结节选）"><a href="#单元小结（测试题总结节选）" class="headerlink" title="单元小结（测试题总结节选）"></a>单元小结（测试题总结节选）</h2><ul>
-<li>对数函数log(x)：是以e为底的对数，log2，log10分别是以2、10为底的对数，如果是其他底数，使用换底公式计算</li>
-<li><p>矩阵的翻转</p>
-<ul>
-<li>flipud：上下翻转</li>
-<li>rot90：逆时针旋转九十度，如果加入第二个参数k则旋转k*90°</li>
-</ul>
-</li>
-<li><p>取整函数</p>
-<ul>
-<li>fix：取离得近的整数</li>
-<li>ceil/floor：前者向上，后者向下</li>
-<li>round：四舍五入</li>
-</ul>
-</li>
-</ul>
+<h2 id="haffman编码"><a href="#haffman编码" class="headerlink" title="haffman编码"></a>haffman编码</h2><p>haffman编码是一种译前码,简单来说任何一个编码不是其他编码的前缀.那么从树的角度看来,就是每一个符号都在叶子上,不存在符号处于中间节点的.0</p>
+<p>那么,假设有一颗haffman树,从根出发,规定向左子树为0,右子树为1,到达叶子的时候就是对应的叶子的编码.(或者任何一颗二叉树,只要码字在叶子上,就可以生成前缀码)</p>
+<p>那么如何构建haffman树呢</p>
+<ol>
+<li>每次从所有符号中选出概率最小的两个合并为新节点</li>
+<li>新节点加入原来的节点序列</li>
+<li>重复12,最后得到仅剩一个节点即是haffman树</li>
+</ol>
+<p>其实随便选两个节点都可以构建haffman树,但是先合并的节点深度更深,相应的码字更长,所以选概率小的使得平均码长变短</p>
+<h2 id="编程实现"><a href="#编程实现" class="headerlink" title="编程实现"></a>编程实现</h2><blockquote>
+<p>不得不说python真的很方便</p>
+</blockquote>
+<ol>
+<li>生成树的时候遍历概率,每次合并两个节点</li>
+<li>生成码的时候按照深度优先按照路径添加编码即可</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> heapq</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">classNode:</span><br><span class="line"></span><br><span class="line">    def__init__(self, char, freq):</span><br><span class="line"></span><br><span class="line">        self.char = char</span><br><span class="line"></span><br><span class="line">        self.freq = freq</span><br><span class="line"></span><br><span class="line">        self.left =<span class="literal">None</span></span><br><span class="line"></span><br><span class="line">        self.right =<span class="literal">None</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 为了让Node对象可以在heapq中比较，定义比较的方法</span></span><br><span class="line"></span><br><span class="line">    def__lt__(self, other):</span><br><span class="line"></span><br><span class="line">        returnself.freq &lt; other.freq</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">defbuild_huffman_tree(symbols, probabilities):</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 创建优先队列</span></span><br><span class="line"></span><br><span class="line">    priority_queue =[Node(char, freq) <span class="keyword">for</span> char, freq inzip(symbols, probabilities)]<span class="comment"># zip用来配对为元组</span></span><br><span class="line"></span><br><span class="line">    heapq.heapify(priority_queue) <span class="comment"># 默认按照前者排序为小根堆堆</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 构建哈夫曼树</span></span><br><span class="line"></span><br><span class="line">    whilelen(priority_queue) &gt;<span class="number">1</span>:</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 两个最小的节点</span></span><br><span class="line"></span><br><span class="line">        left = heapq.heappop(priority_queue)</span><br><span class="line"></span><br><span class="line">        right = heapq.heappop(priority_queue)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 合并新节点</span></span><br><span class="line"></span><br><span class="line">        merged =Node(<span class="literal">None</span>, left.freq + right.freq)</span><br><span class="line"></span><br><span class="line">        merged.left = left</span><br><span class="line"></span><br><span class="line">        merged.right = right</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 新节点入堆</span></span><br><span class="line"></span><br><span class="line">        heapq.heappush(priority_queue, merged)</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">    <span class="comment"># 返回头节点</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> priority_queue[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">defbuild_huffman_codes(root, current_code=<span class="string">""</span>, codes={}):</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> root isNone:</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> root.char isnotNone:</span><br><span class="line"></span><br><span class="line">        codes[root.char] = current_code</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> codes</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 深度优先优先遍历,向左+0,向右+1</span></span><br><span class="line"></span><br><span class="line">    build_huffman_codes(root.left, current_code +<span class="string">"0"</span>, codes)</span><br><span class="line"></span><br><span class="line">    build_huffman_codes(root.right, current_code +<span class="string">"1"</span>, codes)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> codes</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 示例符号和概率</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 例子是题目要求的数据</span></span><br><span class="line"></span><br><span class="line">symbols =[<span class="string">'s0'</span>,<span class="string">'s1'</span>, <span class="string">'s2'</span>, <span class="string">'s3'</span>, <span class="string">'s4'</span>, <span class="string">'s5'</span>, <span class="string">'s6'</span>,<span class="string">'s7'</span>,<span class="string">'s8'</span>]</span><br><span class="line"></span><br><span class="line">probabilities =[]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i inrange(<span class="number">0</span>,<span class="number">8</span>):</span><br><span class="line"></span><br><span class="line">    x =<span class="built_in">pow</span>(<span class="number">0.9</span>,i)*<span class="number">0.1</span></span><br><span class="line"></span><br><span class="line">    probabilities.append(x)</span><br><span class="line"></span><br><span class="line">probabilities.append(<span class="built_in">pow</span>(<span class="number">0.9</span>,<span class="number">8</span>)</span><br><span class="line"></span><br><span class="line">                     )</span><br><span class="line"></span><br><span class="line"><span class="comment"># 构建哈夫曼树并生成编码</span></span><br><span class="line"></span><br><span class="line">huffman_tree =build_huffman_tree(symbols, probabilities)</span><br><span class="line"></span><br><span class="line">huffman_codes =build_huffman_codes(huffman_tree)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"哈夫曼编码："</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> symbol, code <span class="keyword">in</span> huffman_codes.items():</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f"<span class="subst">{symbol}</span>: <span class="subst">{code}</span>"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算熵</span></span><br><span class="line"></span><br><span class="line">entropy =-<span class="built_in">sum</span>(p * math.log2(p)<span class="keyword">for</span> p <span class="keyword">in</span> probabilities)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f"H(x) = <span class="subst">{np.<span class="built_in">round</span>(entropy,decimals=<span class="number">3</span>)}</span>"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算平均码长</span></span><br><span class="line"></span><br><span class="line">average_code_length =<span class="built_in">sum</span>(<span class="built_in">len</span>(code)* prob <span class="keyword">for</span> prob <span class="keyword">in</span> probabilities)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f"k = <span class="subst">{np.<span class="built_in">round</span>(average_code_length,decimals=<span class="number">3</span>)}</span>"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算编码效率</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f"eta = <span class="subst">{np.<span class="built_in">round</span>(entropy/average_code_length*<span class="number">100</span>,decimals=<span class="number">3</span>)}</span>%"</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -444,22 +420,19 @@ mjx-container[display="true"] + br {
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/MATLAB/" rel="tag"># MATLAB</a>
-              <a href="/tags/%E6%9C%AC%E7%A7%91%E7%AC%94%E8%AE%B0/" rel="tag"># 本科笔记</a>
+              <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag"># 数据结构</a>
+              <a href="/tags/%E4%BF%A1%E6%81%AF%E8%AE%BA/" rel="tag"># 信息论</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2024/03/27/week3/" rel="prev" title="MATLABweek3(图像视角下的矩阵运算)">
-                  <i class="fa fa-angle-left"></i> MATLABweek3(图像视角下的矩阵运算)
+                <a href="/2024/04/04/%E5%BB%BA%E6%A8%A1week3/" rel="prev" title="建模week3">
+                  <i class="fa fa-angle-left"></i> 建模week3
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2024/03/27/week5/" rel="next" title="MATLABweek5(数值运算)">
-                  MATLABweek5(数值运算) <i class="fa fa-angle-right"></i>
-                </a>
             </div>
           </div>
     </footer>
@@ -560,7 +533,7 @@ setInterval("createtime()",250);
 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
-  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":false,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://yaanlaan.github.io/2024/03/27/week4/"}</script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":false,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://yaanlaan.github.io/2024/05/27/haffman-tree/"}</script>
   <script src="/js/third-party/quicklink.js"></script>
 
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
