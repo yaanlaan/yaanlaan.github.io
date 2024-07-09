@@ -1302,7 +1302,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #5e75ff;
+    background: #d9fffc;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2799,7 +2799,7 @@ header.header {
   }
 }
 body {
-  background-image: url("/images/background2.png");
+  background-image: url("/images/background/totoro.png");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: 100% 100%;
