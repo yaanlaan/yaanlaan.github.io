@@ -43,6 +43,7 @@
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
+<link rel="alternate" href="/atom.xml" title="Yaan" type="application/atom+xml">
 <style>mjx-container[jax="SVG"] {
   direction: ltr;
 }
@@ -155,8 +156,7 @@ mjx-container[display="true"] {
 mjx-container[display="true"] + br {
   display: none;
 }
-</style><link rel="alternate" href="/atom.xml" title="Yaan" type="application/atom+xml">
-</head>
+</style></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
   <div class="headband"></div>
@@ -394,22 +394,25 @@ mjx-container[display="true"] + br {
     
     
     
-    <div class="post-body" itemprop="articleBody"><h1 id="Haffman树和编码"><a href="#Haffman树和编码" class="headerlink" title="Haffman树和编码"></a>Haffman树和编码</h1><blockquote>
+    <div class="post-body" itemprop="articleBody"><h1 id="haffman树和编码">Haffman树和编码</h1>
+<blockquote>
 <p>好久没有写blog了,haffman树在大一的时候就了解过,一两个星期前写信息论作业的时候遇到了手算哈夫曼编码,当时想着要编程解决,结果给忘了,今天正好想起来,就顺便完成了这篇博客.</p>
 </blockquote>
-<h2 id="haffman编码"><a href="#haffman编码" class="headerlink" title="haffman编码"></a>haffman编码</h2><p>haffman编码是一种译前码,简单来说任何一个编码不是其他编码的前缀.那么从树的角度看来,就是每一个符号都在叶子上,不存在符号处于中间节点的.0</p>
+<h2 id="haffman编码">haffman编码</h2>
+<p>haffman编码是一种译前码,简单来说任何一个编码不是其他编码的前缀.那么从树的角度看来,就是每一个符号都在叶子上,不存在符号处于中间节点的.0</p>
 <p>那么,假设有一颗haffman树,从根出发,规定向左子树为0,右子树为1,到达叶子的时候就是对应的叶子的编码.(或者任何一颗二叉树,只要码字在叶子上,就可以生成前缀码)</p>
 <p>那么如何构建haffman树呢</p>
-<ol>
+<ol type="1">
 <li>每次从所有符号中选出概率最小的两个合并为新节点</li>
 <li>新节点加入原来的节点序列</li>
 <li>重复12,最后得到仅剩一个节点即是haffman树</li>
 </ol>
 <p>其实随便选两个节点都可以构建haffman树,但是先合并的节点深度更深,相应的码字更长,所以选概率小的使得平均码长变短</p>
-<h2 id="编程实现"><a href="#编程实现" class="headerlink" title="编程实现"></a>编程实现</h2><blockquote>
+<h2 id="编程实现">编程实现</h2>
+<blockquote>
 <p>不得不说python真的很方便</p>
 </blockquote>
-<ol>
+<ol type="1">
 <li>生成树的时候遍历概率,每次合并两个节点</li>
 <li>生成码的时候按照深度优先按照路径添加编码即可</li>
 </ol>
