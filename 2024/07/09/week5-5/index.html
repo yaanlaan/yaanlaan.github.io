@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/256.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/512.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/256.png">
+  <link rel="mask-icon" href="/images/512.png" color="#222">
+  <link rel="manifest" href="/images/256.png">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"yaanlaan.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":"auto","version":"8.20.0","exturl":false,"sidebar":{"position":"left","width":300,"display":"hide","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":"mac"},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+
+
+<link rel="canonical" href="https://yaanlaan.github.io/2024/07/09/week5-5/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://yaanlaan.github.io/2024/07/09/week5-5/","path":"2024/07/09/week5-5/","title":"MATLABweek5.5(绘图专栏)"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>MATLABweek5.5(绘图专栏) | Yaan</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style><link rel="alternate" href="/atom.xml" title="Yaan" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+<!--
+  <link rel="stylesheet" href="/dist/APlayer.min.css">
+  <div id="aplayer"></div>
+  <script type="text/javascript" src="/dist/APlayer.min.js"></script>
+  <script type="text/javascript" src="/dist/music.js"></script>
+  -->
+<!--TODO: 播放器设置 -->
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Yaan</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">欢迎光临寒舍</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Yaan"
+      src="/images/yaanblog.jpg">
+  <p class="site-author-name" itemprop="name">Yaan</p>
+  <div class="site-description" itemprop="description">草木山石，日月星辰</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="mailto:yanxia2425@gmail.com" title="E-Mail → mailto:yanxia2425@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/4-56-20-42" title="Zhihu → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;4-56-20-42" rel="noopener me" target="_blank"><i class="fa fa-coffee fa-fw"></i>Zhihu</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          链接
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://yaanlaan.github.io/" title="https:&#x2F;&#x2F;yaanlaan.github.io">暂时还没有捏</a>
+            </li>
+        </ul>
+      </div>
+      <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1490973948&auto=1&height=66"></iframe>
+      
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yaanlaan.github.io/2024/07/09/week5-5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/yaanblog.jpg">
+      <meta itemprop="name" content="Yaan">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yaan">
+      <meta itemprop="description" content="草木山石，日月星辰">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="MATLABweek5.5(绘图专栏) | Yaan">
+      <meta itemprop="description" content="MATLAB绘图总结（持续更新）">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          MATLABweek5.5(绘图专栏)
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2024-07-09 01:35:28 / 修改时间：08:30:44" itemprop="dateCreated datePublished" datetime="2024-07-09T01:35:28+08:00">2024-07-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/MATLAB%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">MATLAB笔记</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.6k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>6 分钟</span>
+    </span>
+</div>
+
+            <div class="post-description">MATLAB绘图总结（持续更新）</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="MATLAB与绘图"><a href="#MATLAB与绘图" class="headerlink" title="MATLAB与绘图"></a>MATLAB与绘图</h1><blockquote>
+<p>由于本学期同时进行数学建模和MATLAB两门课的学习,本来这篇文章应该在上次建模课完成,但是想着去总结完整,拖延至今天.</p>
+</blockquote>
+<h2 id="基本功能"><a href="#基本功能" class="headerlink" title="基本功能"></a>基本功能</h2><p>基本绘图功能不过多的讲解了,<code>TALK IS CHEAP SHOW ME THE CODE! </code></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">x=[<span class="number">-2</span>*<span class="built_in">pi</span>:<span class="number">0.01</span>:<span class="number">2</span>*<span class="built_in">pi</span>];</span><br><span class="line">y=<span class="built_in">sin</span>(x);</span><br><span class="line">z=<span class="built_in">cos</span>(x);</span><br><span class="line"><span class="built_in">figure</span></span><br><span class="line">subplot</span><br><span class="line"><span class="built_in">hold</span> on</span><br><span class="line"><span class="built_in">plot</span>(x,y,<span class="string">'b'</span>);</span><br><span class="line"><span class="built_in">plot</span>(x,z,<span class="string">'r-'</span>);</span><br><span class="line">title(<span class="string">"绘图示例"</span>)</span><br><span class="line">xlabel(<span class="string">"x轴"</span>)</span><br><span class="line">ylabel(<span class="string">"y轴"</span>)</span><br><span class="line"><span class="built_in">hold</span> off</span><br><span class="line">subplot</span><br><span class="line">plot3d(x,y,z)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img data-src="/week5-5/%E7%A4%BA%E4%BE%8B1.jpg" alt="示例"></p>
+<h2 id="示例的解释"><a href="#示例的解释" class="headerlink" title="示例的解释"></a>示例的解释</h2><p>上图进行了简单的示例.</p>
+<ul>
+<li>figure命令打开绘画窗口,当需要多幅图的时候就需要多个窗口打开(上图为子图模式,可以导出一张或者多张图)</li>
+<li>hold on/off是保留当前的绘画区域,否则新的绘画会覆盖原来的绘画,适用于在一幅图像内分步作图</li>
+<li>plot和plot3就是简单的2d和3d绘图</li>
+<li>subplot是子图模式,subplot(m,n,x)表示在m*n的区域里面放入第x张图</li>
+<li>title x/ylabel就是设置标题和标签等</li>
+</ul>
+<h2 id="绘画深入"><a href="#绘画深入" class="headerlink" title="绘画深入"></a>绘画深入</h2><h3 id="线条属性设置"><a href="#线条属性设置" class="headerlink" title="线条属性设置"></a>线条属性设置</h3><p>对于线条,可以分为线形,颜色,填充,轮廓等,最便捷的就是通过例如’r*–’顺序无所谓,颜色\节点形状\线形</p>
+<blockquote>
+<p>在matlab中也有类似于python的按名称传递参数的方法,先用字符串指定属性,然后在输入值,对于plot有这些属性可以设置(不一定完全,以matlab官方为准)</p>
+</blockquote>
+<p>如果需要细致的调节就需要名称-值传入,支持以下内容</p>
+<table>
+<thead>
+<tr>
+<th align="left">名称</th>
+<th>中文</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Color</td>
+<td>线条颜色</td>
+<td>设置线条颜色,可以是短名\三元组\十六进制(推荐十六进制)其他设置颜色的地方也是都是支持这三种格式</td>
+</tr>
+<tr>
+<td align="left">LineStyle</td>
+<td>线形</td>
+<td>实线(-)虚线(–)点线(:)点划线(-.)</td>
+</tr>
+<tr>
+<td align="left">LineWidth</td>
+<td>线宽</td>
+<td>线调宽度</td>
+</tr>
+<tr>
+<td align="left">Mark</td>
+<td>标记符号</td>
+<td>例如圆,加号,星号,点,叉号等(很形象’o’’+’’*’…)</td>
+</tr>
+<tr>
+<td align="left">MarkIndices</td>
+<td>标记索引</td>
+<td>显示标记的数据点索引,就是只在设置的地方进行标记Mark例如plot(x,y,’-x’,’MarkerIndices’,1:3:length(y))</td>
+</tr>
+<tr>
+<td align="left">MarkEdgeColor</td>
+<td>标记轮廓颜色</td>
+<td>标记轮廓的颜色,比如是个o就是外面一圈o上色,中间不填涂</td>
+</tr>
+<tr>
+<td align="left">MarkFaceColor</td>
+<td>标记填充颜色</td>
+<td>标记中间的颜色</td>
+</tr>
+<tr>
+<td align="left">MarkSize</td>
+<td>标记大小</td>
+<td>大小的单位都是px</td>
+</tr>
+<tr>
+<td align="left">DatetimeTickFormat</td>
+<td>刻度标签的格式</td>
+<td>比如以日期为轴的数据,需要设置格式</td>
+</tr>
+</tbody></table>
+<p>多说无益,来个例子</p>
+<blockquote>
+<p>绘制某地一二三月份的气温变化图，并预测三月份最后几天气温（前半部分都是数据处理，后面可以再详细解释）</p>
+</blockquote>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%%</span></span><br><span class="line">clear</span><br><span class="line">close all</span><br><span class="line">clc</span><br><span class="line"><span class="comment">%% 读取excel表格并且绘出近三个月合肥的气温变化曲线</span></span><br><span class="line"><span class="comment">% 数据预处理</span></span><br><span class="line">excelData = <span class="built_in">readtable</span>(<span class="string">'weather.xls'</span>);<span class="comment">% 读取excel表格</span></span><br><span class="line">t=table2cell(excelData);<span class="comment">% 表格转成元胞数组</span></span><br><span class="line">t=t(:,<span class="number">1</span>:<span class="number">2</span>);</span><br><span class="line">clear excelData<span class="comment">% 不需要table了</span></span><br><span class="line">date = cell2str(t(:,<span class="number">1</span>));<span class="comment">% 对日期改为字符串</span></span><br><span class="line">date = strrep(date,<span class="string">'.'</span>,<span class="string">'-'</span>);<span class="comment">% 替换.号为空格</span></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:<span class="built_in">length</span>(date)</span><br><span class="line">    str = date(<span class="built_in">i</span>,:);</span><br><span class="line">    str2 = char(str);</span><br><span class="line">    date(<span class="built_in">i</span>,:)=string(str2(<span class="number">1</span>,<span class="number">1</span>:<span class="keyword">end</span><span class="number">-6</span>));<span class="comment">% 删除末尾的小时和分钟</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">clear str2 str <span class="built_in">i</span><span class="comment">% 清理一下</span></span><br><span class="line">t(:,<span class="number">1</span>)=cellstr(date);<span class="comment">% 字符串转为元胞数组(赋给原来的元胞)</span></span><br><span class="line"><span class="comment">%% 只取每天的最高和最低气温,合并日期</span></span><br><span class="line"><span class="comment">% 修改下格式，方便写代码</span></span><br><span class="line">T = cell2mat(t(:,<span class="number">2</span>))';</span><br><span class="line">D =date';</span><br><span class="line">date = [];</span><br><span class="line"><span class="comment">% 初始化</span></span><br><span class="line">high = T(<span class="number">1</span>);</span><br><span class="line">low = high;</span><br><span class="line">now = D(<span class="number">1</span>);<span class="comment">% 这个不用转比较异同</span></span><br><span class="line"><span class="built_in">i</span>=<span class="number">2</span>;</span><br><span class="line">temperature=[];</span><br><span class="line"><span class="keyword">while</span> <span class="built_in">i</span>&lt;=<span class="number">612</span></span><br><span class="line">    num = T(<span class="built_in">i</span>);</span><br><span class="line">    <span class="keyword">if</span> num&gt;high</span><br><span class="line">        high = num;</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">if</span> num&lt;low</span><br><span class="line">        low = num;</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">i</span>~=<span class="number">612</span>&amp;&amp;now~=D(<span class="built_in">i</span>+<span class="number">1</span>)<span class="comment">% 说明下一次是新的日期</span></span><br><span class="line">        temperature=[temperature;high,low];<span class="comment">%加入温度</span></span><br><span class="line">        date=[date,now];<span class="comment">% 加入日期</span></span><br><span class="line">        now = D(<span class="built_in">i</span>+<span class="number">1</span>);</span><br><span class="line">        high = T(<span class="built_in">i</span>+<span class="number">1</span>);</span><br><span class="line">        low = high;</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">i</span>==<span class="number">612</span></span><br><span class="line">        temperature=[temperature;high,low];<span class="comment">%加入温度</span></span><br><span class="line">        date=[date,now];<span class="comment">% 加入日期</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    <span class="built_in">i</span>=<span class="built_in">i</span>+<span class="number">1</span>;</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">clear high <span class="built_in">i</span> low now num t T D <span class="comment">% 清理一下，只保留temprature和date，第一列为高温第二列为低温</span></span><br><span class="line"><span class="comment">%% 还有点小问题哦</span></span><br><span class="line"><span class="comment">% 一共有三个月的数据，需要把三个月数据分开</span></span><br><span class="line"><span class="comment">% 当然设置索引分割绘画也可以，不过这样变量区看起来有点蠢QAQ</span></span><br><span class="line">date=date(<span class="keyword">end</span>:<span class="number">-1</span>:<span class="number">1</span>);</span><br><span class="line">temperature=[temperature(<span class="keyword">end</span>:<span class="number">-1</span>:<span class="number">1</span>,<span class="number">1</span>),temperature(<span class="keyword">end</span>:<span class="number">-1</span>:<span class="number">1</span>,<span class="number">2</span>)];</span><br><span class="line"><span class="comment">% 可以写循环查找，但是直接在变量区看不是更方便嘛（matlab是工具不是语言，勿增实体</span></span><br><span class="line"><span class="comment">% 温度</span></span><br><span class="line">January_T=temperature(<span class="number">1</span>:<span class="number">31</span>,:);</span><br><span class="line">February_T=temperature(<span class="number">31</span>+<span class="number">1</span>:<span class="number">31</span>+<span class="number">29</span>,:);</span><br><span class="line">March_T=temperature(<span class="keyword">end</span><span class="number">-27</span>:<span class="keyword">end</span>,:);</span><br><span class="line"><span class="comment">% 日期</span></span><br><span class="line">January_D=date(:,<span class="number">1</span>:<span class="number">31</span>)';</span><br><span class="line">February_D=date(:,<span class="number">31</span>+<span class="number">1</span>:<span class="number">31</span>+<span class="number">29</span>)';</span><br><span class="line">March_D=date(:,<span class="keyword">end</span><span class="number">-27</span>:<span class="keyword">end</span>)';</span><br><span class="line"><span class="comment">% 设置日期格式</span></span><br><span class="line">January_D = datetime(January_D, <span class="string">'InputFormat'</span>,<span class="string">'dd-MM-yyyy'</span>);</span><br><span class="line">February_D = datetime(February_D, <span class="string">'InputFormat'</span>,<span class="string">'dd-MM-yyyy'</span>);</span><br><span class="line">March_D = datetime(March_D, <span class="string">'InputFormat'</span>,<span class="string">'dd-MM-yyyy'</span>);</span><br><span class="line">temperature = {January_T,February_T,March_T};</span><br><span class="line">month = {January_D,February_D,March_D};</span><br><span class="line">clear March_D March_T February_D February_T January_D January_T</span><br><span class="line"><span class="comment">%% 开始绘图吧&gt;_&lt;</span></span><br><span class="line"><span class="comment">% 因为三幅图的性质是一致的，这里练习一下子图，先设置一下每幅图的性质</span></span><br><span class="line"></span><br><span class="line">x_bounder=[datetime(<span class="number">2024</span>,<span class="number">01</span>,<span class="number">01</span>),datetime(<span class="number">2024</span>,<span class="number">01</span>,<span class="number">31</span>);</span><br><span class="line">    datetime(<span class="number">2024</span>,<span class="number">02</span>,<span class="number">01</span>),datetime(<span class="number">2024</span>,<span class="number">02</span>,<span class="number">29</span>);</span><br><span class="line">    datetime(<span class="number">2024</span>,<span class="number">03</span>,<span class="number">01</span>),datetime(<span class="number">2024</span>,<span class="number">03</span>,<span class="number">31</span>);];</span><br><span class="line">y_bounder=[<span class="number">-10</span>,<span class="number">30</span>];</span><br><span class="line">month_name =[<span class="string">"January"</span> <span class="string">"February"</span> <span class="string">"March"</span>];</span><br><span class="line"><span class="built_in">figure</span></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:<span class="number">3</span></span><br><span class="line">    subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="built_in">i</span>)</span><br><span class="line">    <span class="comment">% 基本数据设置</span></span><br><span class="line">    date = month{<span class="number">1</span>,<span class="built_in">i</span>};</span><br><span class="line">    tmp =temperature{<span class="number">1</span>,<span class="built_in">i</span>};</span><br><span class="line">    high = tmp(:,<span class="number">1</span>);</span><br><span class="line">    low = tmp(:,<span class="number">2</span>);</span><br><span class="line">    <span class="comment">% 画图</span></span><br><span class="line">    <span class="built_in">hold</span> on</span><br><span class="line">    <span class="built_in">plot</span>(date, high,<span class="string">'-x'</span>,<span class="string">'lineWidth'</span>,<span class="number">1.5</span>,<span class="string">'color'</span>,<span class="string">'#E8696C'</span>,<span class="string">'MarkerSize'</span>,<span class="number">5</span>,...</span><br><span class="line">        <span class="string">'MarkerEdgeColor'</span>,<span class="string">'#b45154'</span>,...</span><br><span class="line">        <span class="string">'MarkerFaceColor'</span>,<span class="string">'#b45154'</span>)</span><br><span class="line">    <span class="built_in">plot</span>(date, low,<span class="string">'-x'</span>,<span class="string">'lineWidth'</span>,<span class="number">1.5</span>,<span class="string">'color'</span>,<span class="string">'#00CEF0'</span>,<span class="string">'MarkerSize'</span>,<span class="number">5</span>,...</span><br><span class="line">        <span class="string">'MarkerEdgeColor'</span>,<span class="string">'#0091c2'</span>,...</span><br><span class="line">        <span class="string">'MarkerFaceColor'</span>,<span class="string">'#0091c2'</span>)</span><br><span class="line">    <span class="built_in">plot</span>([<span class="number">0</span>,<span class="number">31</span>],[<span class="number">0</span>,<span class="number">0</span>],<span class="string">'color'</span>,<span class="string">'#5EC280'</span>,<span class="string">'linewidth'</span>,<span class="number">2</span>,<span class="string">'linestyle'</span>,<span class="string">'-.'</span>)</span><br><span class="line">    <span class="built_in">plot</span>([<span class="number">0</span>,<span class="number">0</span>],<span class="number">31</span>)</span><br><span class="line">    xb = x_bounder(<span class="built_in">i</span>,:);<span class="comment">% 坐标轴限定范围需要根据坐标轴选取变量</span></span><br><span class="line">    xlim(xb);</span><br><span class="line">    ylim(y_bounder);</span><br><span class="line">    title(<span class="string">"Hefei's "</span>+month_name(<span class="built_in">i</span>) +<span class="string">" Temperature"</span>)</span><br><span class="line">    xlabel(<span class="string">'Date'</span>)</span><br><span class="line">    ylabel(<span class="string">'Temperature'</span>)</span><br><span class="line">    legendText = <span class="built_in">legend</span>(<span class="string">'Maximumx'</span>,<span class="string">'Minimum'</span>,<span class="string">'0\circC'</span>,<span class="string">'FontSize'</span>, <span class="number">7</span>,<span class="string">'FontName'</span>,<span class="string">'Times New Roman'</span>);</span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">j</span>=<span class="number">1</span>:<span class="number">5</span>:<span class="built_in">size</span>(date)</span><br><span class="line">    text(<span class="built_in">j</span>,high(<span class="built_in">j</span>),strcat(num2str(high(<span class="built_in">j</span>)),<span class="string">'\circC'</span>),...</span><br><span class="line">        <span class="string">'verticalAlignment'</span>,<span class="string">'bottom'</span>,<span class="string">'HorizontalAlignment'</span>,<span class="string">'center'</span>,<span class="string">'FontName'</span>,<span class="string">'Times New Roman'</span>);</span><br><span class="line">    text(<span class="built_in">j</span>,low(<span class="built_in">j</span>),strcat(num2str(low(<span class="built_in">j</span>)),<span class="string">'\circC'</span>),...</span><br><span class="line">        <span class="string">'verticalAlignment'</span>,<span class="string">'top'</span>,<span class="string">'HorizontalAlignment'</span>,<span class="string">'center'</span>,<span class="string">'FontName'</span>,<span class="string">'Times New Roman'</span>);</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    <span class="comment">% 背景设置</span></span><br><span class="line">    <span class="comment">% 下面这段代码本来是想画y=0\circC这条线的，但是颜色和网格一样，遂放弃，改为plot</span></span><br><span class="line"><span class="comment">%     ax = gca; % 获取当前轴对象</span></span><br><span class="line"><span class="comment">%     ax.XGrid = 'on'; % 开启x轴网格线</span></span><br><span class="line"><span class="comment">%     ax.YGrid = 'on'; % 开启y轴网格线</span></span><br><span class="line">    axis normal</span><br><span class="line">    grid on</span><br><span class="line">    grid minor</span><br><span class="line">    <span class="built_in">hold</span> off</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="comment">% 因为三月份没过完，就再曲线拟合一下吧，预测最后几天的气温，正好缺最后一幅图</span></span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">4</span>)</span><br><span class="line"><span class="built_in">hold</span> on</span><br><span class="line"><span class="built_in">plot</span>(date, high,<span class="string">'-x'</span>,<span class="string">'lineWidth'</span>,<span class="number">1.5</span>,<span class="string">'color'</span>,<span class="string">'#E8696C'</span>,<span class="string">'MarkerSize'</span>,<span class="number">5</span>,...</span><br><span class="line">    <span class="string">'MarkerEdgeColor'</span>,<span class="string">'#b45154'</span>,...</span><br><span class="line">    <span class="string">'MarkerFaceColor'</span>,<span class="string">'#b45154'</span>)</span><br><span class="line"><span class="built_in">plot</span>(date, low,<span class="string">'-x'</span>,<span class="string">'lineWidth'</span>,<span class="number">1.5</span>,<span class="string">'color'</span>,<span class="string">'#00CEF0'</span>,<span class="string">'MarkerSize'</span>,<span class="number">5</span>,...</span><br><span class="line">    <span class="string">'MarkerEdgeColor'</span>,<span class="string">'#0091c2'</span>,...</span><br><span class="line">    <span class="string">'MarkerFaceColor'</span>,<span class="string">'#0091c2'</span>)</span><br><span class="line">pre_x=<span class="number">1</span>:<span class="number">31</span>;</span><br><span class="line">date =datetime([<span class="number">2024</span>,<span class="number">03</span>,<span class="number">01</span>]) + caldays(<span class="number">0</span>:<span class="number">30</span>);</span><br><span class="line">poly_h=polyfit(<span class="number">1</span>:<span class="number">28</span>,high,<span class="number">4</span>);</span><br><span class="line">poly_l=polyfit(<span class="number">1</span>:<span class="number">28</span>,low,<span class="number">4</span>);</span><br><span class="line">pre_h=polyval(poly_h,pre_x);</span><br><span class="line">pre_l=polyval(poly_l,pre_x);</span><br><span class="line"><span class="built_in">plot</span>(date, pre_h,<span class="string">'--'</span>,<span class="string">'lineWidth'</span>,<span class="number">1.5</span>,<span class="string">'color'</span>,<span class="string">'#E8696C'</span>)</span><br><span class="line"><span class="built_in">plot</span>(date, pre_l,<span class="string">'--'</span>,<span class="string">'lineWidth'</span>,<span class="number">1.5</span>,<span class="string">'color'</span>,<span class="string">'#00B8F5'</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">plot</span>([<span class="number">27</span>,<span class="number">27</span>],[<span class="number">-40</span>,<span class="number">40</span>],<span class="string">'color'</span>,<span class="string">'#5EC280'</span>,<span class="string">'linestyle'</span>,<span class="string">'-.'</span>,<span class="string">'linewidth'</span>,<span class="number">2</span>)<span class="comment">% 这里是27因为下标从1开始相差1</span></span><br><span class="line"></span><br><span class="line">xlim(xb);</span><br><span class="line">ylim(y_bounder);</span><br><span class="line"></span><br><span class="line">legendText = <span class="built_in">legend</span>(<span class="string">'Maximumx'</span>,<span class="string">'Minimum'</span>,<span class="string">'Pre\_Max'</span>,<span class="string">'Pre\_Min'</span>,<span class="string">'Today'</span>,<span class="string">'FontSize'</span>, <span class="number">7</span>,<span class="string">'FontName'</span>,<span class="string">'Times New Roman'</span>);</span><br><span class="line"></span><br><span class="line">title(<span class="string">"Hefei's March Temperature Forecast"</span>)</span><br><span class="line">xlabel(<span class="string">'Data'</span>)</span><br><span class="line">ylabel(<span class="string">'Temperature'</span>)</span><br><span class="line">grid on</span><br><span class="line">grid minor</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>效果如图</p>
+<p><img data-src="/week5-5/%E6%B8%A9%E5%BA%A6%E7%BB%98%E5%9B%BE.jpg" alt="运行结果"></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/MATLAB/" rel="tag"># MATLAB</a>
+              <a href="/tags/%E6%9C%AC%E7%A7%91%E7%AC%94%E8%AE%B0/" rel="tag"># 本科笔记</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/05/29/week13/" rel="prev" title="MATLABweek13">
+                  <i class="fa fa-angle-left"></i> MATLABweek13
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-pencil"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Yaan</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">14k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">50 分钟</span>
+  </span>
+</div>
+
+<!-- <br /> -->
+<!-- 网站运行时间的设置 -->
+<span id="timeDate">载入天数...</span>
+<!-- <span id="times">载入时分秒...</span> -->
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("3/14/2024 0:00:00");//此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); 
+        if(String(snum).length ==1 ){snum = "0" + snum;}
+        // var times = document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 "+hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+setInterval("createtime()",250);
+</script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/medium-zoom/1.1.0/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"mhchem":false,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":false,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://yaanlaan.github.io/2024/07/09/week5-5/"}</script>
+  <script src="/js/third-party/quicklink.js"></script>
+
+  
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+</html>
+
+

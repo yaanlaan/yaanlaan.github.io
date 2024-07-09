@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/256.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/512.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/256.png">
+  <link rel="mask-icon" href="/images/512.png" color="#222">
+  <link rel="manifest" href="/images/256.png">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"yaanlaan.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":"auto","version":"8.20.0","exturl":false,"sidebar":{"position":"left","width":300,"display":"hide","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":"mac"},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+
+
+<link rel="canonical" href="https://yaanlaan.github.io/2024/04/03/week6/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://yaanlaan.github.io/2024/04/03/week6/","path":"2024/04/03/week6/","title":"MATLABweek6(习题课)"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>MATLABweek6(习题课) | Yaan</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style><link rel="alternate" href="/atom.xml" title="Yaan" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+<!--
+  <link rel="stylesheet" href="/dist/APlayer.min.css">
+  <div id="aplayer"></div>
+  <script type="text/javascript" src="/dist/APlayer.min.js"></script>
+  <script type="text/javascript" src="/dist/music.js"></script>
+  -->
+<!--TODO: 播放器设置 -->
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Yaan</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">欢迎光临寒舍</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Yaan"
+      src="/images/yaanblog.jpg">
+  <p class="site-author-name" itemprop="name">Yaan</p>
+  <div class="site-description" itemprop="description">草木山石，日月星辰</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="mailto:yanxia2425@gmail.com" title="E-Mail → mailto:yanxia2425@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/4-56-20-42" title="Zhihu → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;4-56-20-42" rel="noopener me" target="_blank"><i class="fa fa-coffee fa-fw"></i>Zhihu</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          链接
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://yaanlaan.github.io/" title="https:&#x2F;&#x2F;yaanlaan.github.io">暂时还没有捏</a>
+            </li>
+        </ul>
+      </div>
+      <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1490973948&auto=1&height=66"></iframe>
+      
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yaanlaan.github.io/2024/04/03/week6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/yaanblog.jpg">
+      <meta itemprop="name" content="Yaan">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yaan">
+      <meta itemprop="description" content="草木山石，日月星辰">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="MATLABweek6(习题课) | Yaan">
+      <meta itemprop="description" content="MATLAB第六周笔记">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          MATLABweek6(习题课)
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2024-04-03 21:46:00 / 修改时间：21:51:15" itemprop="dateCreated datePublished" datetime="2024-04-03T21:46:00+08:00">2024-04-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/MATLAB%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">MATLAB笔记</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>715</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>3 分钟</span>
+    </span>
+</div>
+
+            <div class="post-description">MATLAB第六周笔记</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="MATLABweek6-习题课"><a href="#MATLABweek6-习题课" class="headerlink" title="MATLABweek6(习题课)"></a>MATLABweek6(习题课)</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p><img data-src="/week6/%E9%A2%98%E7%9B%AE.png" alt="题目"></p>
+<h2 id="拟合和插值"><a href="#拟合和插值" class="headerlink" title="拟合和插值"></a>拟合和插值</h2><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">%%</span></span><br><span class="line"></span><br><span class="line">closeall</span><br><span class="line"></span><br><span class="line">clear</span><br><span class="line"></span><br><span class="line">clc</span><br><span class="line"></span><br><span class="line"><span class="comment">%% 拟合与插值</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% 数据</span></span><br><span class="line"></span><br><span class="line">height = [<span class="number">0300600100015002000</span>];<span class="comment">% 拟合样本</span></span><br><span class="line"></span><br><span class="line">pa = [<span class="number">0.96890</span><span class="number">.93220</span><span class="number">.89690</span><span class="number">.85190</span><span class="number">.79890</span><span class="number">.7491</span>];</span><br><span class="line"></span><br><span class="line">H=<span class="number">0</span>:<span class="number">0.01</span>:<span class="number">2000</span>;<span class="comment">% 验证样本</span></span><br><span class="line"></span><br><span class="line">P=<span class="number">1.0332</span>.*<span class="built_in">exp</span>(-(H+<span class="number">500</span>)./<span class="number">7756</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">% 拟合</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">disp</span>(<span class="string">"正在进行拟合..."</span>)</span><br><span class="line"></span><br><span class="line">E =<span class="built_in">inf</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">2</span>:<span class="built_in">length</span>(pa)<span class="number">-1</span></span><br><span class="line"></span><br><span class="line">    v=polyfit(height,pa,<span class="built_in">i</span>);</span><br><span class="line"></span><br><span class="line">    pre_pa =polyval(v,H);</span><br><span class="line"></span><br><span class="line">    err =immse(pre_pa,P);<span class="comment">% 均方误差</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">% err = sum(abs(pre_pa-p))/length(p);% 绝对误差</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> err&lt;E<span class="comment">% 更新更优的拟合次数</span></span><br><span class="line"></span><br><span class="line">        E=err;</span><br><span class="line"></span><br><span class="line">        V=v;</span><br><span class="line"></span><br><span class="line">        I=<span class="built_in">i</span>;</span><br><span class="line"></span><br><span class="line">        fprintf(<span class="string">'更新，新的误差/最高次为：%d，%d'</span>,E,I);</span><br><span class="line"></span><br><span class="line">        <span class="built_in">disp</span>(<span class="string">' '</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% 展示结果</span></span><br><span class="line"></span><br><span class="line">formula =poly2sym(V);<span class="comment">% 拟合多项式符号表达</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">disp</span>(<span class="string">"最优拟合多项式为:"</span>+char(formula));</span><br><span class="line"></span><br><span class="line"><span class="built_in">disp</span>(<span class="string">"次数是:"</span>+num2str(I)+<span class="string">"误差为"</span>+num2str(err));</span><br><span class="line"></span><br><span class="line">pre_pa =polyval(V,H);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 绘图</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">figure</span></span><br><span class="line"></span><br><span class="line">subplot(<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">holdon</span><br><span class="line"></span><br><span class="line">xlim([<span class="number">0</span>,<span class="number">2000</span>]);</span><br><span class="line"></span><br><span class="line"><span class="built_in">plot</span>(height,pa,<span class="string">'b*'</span>,<span class="string">'linewidth'</span>,<span class="number">5</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">plot</span>(H,pre_pa,<span class="string">'r--'</span>);</span><br><span class="line"></span><br><span class="line">title(<span class="string">"压强公式验证(拟合法)"</span>)</span><br><span class="line"></span><br><span class="line">xlabel(<span class="string">"海拔高度/m"</span>);</span><br><span class="line"></span><br><span class="line">ylabel(<span class="string">"气压/Pa"</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">legend</span>(<span class="string">"采样点"</span>,<span class="string">"最优拟合曲线"</span>);</span><br><span class="line"></span><br><span class="line">text(<span class="number">100</span>,<span class="number">0.8</span>,<span class="string">'$$ p = 1.0332e^{\frac{-(h+500)}{7756}} $$'</span>,<span class="string">'interpreter'</span>,<span class="string">'latex'</span>,<span class="string">'fontsize'</span>,<span class="number">10</span>,<span class="string">'color'</span>,<span class="string">'black'</span>);</span><br><span class="line"></span><br><span class="line">holdoff</span><br><span class="line"></span><br><span class="line">gridon</span><br><span class="line"></span><br><span class="line">gridminor</span><br><span class="line"></span><br><span class="line"><span class="built_in">disp</span>(<span class="string">' '</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">% 插值</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">disp</span>(<span class="string">"正在进行插值..."</span>)</span><br><span class="line"></span><br><span class="line">pre_pa1 =interp1(height,pa,H);</span><br><span class="line"></span><br><span class="line"><span class="comment">% pre_pa2 = interp1(height,pa,H,'cubic'); % 样本数据并不等间隔</span></span><br><span class="line"></span><br><span class="line">pre_pa3 =interp1(height,pa,H,<span class="string">'spline'</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ifimmse(pre_pa1,P)&gt;immse(pre_pa3,P)</span><br><span class="line"></span><br><span class="line">    err_ =immse(pre_pa3,P);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">disp</span>(<span class="string">"从均方差角度，样条插值更好,误差为："</span>+num2str(err_))</span><br><span class="line"></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line"></span><br><span class="line">    err_ =immse(pre_pa1,P);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">disp</span>(<span class="string">"从均方差角度，线性插值更好,误差为："</span>+num2str(err_))</span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">subplot(<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">holdon</span><br><span class="line"></span><br><span class="line">xlim([<span class="number">0</span>,<span class="number">2000</span>]);</span><br><span class="line"></span><br><span class="line"><span class="built_in">plot</span>(height,pa,<span class="string">'b*'</span>,<span class="string">'linewidth'</span>,<span class="number">5</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">plot</span>(H,pre_pa1,<span class="string">'r--'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">% plot(H,pre_pa2,'g--');</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">plot</span>(H,pre_pa3,<span class="string">'y--'</span>);</span><br><span class="line"></span><br><span class="line">title(<span class="string">"压强公式验证(插值法)"</span>)</span><br><span class="line"></span><br><span class="line">text(<span class="number">100</span>,<span class="number">0.8</span>,<span class="string">'$$ p = 1.0332e^{\frac{-(h+500)}{7756}} $$'</span>,<span class="string">'interpreter'</span>,<span class="string">'latex'</span>,<span class="string">'fontsize'</span>,<span class="number">10</span>,<span class="string">'color'</span>,<span class="string">'black'</span>);</span><br><span class="line"></span><br><span class="line">xlabel(<span class="string">"海拔高度/m"</span>);</span><br><span class="line"></span><br><span class="line">ylabel(<span class="string">"气压/Pa"</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">legend</span>(<span class="string">"采样点"</span>,<span class="string">"线性插值"</span>,<span class="string">"三次方插值"</span>,<span class="string">"样条插值"</span>);</span><br><span class="line"></span><br><span class="line">holdoff</span><br><span class="line"></span><br><span class="line">gridon</span><br><span class="line"></span><br><span class="line">gridminor</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">% 综合比较一下</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">disp</span>(<span class="string">'在均方差下综合比较：'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> err&lt;err_</span><br><span class="line"></span><br><span class="line">    <span class="built_in">disp</span>(<span class="string">"拟合优于插值，总误差为："</span>+num2str(err))</span><br><span class="line"></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">disp</span>(<span class="string">"插值优于拟合，总误差为："</span>+num2str(err_))</span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="多项式运算"><a href="#多项式运算" class="headerlink" title="多项式运算"></a>多项式运算</h2><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">%% 多项式</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% 数据</span></span><br><span class="line"></span><br><span class="line">p1=[<span class="number">101</span>];</span><br><span class="line"></span><br><span class="line">p2=[<span class="number">13</span>];</span><br><span class="line"></span><br><span class="line">p3=[<span class="number">11</span>];</span><br><span class="line"></span><br><span class="line">q=[<span class="number">121</span>];</span><br><span class="line"></span><br><span class="line">p=conv(p1,conv(p2,p3));</span><br><span class="line"></span><br><span class="line">[f,r] =deconv(p,q);</span><br><span class="line"></span><br><span class="line">p_sym =poly2sym(f);</span><br><span class="line"></span><br><span class="line">r_sym =poly2sym(r);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 符号表达式</span></span><br><span class="line"></span><br><span class="line">symss</span><br><span class="line"></span><br><span class="line">x = (s^<span class="number">2</span>+<span class="number">1</span>)*(s+<span class="number">3</span>)*(s+<span class="number">1</span>)/(s^<span class="number">3</span>+<span class="number">2</span>*s+<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 结果</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">disp</span>([<span class="string">'计算：'</span>,char(x)]);</span><br><span class="line"></span><br><span class="line"><span class="built_in">disp</span>([<span class="string">'商为：'</span>, char(p_sym)]);</span><br><span class="line"></span><br><span class="line"><span class="built_in">disp</span>([<span class="string">'余为：'</span>, char(r_sym)]);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="求地图面积"><a href="#求地图面积" class="headerlink" title="求地图面积"></a>求地图面积</h2><p>给出地图边界的一些点，求出曲线，积分做差就可以了</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">%% 画地图</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% 数据</span></span><br><span class="line"></span><br><span class="line">X=[<span class="number">710.51317</span><span class="number">.53440</span><span class="number">.544</span><span class="number">.548566168</span><span class="number">.576</span><span class="number">.580</span><span class="number">.59196101104106</span><span class="number">.5111</span><span class="number">.5118123</span><span class="number">.5136</span><span class="number">.5142146150157158</span>];</span><br><span class="line"></span><br><span class="line">Y1=[<span class="number">444547505038303034363441454643373328326555545250666668</span> ];</span><br><span class="line"></span><br><span class="line">Y2=[<span class="number">4459707293100110110110117118116118118121124121121121116122838182868568</span>];</span><br><span class="line"></span><br><span class="line">rate =<span class="number">40</span>/<span class="number">18</span>;<span class="comment">% 由于单位对应，无需换算单位</span></span><br><span class="line"></span><br><span class="line">S0=<span class="number">41228</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">% 计算面积</span></span><br><span class="line"></span><br><span class="line">S1=trapz(X,Y1);</span><br><span class="line"></span><br><span class="line">S2=trapz(X,Y2);</span><br><span class="line"></span><br><span class="line">S=sum(<span class="built_in">abs</span>(S1-S2));</span><br><span class="line"></span><br><span class="line">S=rate^<span class="number">2</span>*S;</span><br><span class="line"></span><br><span class="line">err =<span class="built_in">abs</span>(S-S0)/S0; <span class="comment">% 计算下误差</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% 简单估计一下，用以验证</span></span><br><span class="line"></span><br><span class="line">S_=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">2</span>:<span class="built_in">length</span>(X)</span><br><span class="line"></span><br><span class="line">    S_=S_+(X(<span class="built_in">i</span>)-X(<span class="built_in">i</span><span class="number">-1</span>))*<span class="built_in">abs</span>(Y1(<span class="built_in">i</span>)-Y2(<span class="built_in">i</span>));</span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">err_ =<span class="built_in">abs</span>(S_-S)/S;<span class="comment">% 二者相差%6.4</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% 绘图</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">figure</span></span><br><span class="line"></span><br><span class="line">holdon</span><br><span class="line"></span><br><span class="line"><span class="built_in">plot</span>(X,Y1,<span class="string">'b-'</span>,X,Y2,<span class="string">'b-'</span>)</span><br><span class="line"></span><br><span class="line">title(<span class="string">"瑞士地图"</span>);</span><br><span class="line"></span><br><span class="line">xlabel(<span class="string">'x轴'</span>)</span><br><span class="line"></span><br><span class="line">ylabel(<span class="string">'y轴'</span>)</span><br><span class="line"></span><br><span class="line">xlim([<span class="number">0</span>,<span class="number">160</span>])</span><br><span class="line"></span><br><span class="line">ylim([<span class="number">20</span>,<span class="number">160</span>])</span><br><span class="line"></span><br><span class="line">text(<span class="number">50</span>,<span class="number">90</span>,[<span class="string">'计算瑞士国土面积为'</span>,num2str(<span class="built_in">round</span>(S/<span class="number">10</span>^<span class="number">4</span>,<span class="number">3</span>)),<span class="string">'万平方千米'</span>])</span><br><span class="line"></span><br><span class="line">text(<span class="number">50</span>,<span class="number">80</span>,[<span class="string">'误差为'</span>,num2str(err*<span class="number">100</span>),<span class="string">'%'</span>])</span><br><span class="line"></span><br><span class="line"><span class="built_in">disp</span>(<span class="string">"瑞士国土面积为"</span>+num2str(S)+<span class="string">"万平方千米"</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/MATLAB/" rel="tag"># MATLAB</a>
+              <a href="/tags/%E6%9C%AC%E7%A7%91%E7%AC%94%E8%AE%B0/" rel="tag"># 本科笔记</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/03/27/week5/" rel="prev" title="MATLABweek5(数值运算)">
+                  <i class="fa fa-angle-left"></i> MATLABweek5(数值运算)
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/04/04/%E5%BB%BA%E6%A8%A1week3/" rel="next" title="建模week3">
+                  建模week3 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-pencil"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Yaan</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">14k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">50 分钟</span>
+  </span>
+</div>
+
+<!-- <br /> -->
+<!-- 网站运行时间的设置 -->
+<span id="timeDate">载入天数...</span>
+<!-- <span id="times">载入时分秒...</span> -->
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("3/14/2024 0:00:00");//此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); 
+        if(String(snum).length ==1 ){snum = "0" + snum;}
+        // var times = document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 "+hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+setInterval("createtime()",250);
+</script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/medium-zoom/1.1.0/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"mhchem":false,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":false,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://yaanlaan.github.io/2024/04/03/week6/"}</script>
+  <script src="/js/third-party/quicklink.js"></script>
+
+  
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+</html>
+
+
