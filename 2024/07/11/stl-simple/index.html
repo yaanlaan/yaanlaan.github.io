@@ -1,0 +1,836 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><title>STL笔记：vector、string和list | Yaan</title><meta name="keywords" content="tools,c++,stl"><meta name="author" content="Yaan"><meta name="copyright" content="Yaan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#f7f9fe"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-touch-fullscreen" content="yes"><meta name="apple-mobile-web-app-title" content="STL笔记：vector、string和list"><meta name="application-name" content="STL笔记：vector、string和list"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="#f7f9fe"><meta property="og:type" content="article"><meta property="og:title" content="STL笔记：vector、string和list"><meta property="og:url" content="https://yaanlaan.github.io/2024/07/11/stl-simple/index.html"><meta property="og:site_name" content="Yaan"><meta property="og:description" content="stl的简单知识"><meta property="og:locale" content="zh-CN"><meta property="og:image" content="https://yaanlaan.github.io/img/postimage/stl.jpg"><meta property="article:author" content="Yaan"><meta property="article:tag" content="摆烂"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://yaanlaan.github.io/img/postimage/stl.jpg"><meta name="description" content="stl的简单知识"><link rel="shortcut icon" href="/mysitesource/256.png"><link rel="canonical" href="https://yaanlaan.github.io/2024/07/11/stl-simple/"><link rel="preconnect" href="//cdn.cbd.int"/><meta name="google-site-verification" content="xxx"/><meta name="baidu-site-verification" content="code-xxx"/><meta name="msvalidate.01" content="xxx"/><link rel="manifest" href="/manifest.json"/><meta name="msapplication-TileColor" content="var(--anzhiyu-main)"/><link rel="mask-icon" href="/img/mysitesource/256.png" color="#5bbad5"/><link rel="apple-touch-icon" sizes="180x180" href="/img/mysitesource/256.png"/><link rel="apple-touch-icon-precomposed" sizes="180x180" href="/img/mysitesource/256.png"/><link rel="icon" type="image/png" sizes="32x32" href="/img/mysitesource/256.png"/><link rel="icon" type="image/png" sizes="16x16" href="/img/mysitesource/256.png"/><link rel="bookmark" href="/img/mysitesource/256.png"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-2048-2732.jpg" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-2732-2048.jpg" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-1668-2388.jpg" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-2388-1668.jpg" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-1536-2048.jpg" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-2048-1536.jpg" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-1668-2224.jpg" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-2224-1668.jpg" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-1620-2160.jpg" media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-2160-1620.jpg" media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-1290-2796.jpg" media="(device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-2796-1290.jpg" media="(device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-1179-2556.jpg" media="(device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-2556-1179.jpg" media="(device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-1284-2778.jpg" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-2778-1284.jpg" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-1170-2532.jpg" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-2532-1170.jpg" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-1125-2436.jpg" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-2436-1125.jpg" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-1242-2688.jpg" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-2688-1242.jpg" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-828-1792.jpg" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-1792-828.jpg" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-1242-2208.jpg" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-2208-1242.jpg" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-750-1334.jpg" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-1334-750.jpg" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-640-1136.jpg" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-1136-640.jpg" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.cbd.int/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/@fancyapps/ui@5.0.28/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  linkPageTop: undefined,
+  peoplecanvas: undefined,
+  postHeadAiDescription: undefined,
+  diytitle: {"enable":true,"leaveTitle":"(- - )","backTitle":"♪(^∇^*)"},
+  LA51: undefined,
+  greetingBox: {"enable":true,"default":"晚上好👋","list":[{"greeting":"晚安😴","startTime":0,"endTime":5},{"greeting":"早上好鸭👋, 祝你一天好心情！","startTime":6,"endTime":9},{"greeting":"上午好👋, 状态很好，鼓励一下～","startTime":10,"endTime":10},{"greeting":"11点多啦, 在坚持一下就吃饭啦～","startTime":11,"endTime":11},{"greeting":"午安👋, 宝贝","startTime":12,"endTime":14},{"greeting":"🌈充实的一天辛苦啦！","startTime":14,"endTime":18},{"greeting":"19点喽, 奖励一顿丰盛的大餐吧🍔。","startTime":19,"endTime":19},{"greeting":"晚上好👋, 在属于自己的时间好好放松😌~","startTime":20,"endTime":24}]},
+  twikooEnvId: '',
+  commentBarrageConfig:undefined,
+  root: '/',
+  preloader: {"source":3},
+  friends_vue_info: undefined,
+  navMusic: true,
+  mainTone: undefined,
+  authorStatus: {"skills":["🫡 大白白兰兰专业户","😶‍🌫️ 大专天才少年沉淀"]},
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简","rightMenuMsgToTraditionalChinese":"转为繁体","rightMenuMsgToSimplifiedChinese":"转为简体"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":330},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    simplehomepage: true,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"copy":true,"copyrightEbable":false,"limitCount":50,"languages":{"author":"作者: Yaan","link":"链接: ","source":"来源: Yaan","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。","copySuccess":"复制成功，复制和转载请标注本文地址"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#425AEF","bgDark":"#1f1f1f","position":"top-center"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.min.js',
+      css: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  shortcutKey: undefined,
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  configTitle: 'Yaan',
+  title: 'STL笔记：vector、string和list',
+  postAI: '',
+  pageFillDescription: 'STL笔记：vector、string和list, vector, 构造, 常用操作, 迭代器, 常用场景, assign, string, 构造函数, 常用操作, 基本操作（和vector很像看看运算符重载就可以了）, 输入输出, 转换和C风格, 迭代器, 寻找子串, 其他函数, List, 构造函数, 方法笔记和有点内耗写点简单的东西恢复一下构造向量最常用的方法就是代替数组省去了动态声明的过程擅长尾部插入元素复杂度为常数对于头部和中间需要现象复杂度最简单的声明类型名称初始化个数例如初始化个元素的向量初始化个元素的向量每个元素是支持数组声明的方法自动创建二维的矩阵其他的构造方式拷贝构造传入其他引用区间拷贝传入两个迭代器拷贝常用操作返回元素多少返回空间大小返回一个值空为真在尾部插入和差不多但是是在不超过的情况下如果超过则会直接构造这个元素再填值比如原来是现在会变成改变向量的大小小于舍去尾部大于默认为缺省默新增元素调用默认构造函数改变向量组容量为是可访问元素的多少是空间的大小使用会申请空间并初始化构造而只会申请空间所以后者的消费少一些再填值的时候可以用所以前者相当于同时进行这两个操作删除向量尾部的数不减小当前向量支持到的最大长度不是析构函数没必要介绍了吧销毁向量组释放所有空间迭代器语法类型相当于指针迭代器的加减就相当于指针加减也需要解引用头迭代器尾迭代器但不是最后一个元素而是尾部正如语言中字符串最后一个是一样而得到的是一个迭代器并不会改变自身所以常用的访问尾部的操作就注意是先后所以其实没意义在迭代器的前面插入如果是后面就没法插入头了嘛一个参数就是参数那个位置两个参数就是左闭右开区间如果是闭区间就把也删了挺不友好的清空向量好像不会清空拷贝将一个容器中的范围内的元素拷贝到另一个容器中反转在范围内的顺序函数无返回值反向迭代器使用和就可以了指针等于原来的交换元素常用场景就是代替数组吧可以使用下标访问排序也是正常排序没啥特殊的使用等会会总结的算法部分比如排序之类的就是自定义的比较函数返回值为输入两个同类型变量的成员方法负责分配新的内容至中以代替现有的内容并相应的修改其就相当于重新初始化了不过如果小于原来的长度并不会改变占用的空间不改变按传入的迭代器按顺序构建构建为个值构造为传入的列表例如字符串处理函数使用非常方便既支持类似于语言的数组形式还有更为方便的字符串运算读入读出都很方便另外就是有特殊功能的函数比如寻找子串的功能比友好多了由于都是线性结构都有异曲同工之妙构造函数基本声明生成一个空字符串销毁所有字符释放内存完全拷贝和部分拷贝拷贝构造函数生成的复制品以区间不包含内的字符作为字符串的初值为别的从开始到末尾的部分拷贝左闭从开始的个字符不足不补将字符串作为的初值使用字符串的前个字符初始化作为字符串的初值像向量一样生成一个字符串包含个字符其实记得这种最基本的方法就差不多了吧其他的用到了凭感觉试一试会帮助你的常用操作因为对一些操作符重载了作用相同的操作符和函数就写在一块吧基本操作和很像看看运算符重载就可以了赋以新值的用法和差不多交换两个字符串的内容在尾部添加字符号也可以对字符串操作两个字符串拼接比较字符串按照字典序比较插入字符删除位置字符删除全部字符替换字符返回字符数量返回字符的可能最大个数判断字符串是否为空返回重新分配之前的字符容量保留一定量内存以容纳一定数量的字符输入输出从读取某值将谋值写入将某值赋值为一个转换和风格存取单一字符将内容以返回将内容以字符数组形式返回迭代器提供类似的迭代器支持逆向迭代器返回配置器寻找子串函数形式或者形式或者返回值返回字符或字符串在字符串中第一次出现的下标从开始函数形式所需的子字符串的起始位置字符串中第一个字符的索引为所需截取的子串长度返回值截取的子串例子寻找作为子串在中出现的次数注意这里的子串指的是连续的当没有子串的时候返回从后面位置继续匹配例子获得小数字符串的整数部分和小数部分分别为第一个浮点数的整数部分小数部分截取字符串其他函数除了使用这些函数还提供了等等函数用来转换变量和另外还有许多函数比如对字符串排序的转写大小写字母的等等用到再记吧底层是以双向链表的形式实现的注意和的区别是双端队列是两条单向链表的合并插入和删除效率极高但访问效率低不能直接访问需要使用迭代器访问实际场景中如何需要对序列进行大量添加或删除元素的操作而直接访问元素的需求却很少这种情况建议使用容器存储序列容器中的元素可以分散存储在内存空间里而不是必须存储在一整块连续的内存空间中构造函数和差不多从形式上来说一模一样方法返回表的元素数返回指向表开头的迭代器返回指向表末尾最后一个元素的后一个位置的迭代器在表开头添加元素在表末尾添加元素在表开头添加元素在表末尾添加元素删除位于表头的元素删除位于表尾的元素在表位置处插入元素为指向该位置的迭代器在表位置处插入元素为指向该位置的迭代器效率比方法高删除表中位置的元素为指向该位置的迭代器删除表中所有元素判断容器中是否有元素若无元素则返回反之返回通过更改容器中元素的位置将它们进行排序反转容器中元素的顺序后面写得有点敷衍有时间再改吧主要用的就是和吧没咋用过纯背也没什么意义有时间修改',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-07-11 00:15:28',
+  postMainColor: '',
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#18171d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f7f9fe')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.3.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style><link rel="alternate" href="/atom.xml" title="Yaan" type="application/atom+xml">
+</head><body data-type="anzhiyu"><div id="web_bg"></div><div id="an_music_bg"></div><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><img class="loading-img nolazyload" alt="加载头像" src="/img/mysitesource/yaanblog.jpg"/><div class="loading-image-dot"></div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.getElementById('loading-box').classList.add("loaded");
+  },
+  initLoading: () => {
+    document.getElementById('loading-box').classList.remove("loaded")
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+setTimeout(function(){preloader.endLoading();},10000)
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.10/progress_bar/progress_bar.css"/><script async="async" src="https://cdn.cbd.int/pace-js@1.2.4/pace.min.js" data-pace-options="{ &quot;restartOnRequestAfter&quot;:false,&quot;eventLag&quot;:false}"></script><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><div id="nav-group"><span id="blog_name"><a id="site-name" href="/" accesskey="h"><div class="title">Yaan</div><i class="anzhiyufont anzhiyu-icon-house-chimney"></i></a></span><div class="mask-name-container"><div id="name-container"><a id="page-name" href="javascript:anzhiyu.scrollToDest(0, 500)">PAGE_NAME</a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/archives/"><span> 文章</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/categories/"><span> 分类</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/tags/"><span> 标签</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="javascript:toRandomPost()"><span> 随便逛逛</span></a></div></div></div><div id="nav-right"><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="随机前往一个文章" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-dice"></i></a></div><div class="nav-button" id="search-button"><a class="site-page social-icon search" href="javascript:void(0);" title="搜索🔍" accesskey="s"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span> 搜索</span></a></div><input id="center-console" type="checkbox"/><label class="widget" for="center-console" title="中控台" onclick="anzhiyu.switchConsole();"><i class="left"></i><i class="widget center"></i><i class="widget right"></i></label><div id="console"><div class="console-card-group-reward"><ul class="reward-all console-card"><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png" target="_blank"><img class="post-qr-code-img" alt="微信" src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png" target="_blank"><img class="post-qr-code-img" alt="支付宝" src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div><div class="console-card-group"><div class="console-card-group-left"><div class="console-card" id="card-newest-comments"><div class="card-content"><div class="author-content-item-tips">互动</div><span class="author-content-item-title"> 最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div></div><div class="console-card-group-right"><div class="console-card tags"><div class="card-content"><div class="author-content-item-tips">兴趣点</div><span class="author-content-item-title">寻找你感兴趣的领域</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/C/" style="font-size: 1.05rem;">C++<sup>1</sup></a><a href="/tags/LINGO/" style="font-size: 1.05rem;">LINGO<sup>2</sup></a><a href="/tags/MATLAB/" style="font-size: 1.05rem;">MATLAB<sup>10</sup></a><a href="/tags/c/" style="font-size: 1.05rem;">c++<sup>1</sup></a><a href="/tags/cmake/" style="font-size: 1.05rem;">cmake<sup>1</sup></a><a href="/tags/stl/" style="font-size: 1.05rem;">stl<sup>1</sup></a><a href="/tags/tools/" style="font-size: 1.05rem;">tools<sup>2</sup></a><a href="/tags/%E4%BF%A1%E6%81%AF%E8%AE%BA/" style="font-size: 1.05rem;">信息论<sup>1</sup></a><a href="/tags/%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B/" style="font-size: 1.05rem;">微分方程<sup>2</sup></a><a href="/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" style="font-size: 1.05rem;">数学建模<sup>3</sup></a><a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 1.05rem;">数据结构<sup>1</sup></a><a href="/tags/%E6%95%B0%E8%AE%BA/" style="font-size: 1.05rem;">数论<sup>1</sup></a><a href="/tags/%E6%9C%AC%E7%A7%91%E7%AC%94%E8%AE%B0/" style="font-size: 1.05rem;">本科笔记<sup>13</sup></a><a href="/tags/%E6%A8%A1%E6%9D%BF/" style="font-size: 1.05rem;">模板<sup>1</sup></a><a href="/tags/%E6%B5%8B%E8%AF%95/" style="font-size: 1.05rem;">测试<sup>1</sup></a><a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 1.05rem;">算法<sup>1</sup></a><a href="/tags/%E7%BA%BF%E6%80%A7%E8%A7%84%E5%88%92/" style="font-size: 1.05rem;">线性规划<sup>2</sup></a><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/" style="font-size: 1.05rem;">计算机图形学<sup>1</sup></a></div></div><hr/></div></div><div class="console-card history"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-box-archiv"></i><span>文章</span></div><div class="card-archives"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/07/"><span class="card-archive-list-date">七月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">11</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/05/"><span class="card-archive-list-date">五月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">2</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/04/"><span class="card-archive-list-date">四月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">2</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/03/"><span class="card-archive-list-date">三月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">6</span><span>篇</span></div></a></li></ul></div><hr/></div></div></div><div class="button-group"><div class="console-btn-item"><a class="darkmode_switchbutton" title="显示模式切换" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-moon"></i></a></div><div class="console-btn-item" id="consoleHideAside" onclick="anzhiyu.hideAsideBtn()" title="边栏显示控制"><a class="asideSwitch"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></a></div><div class="console-btn-item" id="consoleMusic" onclick="anzhiyu.musicToggle()" title="音乐开关"><a class="music-switch"><i class="anzhiyufont anzhiyu-icon-music"></i></a></div></div><div class="console-mask" onclick="anzhiyu.hideConsole()" href="javascript:void(0);"></div></div><div class="nav-button" id="nav-totop"><a class="totopbtn" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i><span id="percent" onclick="anzhiyu.scrollToDest(0,500)">0</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" title="切换"><i class="anzhiyufont anzhiyu-icon-bars"></i></a></div></div></div></nav><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original">原创</a><span class="post-meta-categories"><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-inbox post-meta-icon"></i><a class="post-meta-categories" href="/categories/C/" itemprop="url">C++</a></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/tools/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>tools</span></a><a class="article-meta__tags" href="/tags/c/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>c++</span></a><a class="article-meta__tags" href="/tags/stl/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>stl</span></a></span></div></div><h1 class="post-title" itemprop="name headline">STL笔记：vector、string和list</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" itemprop="dateCreated datePublished" datetime="2024-07-10T16:10:31.000Z" title="发表于 2024-07-11 00:10:31">2024-07-11</time><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-history post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" itemprop="dateCreated datePublished" datetime="2024-07-10T16:15:28.223Z" title="更新于 2024-07-11 00:15:28">2024-07-11</time></span></div><div class="meta-secondline"><span class="post-meta-separator"></span><span class="post-meta-wordcount"><i class="anzhiyufont anzhiyu-icon-file-word post-meta-icon" title="文章字数"></i><span class="post-meta-label" title="文章字数">字数总计:</span><span class="word-count" title="文章字数">13k</span><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-clock post-meta-icon" title="阅读时长"></i><span class="post-meta-label" title="阅读时长">阅读时长:</span><span>48 mins.分钟</span></span><span class="post-meta-separator">       </span><span class="post-meta-position" title="作者IP属地为安徽"><i class="anzhiyufont anzhiyu-icon-location-dot"></i>安徽</span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section><div id="post-top-cover"><img class="nolazyload" id="post-top-bg" src="/img/postimage/stl.jpg"></div></header><main id="blog-container"><div class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container" itemscope itemtype="https://yaanlaan.github.io/2024/07/11/stl-simple/"><header><a class="post-meta-categories" href="/categories/C/" itemprop="url">C++</a><a href="/tags/tools/" tabindex="-1" itemprop="url">tools</a><a href="/tags/c/" tabindex="-1" itemprop="url">c++</a><a href="/tags/stl/" tabindex="-1" itemprop="url">stl</a><h1 id="CrawlerTitle" itemprop="name headline">STL笔记：vector、string和list</h1><span itemprop="author" itemscope itemtype="http://schema.org/Person">Yaan</span><time itemprop="dateCreated datePublished" datetime="2024-07-10T16:10:31.000Z" title="发表于 2024-07-11 00:10:31">2024-07-11</time><time itemprop="dateCreated datePublished" datetime="2024-07-10T16:15:28.223Z" title="更新于 2024-07-11 00:15:28">2024-07-11</time></header><h1 id="stl笔记vectorstring和list">STL笔记：vector、string和list</h1>
+<blockquote>
+<p>有点内耗，写点简单的东西恢复一下</p>
+</blockquote>
+<h2 id="vector">vector</h2>
+<h3 id="构造">构造</h3>
+<p>向量，最常用的方法就是代替数组，省去了动态声明的过程。擅长尾部插入元素，复杂度为常数，对于头部和中间需要现象复杂度</p>
+<ul>
+<li>最简单的声明</li>
+</ul>
+<p>vector&lt;类型&gt; a名称(初始化个数);</p>
+<p>例如：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">a</span><span class="params">(n)</span></span>;<span class="comment">//初始化n个元素的向量</span></span><br><span class="line"><span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">a</span><span class="params">(n,x)</span></span>;<span class="comment">//初始化n个元素的向量，每个元素是x</span></span><br><span class="line">vector&lt;<span class="type">int</span>&gt; a = {<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>};<span class="comment">//支持数组声明的方法，自动创建</span></span><br><span class="line"><span class="comment">//二维</span></span><br><span class="line">vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">matrix</span>(n,<span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(m));<span class="comment">//m*n的矩阵</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>其他的构造方式</li>
+<li>拷贝构造：传入其他vector引用</li>
+<li>区间拷贝：传入两个迭代器</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">a</span><span class="params">(<span class="number">5</span>)</span></span>;</span><br><span class="line"><span class="comment">//拷贝</span></span><br><span class="line"><span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">b</span><span class="params">(a)</span></span>;</span><br><span class="line"><span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">b</span><span class="params">(a.begin(),a.end())</span></span>;</span><br></pre></td></tr></table></figure>
+<h3 id="常用操作">常用操作</h3>
+<ul>
+<li>size()：返回元素多少</li>
+<li>capcity()：返回空间大小</li>
+<li>empty()：返回一个bool值，空为真</li>
+<li>push_back(n)：在尾部插入</li>
+<li>emplace_back(n)：和push_back差不多，但是是在不超过capcity的情况下，如果超过则会直接构造这个元素再填值，比如原来capcity是5现在会变成10</li>
+<li>resize(n,
+[*x])：改变向量的大小，小于舍去尾部，大于默认为x，x缺省默新增元素调用默认构造函数</li>
+<li>reserve(n)：改变向量组容量capacity为n</li>
+</ul>
+<blockquote>
+<p>size()是vector可访问元素的多少，capacity是vector空间的大小，使用resize会申请空间并初始化（构造）而reserve只会申请空间，所以后者的消费少一些，再填值的时候可以用push_back().所以前者相当于同时进行这两个操作</p>
+</blockquote>
+<ul>
+<li><p>pop_back()：删除向量尾部的数，不减小capacity</p></li>
+<li><p>max_size()：当前向量支持到的最大长度，不是capacity</p></li>
+<li><p>~vector()，析构函数，没必要介绍了吧，销毁向量组，释放所有空间</p></li>
+</ul>
+<h3 id="迭代器">迭代器</h3>
+<ul>
+<li><p>语法：<code>vector&lt;类型&gt;::itetator</code>，相当于指针，迭代器的加减就相当于指针加减，也需要*解引用</p></li>
+<li><p><code>begin()</code>头迭代器</p></li>
+<li><p><code>end()</code>尾迭代器，但不是最后一个元素，而是尾部，正如c语言中字符串最后一个是\0一样，而得到的是一个迭代器，++–并不会改变vector自身，所以常用的访问尾部的操作就–a.end()（注意end()–是先end后–所以其实没意义）</p></li>
+<li><p><code>insert(position,x)</code>：在迭代器position的前面插入x(如果是后面就没法插入头了嘛)</p></li>
+<li><p><code>erase(positon1,[\*position2])</code>：一个参数就是参数那个位置，两个参数就是左闭右开区间，如果是闭区间就把end()也删了，挺不友好的</p></li>
+<li><p><code>clear()</code>：清空向量（好像不会清空capacity</p></li>
+<li><p>拷贝：<code>assign(const_iterator first,const_iterator last)</code>：将一个容器中的
+<strong>[first，last)</strong>范围内的元素拷贝到另一个容器中</p></li>
+<li><p><code>reverse(const_iterator first,const_iterator last)</code>：反转在<strong>[first,last)</strong>范围内的顺序，reverse函数无返回值</p></li>
+<li><p>反向迭代器：使用rbegin和rend就可以了，指针+等于原来的-、</p></li>
+<li><p>swap(a,b)，交换ab元素</p></li>
+</ul>
+<h3 id="常用场景">常用场景</h3>
+<p>就是代替数组吧，可以使用下标访问，排序也是正常排序没啥特殊的，使用sort(a.begin(),a.end(),cmp)；（等会会总结stl的算法部分，比如排序之类的，cmp就是自定义的比较函数，返回值为bool，输入两个同类型变量）。</p>
+<h3 id="assign">assign</h3>
+<p>vector的成员assign方法，负责<strong>分配新的内容至vector中，以代替现有的内容并相应的修改其size</strong>。就相当于重新初始化了，不过如果小于原来的长度并不会改变占用的空间。（不改变capacity）</p>
+<ul>
+<li>void assign (InputIterator first, InputIterator
+last);按传入的迭代器按顺序构建。</li>
+<li>void assign (size_type n, const value_type&amp;
+val);构建为n个val值</li>
+<li>void assign (initializer_list<value_type>
+il);构造为传入的列表例如test.assign({1,2,3,4});</value_type></li>
+</ul>
+<h2 id="string">string</h2>
+<p>字符串处理函数，使用string非常方便，既支持类似于c语言的数组形式，还有更为方便的字符串运算，读入读出都很方便，另外就是有特殊功能的函数，比如寻找子串的功能，比c友好多了。由于都是线性结构，vector，list，string都有异曲同工之妙。</p>
+<h3 id="构造函数">构造函数</h3>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//基本声明</span></span><br><span class="line"><span class="function">string <span class="title">s</span><span class="params">()</span></span>; <span class="comment">//生成一个空字符串s</span></span><br><span class="line">s.~<span class="built_in">string</span>() <span class="comment">//销毁所有字符，释放内存</span></span><br><span class="line">string s=<span class="string">"this is a string."</span></span><br><span class="line">    </span><br><span class="line"><span class="comment">//完全拷贝和部分拷贝</span></span><br><span class="line">string <span class="built_in">s</span>(str) <span class="comment">//拷贝构造函数 生成str的复制品string(const string&amp; str)</span></span><br><span class="line">string <span class="built_in">s</span>(beg,end) <span class="comment">//以区间beg;end(不包含end)内的字符作为字符串s的初值</span></span><br><span class="line">string <span class="built_in">s</span>(str,stridx) <span class="comment">//str为别的string，从strid开始到末尾的部分拷贝（左闭</span></span><br><span class="line">string <span class="built_in">s</span>(<span class="type">const</span> string&amp; str, size_type pos,strlen) <span class="comment">//从pos开始的len个字符，不足不补</span></span><br><span class="line">string <span class="built_in">s</span>(<span class="type">const</span> <span class="type">char</span> *s) <span class="comment">//将C字符串作为s的初值</span></span><br><span class="line">string <span class="built_in">s</span>(<span class="type">const</span> <span class="type">char</span>* cstr, size_type n) <span class="comment">//使用字符串str的前n个字符初始化作为字符串s的初值。</span></span><br><span class="line">    </span><br><span class="line"> <span class="comment">//像向量一样</span></span><br><span class="line">string <span class="built_in">s</span>(<span class="type">int</span> num,<span class="type">char</span> c) <span class="comment">//生成一个字符串，包含num个c字符</span></span><br></pre></td></tr></table></figure>
+<p>其实记得s="this is a
+string."这种最基本的方法就差不多了吧，其他的用到了凭感觉试一试，ide会帮助你的。</p>
+<h3 id="常用操作-1">常用操作</h3>
+<p>因为string对一些操作符重载了，作用相同的操作符和函数就写在一块吧</p>
+<h4 id="基本操作和vector很像看看运算符重载就可以了">基本操作（和vector很像，看看运算符重载就可以了）</h4>
+<ul>
+<li>=,assign() ：赋以新值，assign的用法和vector差不多</li>
+<li>swap() ：交换两个字符串的内容</li>
+<li>+=,append(),push_back()
+：在尾部添加字符，+号也可以对字符串操作，两个字符串拼接</li>
+<li>==,!=,&lt;,&lt;=,&gt;,&gt;=,compare()
+：比较字符串size()，按照字典序比较</li>
+<li>insert() ：插入字符</li>
+<li>erase(int nStart,int nEnd) ：删除nStart—nEnd位置字符</li>
+<li>clear() ：删除全部字符</li>
+<li>replace() ：替换字符</li>
+<li>length() //返回字符数量</li>
+<li>max_size() ：返回字符的可能最大个数</li>
+<li>empty() ：判断字符串是否为空</li>
+<li>capacity() ：返回重新分配之前的字符容量</li>
+<li>reserve() ：保留一定量内存以容纳一定数量的字符</li>
+</ul>
+<h4 id="输入输出">输入输出</h4>
+<ul>
+<li>&gt;&gt;,getline() ：从stream读取某值</li>
+<li>&lt;&lt; ：将谋值写入stream</li>
+<li>copy() ：将某值赋值为一个C_string</li>
+</ul>
+<h4 id="转换和c风格">转换和C风格</h4>
+<ul>
+<li><p>[ ], at() ：存取单一字符</p></li>
+<li><p>c_str() ：将内容以C_string返回</p></li>
+<li><p>data() ：将内容以字符数组形式返回</p></li>
+</ul>
+<h4 id="迭代器-1">迭代器</h4>
+<ul>
+<li>begin() end() ：提供类似STL的迭代器支持</li>
+<li>rbegin() rend()：逆向迭代器</li>
+<li>get_allocator() ：返回配置器</li>
+</ul>
+<h3 id="寻找子串">寻找子串</h3>
+<p>1.find函数</p>
+<p>形式1：str.find(string s) 或者 str.find(char s)</p>
+<p>形式2：str.find(string s, int pos) 或者 str.find(char s, int pos)</p>
+<p>返回值：返回字符或字符串s在字符串str中第一次出现的下标，从0开始。</p>
+<p>2.substr函数</p>
+<p>形式 ： s.substr(pos, len)</p>
+<ul>
+<li><code>pos</code>：所需的子字符串的起始位置。字符串中第一个字符的索引为
+0.</li>
+<li><code>len</code>：所需截取的子串长度</li>
+<li><code>返回值</code>：截取的子串</li>
+</ul>
+<p>例子：寻找str作为子串在s中出现的次数（注意这里的子串指的是连续的）</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">string::iterator pos=s.<span class="built_in">begin</span>();</span><br><span class="line"><span class="type">int</span> times;</span><br><span class="line"><span class="keyword">while</span>(s.<span class="built_in">find</span>(str, pos)!=string::npos){<span class="comment">//当没有子串的时候返回npos</span></span><br><span class="line">    times++;</span><br><span class="line">    cout&lt;&lt;pos&lt;&lt;endl;</span><br><span class="line">    pos = s.<span class="built_in">find</span>(str, pos) + <span class="number">1</span>;<span class="comment">//从后面位置继续匹配</span></span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>例子：获得小数字符串的整数部分和小数部分</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">string a = <span class="string">"123.456"</span>;</span><br><span class="line"><span class="comment">//al、ar分别为第一个浮点数的整数部分、小数部分</span></span><br><span class="line"><span class="comment">//截取字符串</span></span><br><span class="line">string al = a.<span class="built_in">substr</span>(<span class="number">0</span>, a.<span class="built_in">find</span>(<span class="string">'.'</span>)); <span class="comment">//al = "123"</span></span><br><span class="line">string ar = a.<span class="built_in">substr</span>(a.<span class="built_in">find</span>(<span class="string">'.'</span>) + <span class="number">1</span>); <span class="comment">//ar = "456"</span></span><br></pre></td></tr></table></figure>
+<h3 id="其他函数">其他函数</h3>
+<p>除了使用这些函数，stl还提供了to_string()、to_integer()等等函数用来转换变量和string。另外还有许多函数，比如对字符串排序的，转写大小写字母的等等，用到再记吧。</p>
+<h2 id="list">List</h2>
+<p>list底层是以<strong>双向链表</strong>的形式实现的（注意和deque的区别，deque是双端队列，是两条单向链表的合并），插入和删除效率极高，但访问效率低，不能直接访问，需要使用迭代器访问。</p>
+<p>实际场景中，如何<strong>需要对序列进行大量添加或删除元素的操作，而直接访问元素的需求却很少</strong>，这种情况建议使用
+list 容器存储序列。list
+容器中的元素可以分散存储在内存空间里，而不是必须存储在一整块连续的内存空间中。</p>
+<h3 id="构造函数-1">构造函数</h3>
+<p>和vector差不多，从形式上来说，一模一样</p>
+<h3 id="方法">方法</h3>
+<table>
+<colgroup>
+<col style="width: 18%">
+<col style="width: 70%">
+<col style="width: 10%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>size()</th>
+<th>返回表的元素数</th>
+<th>O(1)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>begin()</td>
+<td>返回指向表开头的迭代器</td>
+<td>O(1)</td>
+</tr>
+<tr class="even">
+<td>end()</td>
+<td>返回指向表末尾（最后一个元素的后一个位置）的迭代器</td>
+<td>O(1)</td>
+</tr>
+<tr class="odd">
+<td>push_front(x)</td>
+<td>在表开头添加元素x</td>
+<td>O(1)</td>
+</tr>
+<tr class="even">
+<td>push_back(x)</td>
+<td>在表末尾添加元素x</td>
+<td>O(1)</td>
+</tr>
+<tr class="odd">
+<td>emplace_front(x)</td>
+<td>在表开头添加元素x</td>
+<td>O(1)</td>
+</tr>
+<tr class="even">
+<td>emplace_back(x)</td>
+<td>在表末尾添加元素x</td>
+<td>O(1)</td>
+</tr>
+<tr class="odd">
+<td>pop_front(x)</td>
+<td>删除位于表头的元素</td>
+<td>O(1)</td>
+</tr>
+<tr class="even">
+<td>pop_back()</td>
+<td>删除位于表尾的元素</td>
+<td>O(1)</td>
+</tr>
+<tr class="odd">
+<td>insert(p,x)</td>
+<td>在表p位置处插入元素x，p为指向该位置的迭代器</td>
+<td>O(1)</td>
+</tr>
+<tr class="even">
+<td>emplace(p,x)</td>
+<td>在表p位置处插入元素x，p为指向该位置的迭代器，效率比 insert()
+方法高</td>
+<td>O(1)</td>
+</tr>
+<tr class="odd">
+<td>erase§</td>
+<td>删除表中p位置的元素，p为指向该位置的迭代器</td>
+<td>O(1)</td>
+</tr>
+<tr class="even">
+<td>clear()</td>
+<td>删除表中所有元素</td>
+<td>O(n)</td>
+</tr>
+<tr class="odd">
+<td>empty()</td>
+<td>判断容器中是否有元素，若无元素，则返回 true；反之，返回 false</td>
+<td>O(1)</td>
+</tr>
+<tr class="even">
+<td>sort()</td>
+<td>通过更改容器中元素的位置，将它们进行排序</td>
+<td>O(n*logn)</td>
+</tr>
+<tr class="odd">
+<td>reverse()</td>
+<td>反转容器中元素的顺序</td>
+<td>O(n)</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>后面写得有点敷衍，有时间再改吧，主要用的就是vector和string吧，list没咋用过，纯背也没什么意义，有时间修改</p>
+</blockquote>
+</article><div class="post-copyright"><div class="copyright-cc-box"><i class="anzhiyufont anzhiyu-icon-copyright"></i></div><div class="post-copyright__author_box"><a class="post-copyright__author_img" href="/" title="头像"><img class="post-copyright__author_img_back" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/mysitesource/yaanblog.jpg" title="头像" alt="头像"><img class="post-copyright__author_img_front" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/mysitesource/yaanblog.jpg" title="头像" alt="头像"></a><div class="post-copyright__author_name">Yaan</div><div class="post-copyright__author_desc">欢迎光临（￣︶￣）</div></div><div class="post-copyright__post__info"><a class="post-copyright__original" title="该文章为原创文章，注意版权协议" href="https://yaanlaan.github.io/2024/07/11/stl-simple/">原创</a><a class="post-copyright-title"><span onclick="rm.copyPageUrl('https://yaanlaan.github.io/2024/07/11/stl-simple/')">STL笔记：vector、string和list</span></a></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div class="rewardLeftButton"></div><div class="shareRight"><div class="share-link mobile"><div class="share-qrcode"><div class="share-button" title="使用手机访问这篇文章"><i class="anzhiyufont anzhiyu-icon-qrcode"></i></div><div class="share-main"><div class="share-main-all"><div id="qrcode" title="https://yaanlaan.github.io/2024/07/11/stl-simple/"></div><div class="reward-dec">使用手机访问这篇文章</div></div></div></div></div><script>function copyCurrentPageUrl() {
+  var currentPageUrl = window.location.href;
+  var input = document.createElement("input");
+  input.setAttribute("value", currentPageUrl);
+  document.body.appendChild(input);
+  input.select();
+  input.setSelectionRange(0, 99999);
+  document.execCommand("copy");
+  document.body.removeChild(input);
+}</script><div class="share-link copyurl"><div class="share-button" id="post-share-url" title="复制链接" onclick="copyCurrentPageUrl()"><i class="anzhiyufont anzhiyu-icon-link"></i></div></div></div></div></div><div class="post-copyright__notice"><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://yaanlaan.github.io" target="_blank">Yaan</a>！</span></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__box"><div class="post-meta__box__category-list"><a class="post-meta__box__categoryes" href="/categories/C/"><span class="categoryes-punctuation"> <i class="anzhiyufont anzhiyu-icon-inbox"></i></span>C++<span class="categoryesPageCount">1</span></a></div><div class="post-meta__box__tag-list"><a class="post-meta__box__tags" href="/tags/tools/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>tools<span class="tagsPageCount">2</span></a><a class="post-meta__box__tags" href="/tags/c/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>c++<span class="tagsPageCount">1</span></a><a class="post-meta__box__tags" href="/tags/stl/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>stl<span class="tagsPageCount">1</span></a></div></div></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/07/11/cmake/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/postimage/cmake.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">CMake的第一个程序</div></div></a></div><div class="next-post pull-right"><a href="/2024/07/11/%E6%95%B0%E8%AE%BA%E5%88%9D%E6%AD%A5/"><img class="next-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/postimage/%E6%95%B0%E8%AE%BA%E5%88%9D%E6%AD%A5.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">数论初步</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="anzhiyufont anzhiyu-icon-thumbs-up fa-fw" style="font-size: 1.5rem; margin-right: 4px"></i><span>喜欢这篇文章的人也看了</span></div><div class="relatedPosts-list"><div><a href="/2024/07/11/cmake/" title="CMake的第一个程序"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/postimage/cmake.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2024-07-11</div><div class="title">CMake的第一个程序</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="author-info__sayhi" id="author-info__sayhi" onclick="anzhiyu.changeSayHelloText()"></div><div class="author-info-avatar"><img class="avatar-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/mysitesource/yaanblog.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-status"><img class="g-status" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://bu.dusays.com/2021/01/15/591aaf707ee3c.png" alt="status"/></div></div><div class="author-info__description">草木山石，日月星辰</div><div class="author-info__bottom-group"><a class="author-info__bottom-group-left" href="/"><h1 class="author-info__name">Yaan</h1><div class="author-info__desc">欢迎光临（￣︶￣）</div></a><div class="card-info-social-icons is-center"><a class="social-icon faa-parent animated-hover" href="https://github.com/yaanlaan" target="_blank" title="Github"><i class="anzhiyufont anzhiyu-icon-github"></i></a><a class="social-icon faa-parent animated-hover" href="https://www.zhihu.com/people/4-56-20-42" target="_blank" title="Zhihu"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-zhihu-circle-fill"></use></svg></a></div></div></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bullhorn anzhiyu-shake"></i><span>公告</span></div><div class="announcement_content">小破站今天也在苟活QAQ</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bars"></i><span>文章目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#stl%E7%AC%94%E8%AE%B0vectorstring%E5%92%8Clist"><span class="toc-text">STL笔记：vector、string和list</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#vector"><span class="toc-text">vector</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%84%E9%80%A0"><span class="toc-text">构造</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C"><span class="toc-text">常用操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%AD%E4%BB%A3%E5%99%A8"><span class="toc-text">迭代器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-text">常用场景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#assign"><span class="toc-text">assign</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#string"><span class="toc-text">string</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0"><span class="toc-text">构造函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C-1"><span class="toc-text">常用操作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%E5%92%8Cvector%E5%BE%88%E5%83%8F%E7%9C%8B%E7%9C%8B%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD%E5%B0%B1%E5%8F%AF%E4%BB%A5%E4%BA%86"><span class="toc-text">基本操作（和vector很像，看看运算符重载就可以了）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA"><span class="toc-text">输入输出</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BD%AC%E6%8D%A2%E5%92%8Cc%E9%A3%8E%E6%A0%BC"><span class="toc-text">转换和C风格</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%AD%E4%BB%A3%E5%99%A8-1"><span class="toc-text">迭代器</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%BB%E6%89%BE%E5%AD%90%E4%B8%B2"><span class="toc-text">寻找子串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E5%87%BD%E6%95%B0"><span class="toc-text">其他函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#list"><span class="toc-text">List</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0-1"><span class="toc-text">构造函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%95"><span class="toc-text">方法</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-history"></i><span>最近发布</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/07/11/%E6%95%B0%E8%AE%BA%E5%88%9D%E6%AD%A5/" title="数论初步"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/postimage/%E6%95%B0%E8%AE%BA%E5%88%9D%E6%AD%A5.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数论初步"/></a><div class="content"><a class="title" href="/2024/07/11/%E6%95%B0%E8%AE%BA%E5%88%9D%E6%AD%A5/" title="数论初步">数论初步</a><time datetime="2024-07-10T16:20:00.000Z" title="发表于 2024-07-11 00:20:00">2024-07-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/07/11/stl-simple/" title="STL笔记：vector、string和list"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/postimage/stl.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="STL笔记：vector、string和list"/></a><div class="content"><a class="title" href="/2024/07/11/stl-simple/" title="STL笔记：vector、string和list">STL笔记：vector、string和list</a><time datetime="2024-07-10T16:10:31.000Z" title="发表于 2024-07-11 00:10:31">2024-07-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/07/11/cmake/" title="CMake的第一个程序"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/postimage/cmake.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="CMake的第一个程序"/></a><div class="content"><a class="title" href="/2024/07/11/cmake/" title="CMake的第一个程序">CMake的第一个程序</a><time datetime="2024-07-10T16:08:34.000Z" title="发表于 2024-07-11 00:08:34">2024-07-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/07/10/lingo1/" title="数学建模Week2：Lingo与线性模型2"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/postimage/lingo1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数学建模Week2：Lingo与线性模型2"/></a><div class="content"><a class="title" href="/2024/07/10/lingo1/" title="数学建模Week2：Lingo与线性模型2">数学建模Week2：Lingo与线性模型2</a><time datetime="2024-07-10T15:57:40.000Z" title="发表于 2024-07-10 23:57:40">2024-07-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/07/10/lingo0/" title="数学建模Week1：Lingo与线性模型1"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/postimage/lingo0.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数学建模Week1：Lingo与线性模型1"/></a><div class="content"><a class="title" href="/2024/07/10/lingo0/" title="数学建模Week1：Lingo与线性模型1">数学建模Week1：Lingo与线性模型1</a><time datetime="2024-07-10T15:49:13.000Z" title="发表于 2024-07-10 23:49:13">2024-07-10</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div id="workboard"><div id="runtimeTextTip"></div></div></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div id="footer-bar-tips"><div class="copyright">&copy;2024 By <a class="footer-bar-link" href="/" title="Yaan" target="_blank">Yaan</a></div></div><div id="footer-type-tips"></div><div class="js-pjax"><script>function subtitleType () {
+  fetch('https://v1.hitokoto.cn')
+    .then(response => response.json())
+    .then(data => {
+      if (true) {
+        const from = '出自 ' + data.from
+        const sub = []
+        sub.unshift(data.hitokoto, from)
+        window.typed = new Typed('#footer-type-tips', {
+          strings: sub,
+          startDelay: 300,
+          typeSpeed: 150,
+          loop: true,
+          backSpeed: 50,
+        })
+      } else {
+        document.getElementById('footer-type-tips').innerHTML = data.hitokoto
+      }
+    })
+}
+
+if (true) {
+  if (typeof Typed === 'function') {
+    subtitleType()
+  } else {
+    getScript('https://cdn.cbd.int/typed.js@2.1.0/dist/typed.umd.js').then(subtitleType)
+  }
+} else {
+  subtitleType()
+}
+</script></div></div><div class="footer-bar-right"><a class="footer-bar-link" target="_blank" rel="noopener" href="https://github.com/anzhiyu-c/hexo-theme-anzhiyu" title="主题">主题</a></div></div></div></footer></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="sidebar-site-data site-data is-center"><a href="/archives/" title="archive"><div class="headline">文章</div><div class="length-num">21</div></a><a href="/tags/" title="tag"><div class="headline">标签</div><div class="length-num">18</div></a><a href="/categories/" title="category"><div class="headline">分类</div><div class="length-num">9</div></a></div><span class="sidebar-menu-item-title">功能</span><div class="sidebar-menu-item"><a class="darkmode_switchbutton menu-child" href="javascript:void(0);" title="显示模式"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span>显示模式</span></a></div><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://blog.anheyu.com/" title="博客"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="博客"/><span class="back-menu-item-text">博客</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">项目</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://image.anheyu.com/" title="安知鱼图床"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://image.anheyu.com/favicon.ico" alt="安知鱼图床"/><span class="back-menu-item-text">安知鱼图床</span></a></div></div></div><div class="menus_items"><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/archives/"><span> 文章</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/categories/"><span> 分类</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/tags/"><span> 标签</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="javascript:toRandomPost()"><span> 随便逛逛</span></a></div></div><span class="sidebar-menu-item-title">标签</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/C/" style="font-size: 0.88rem;">C++<sup>1</sup></a><a href="/tags/LINGO/" style="font-size: 0.88rem;">LINGO<sup>2</sup></a><a href="/tags/MATLAB/" style="font-size: 0.88rem;">MATLAB<sup>10</sup></a><a href="/tags/c/" style="font-size: 0.88rem;">c++<sup>1</sup></a><a href="/tags/cmake/" style="font-size: 0.88rem;">cmake<sup>1</sup></a><a href="/tags/stl/" style="font-size: 0.88rem;">stl<sup>1</sup></a><a href="/tags/tools/" style="font-size: 0.88rem;">tools<sup>2</sup></a><a href="/tags/%E4%BF%A1%E6%81%AF%E8%AE%BA/" style="font-size: 0.88rem;">信息论<sup>1</sup></a><a href="/tags/%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B/" style="font-size: 0.88rem;">微分方程<sup>2</sup></a><a href="/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" style="font-size: 0.88rem;">数学建模<sup>3</sup></a><a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 0.88rem;">数据结构<sup>1</sup></a><a href="/tags/%E6%95%B0%E8%AE%BA/" style="font-size: 0.88rem;">数论<sup>1</sup></a><a href="/tags/%E6%9C%AC%E7%A7%91%E7%AC%94%E8%AE%B0/" style="font-size: 0.88rem;">本科笔记<sup>13</sup></a><a href="/tags/%E6%A8%A1%E6%9D%BF/" style="font-size: 0.88rem;">模板<sup>1</sup></a><a href="/tags/%E6%B5%8B%E8%AF%95/" style="font-size: 0.88rem;">测试<sup>1</sup></a><a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 0.88rem;">算法<sup>1</sup></a><a href="/tags/%E7%BA%BF%E6%80%A7%E8%A7%84%E5%88%92/" style="font-size: 0.88rem;">线性规划<sup>2</sup></a><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/" style="font-size: 0.88rem;">计算机图形学<sup>1</sup></a></div></div><hr/></div></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="anzhiyufont anzhiyu-icon-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="anzhiyufont anzhiyu-icon-gear"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="anzhiyufont anzhiyu-icon-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></button></div></div><div id="nav-music"><a id="nav-music-hoverTips" onclick="anzhiyu.musicToggle()" accesskey="m">播放音乐</a><div id="console-music-bg"></div><meting-js id="8152976493" server="netease" type="playlist" mutex="true" preload="none" theme="var(--anzhiyu-main)" data-lrctype="0" order="random"></meting-js></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="anzhiyufont anzhiyu-icon-xmark"></i></button></nav><div class="is-center" id="loading-database"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-pulse-icon"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="anzhiyufont anzhiyu-icon-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="anzhiyufont anzhiyu-icon-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right" style="font-size: 1rem;"></i></div><div class="rightMenu-item" id="menu-top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制选中文本</span></div><div class="rightMenu-item" id="menu-pastetext"><i class="anzhiyufont anzhiyu-icon-paste"></i><span>粘贴文本</span></div><a class="rightMenu-item" id="menu-commenttext"><i class="anzhiyufont anzhiyu-icon-comment-medical"></i><span>引用到评论</span></a><div class="rightMenu-item" id="menu-newwindow"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="anzhiyufont anzhiyu-icon-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="anzhiyufont anzhiyu-icon-images"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="anzhiyufont anzhiyu-icon-download"></i><span>下载此图片</span></div><div class="rightMenu-item" id="menu-newwindowimg"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开图片</span></div><div class="rightMenu-item" id="menu-search"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>站内搜索</span></div><div class="rightMenu-item" id="menu-searchBaidu"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>百度搜索</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="anzhiyufont anzhiyu-icon-play"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="anzhiyufont anzhiyu-icon-backward"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="anzhiyufont anzhiyu-icon-forward"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-playlist" onclick="window.open(&quot;https://y.qq.com/n/ryqq/playlist/8802438608&quot;, &quot;_blank&quot;);" style="display: none;"><i class="anzhiyufont anzhiyu-icon-radio"></i><span>查看所有歌曲</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-link" id="menu-randomPost"><i class="anzhiyufont anzhiyu-icon-shuffle"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="anzhiyufont anzhiyu-icon-cube"></i><span>博客分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags"></i><span>文章标签</span></a></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item" id="menu-copy" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制地址</span></a><a class="rightMenu-item" id="menu-commentBarrage" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-message"></i><span class="menu-commentBarrage-text">关闭热评</span></a><a class="rightMenu-item" id="menu-darkmode" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span class="menu-darkmode-text">深色模式</span></a><a class="rightMenu-item" id="menu-translate" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-language"></i><span>轉為繁體</span></a></div></div><div id="rightmenu-mask"></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.cbd.int/@fancyapps/ui@5.0.28/dist/fancybox/fancybox.umd.js"></script><script src="https://cdn.cbd.int/instant.page@5.2.0/instantpage.js" type="module"></script><script src="https://cdn.cbd.int/vanilla-lazyload@17.8.5/dist/lazyload.iife.min.js"></script><script src="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.cbd.int/pangu@4.0.7/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><canvas id="universe"></canvas><script async src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/dark/dark.js"></script><script>// 消除控制台打印
+var HoldLog = console.log;
+console.log = function () {};
+let now1 = new Date();
+queueMicrotask(() => {
+  const Log = function () {
+    HoldLog.apply(console, arguments);
+  }; //在恢复前输出日志
+  const grt = new Date("04/01/2021 00:00:00"); //此处修改你的建站时间或者网站上线时间
+  now1.setTime(now1.getTime() + 250);
+  const days = (now1 - grt) / 1000 / 60 / 60 / 24;
+  const dnum = Math.floor(days);
+  const ascll = [
+    `欢迎使用安知鱼!`,
+    `生活明朗, 万物可爱`,
+    `
+        
+       █████╗ ███╗   ██╗███████╗██╗  ██╗██╗██╗   ██╗██╗   ██╗
+      ██╔══██╗████╗  ██║╚══███╔╝██║  ██║██║╚██╗ ██╔╝██║   ██║
+      ███████║██╔██╗ ██║  ███╔╝ ███████║██║ ╚████╔╝ ██║   ██║
+      ██╔══██║██║╚██╗██║ ███╔╝  ██╔══██║██║  ╚██╔╝  ██║   ██║
+      ██║  ██║██║ ╚████║███████╗██║  ██║██║   ██║   ╚██████╔╝
+      ╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝╚═╝   ╚═╝    ╚═════╝
+        
+        `,
+    "已上线",
+    dnum,
+    "天",
+    "©2024 By 安知鱼 V1.6.12",
+  ];
+  const ascll2 = [`NCC2-036`, `调用前置摄像头拍照成功，识别为【小笨蛋】.`, `Photo captured: `, `🤪`];
+
+  setTimeout(
+    Log.bind(
+      console,
+      `\n%c${ascll[0]} %c ${ascll[1]} %c ${ascll[2]} %c${ascll[3]}%c ${ascll[4]}%c ${ascll[5]}\n\n%c ${ascll[6]}\n`,
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      ""
+    )
+  );
+  setTimeout(
+    Log.bind(
+      console,
+      `%c ${ascll2[0]} %c ${ascll2[1]} %c \n${ascll2[2]} %c\n${ascll2[3]}\n`,
+      "color:white; background-color:#4fd953",
+      "",
+      "",
+      'background:url("https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/tinggge.gif") no-repeat;font-size:450%'
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c WELCOME %c 你好，小笨蛋.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(
+      console,
+      "%c ⚡ Powered by 安知鱼 %c 你正在访问 Yaan 的博客.",
+      "color:white; background-color:#f0ad4e",
+      ""
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c W23-12 %c 你已打开控制台.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(console, "%c S013-782 %c 你现在正处于监控中.", "color:white; background-color:#d9534f", "")
+  );
+});</script><script async src="/anzhiyu/random.js"></script><script async="async">(function () {
+  var grt = new Date("04/01/2021 00:00:00"); //设置网站上线时间
+  var now = new Date();
+  var dnum;
+  var hnum;
+  var mnum;
+  var snum;
+  var nowHour;
+
+  // 计算并更新天数、小时数、分钟数和秒数
+  function updateTime() {
+    now = new Date(); // 更新 now 的值
+    nowHour = now.getHours(); // 更新 nowHour 的值
+    var days = (now - grt) / 1000 / 60 / 60 / 24;
+    dnum = Math.floor(days);
+    var hours = (now - grt) / 1000 / 60 / 60 - 24 * dnum;
+    hnum = Math.floor(hours);
+    if (String(hnum).length == 1) {
+      hnum = "0" + hnum;
+    }
+    var minutes = (now - grt) / 1000 / 60 - 24 * 60 * dnum - 60 * hnum;
+    mnum = Math.floor(minutes);
+    if (String(mnum).length == 1) {
+      mnum = "0" + mnum;
+    }
+    var seconds = (now - grt) / 1000 - 24 * 60 * 60 * dnum - 60 * 60 * hnum - 60 * mnum;
+    snum = Math.round(seconds);
+    if (String(snum).length == 1) {
+      snum = "0" + snum;
+    }
+  }
+
+  // 更新网页中显示的网站运行时间
+  function updateHtml() {
+    const footer = document.getElementById("footer");
+    if (!footer) return
+    let currentTimeHtml = "";
+    if (nowHour < 18 && nowHour >= 9) {
+      // 如果是上班时间，默认就是"安知鱼-上班摸鱼中.svg"图片，不需要更改
+      currentTimeHtml = `本站居然运行了 ${dnum} 天<span id='runtime'> ${hnum} 小时 ${mnum} 分 ${snum} 秒 </span><i class='anzhiyufont anzhiyu-icon-heartbeat' style='color:red'></i>`;
+    } else {
+      // 如果是下班时间，插入"安知鱼-下班啦.svg"图片
+      let img = document.querySelector("#workboard .workSituationImg");
+      if (img != null) {
+        img.src = "";
+        img.title = "";
+        img.alt = "";
+      }
+
+      currentTimeHtml = `本站居然运行了 ${dnum} 天<span id='runtime'> ${hnum} 小时 ${mnum} 分 ${snum} 秒 </span><i class='anzhiyufont anzhiyu-icon-heartbeat' style='color:red'></i>`;
+    }
+
+    if (document.getElementById("runtimeTextTip")) {
+      document.getElementById("runtimeTextTip").innerHTML = currentTimeHtml;
+    }
+  }
+
+  setInterval(() => {
+    updateTime();
+    updateHtml();
+  }, 1000);
+})();</script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>(() => {
+  const $mermaid = document.querySelectorAll('#article-container .mermaid-wrap')
+  if ($mermaid.length === 0) return
+  const runMermaid = () => {
+    window.loadMermaid = true
+    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+    Array.from($mermaid).forEach((item, index) => {
+      const mermaidSrc = item.firstElementChild
+      const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+      const mermaidID = 'mermaid-' + index
+      const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+
+      const renderFn = mermaid.render(mermaidID, mermaidDefinition)
+
+      const renderV10 = () => {
+        renderFn.then(({svg}) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svg)
+        })
+      }
+
+      const renderV9 = svg => {
+        mermaidSrc.insertAdjacentHTML('afterend', svg)
+      }
+
+      typeof renderFn === 'string' ? renderV9(renderFn) : renderV10()
+    })
+  }
+
+  const loadMermaid = () => {
+    window.loadMermaid ? runMermaid() : getScript('https://cdn.cbd.int/mermaid@10.2.4/dist/mermaid.min.js').then(runMermaid)
+  }
+
+  anzhiyu.addGlobalFn('themeChange', runMermaid, 'mermaid')
+
+  window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+})()</script><input type="hidden" name="page-type" id="page-type" value="post"></div><script async data-pjax src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.1/bubble/bubble.js"></script><script async data-pjax src="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/waterfall/waterfall.js"></script><script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/qrcodejs/1.0.0/qrcode.min.js"></script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.9/icon/ali_iconfont_css.css"><script async src="https://at.alicdn.com/t/c/font_4614032_rt5w4p7bq3i.js?spm=a313x.manage_type_myprojects.i1.10.372c3a817mQWHJ&amp;file=font_4614032_rt5w4p7bq3i.js"></script><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.cbd.int/butterfly-extsrc@1.1.3/dist/fireworks.min.js"></script><script src="https://cdn.cbd.int/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+  // removeEventListener scroll 
+  anzhiyu.removeGlobalFnEvent('pjax')
+  anzhiyu.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404')
+  }
+})</script><script charset="UTF-8" src="https://cdn.cbd.int/anzhiyu-theme-static@1.1.5/accesskey/accesskey.js"></script></div><div id="popup-window"><div class="popup-window-title">通知</div><div class="popup-window-divider"></div><div class="popup-window-content"><div class="popup-tip">你好呀</div><div class="popup-link"><i class="anzhiyufont anzhiyu-icon-arrow-circle-right"></i></div></div></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/haru01.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body></html>
