@@ -325,33 +325,25 @@ if (true) {
 <h3 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h3><p>通常会产生一个目录build来存放exe</p>
 <p>所以执行以下命令</p>
 <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mkdir build</span><br><span class="line">cd build</span><br><span class="line">cmake -G "MinGW Makefiles" ..</span><br><span class="line">make</span><br><span class="line">./hello_cmake.exe</span><br></pre></td></tr></table></figure>
-
 <p>cmake 生成 Makefile，make 编译，最后执行</p>
 <p>这就是最简单的cmake应用</p>
 <h2 id="编译多个文件"><a href="#编译多个文件" class="headerlink" title="编译多个文件"></a>编译多个文件</h2><p>创建一个变量记录源文件</p>
 <p>使用${}来调用变量</p>
 <figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span>(SRC_LIST  main.c hello_cmake.c)</span><br><span class="line"><span class="keyword">add_executable</span>(hello_cmake <span class="variable">${SRC_LIST}</span>)</span><br></pre></td></tr></table></figure>
-
 <p>其他采取相同操作即可</p>
 <p>cmake也提供了其他函数例如</p>
 <figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">aux_source_directory</span>(dir var)</span><br></pre></td></tr></table></figure>
-
 <p>第一个是路径，第二个是变量名，可以把目录下所有源文件写入变量，例如上述就可以改为</p>
 <figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">aux_source_directory</span>(. SRC_LIST)</span><br></pre></td></tr></table></figure>
-
 <p>还有设置include路径，使用空格分开</p>
 <figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">include_directories</span> (dir1 dir2)</span><br></pre></td></tr></table></figure>
-
 <h2 id="静态和动态库文件"><a href="#静态和动态库文件" class="headerlink" title="静态和动态库文件"></a>静态和动态库文件</h2><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">add_library</span>(libhello SHARED hello.c) <span class="comment"># 动态</span></span><br><span class="line"><span class="keyword">add_library</span>(libhello STATIC hello.c) <span class="comment"># 静态</span></span><br></pre></td></tr></table></figure>
-
 <p>可以设置名称</p>
 <figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set_target_properties</span>(libhello PROPERTIES OUTPUT_NAME <span class="string">"hello"</span>)</span><br></pre></td></tr></table></figure>
-
 <h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>通常CmakeList.txt会放在build目录里，所以上述的一些相对路径也需要更改</p>
 <p>还有些其他技巧</p>
 <p>编译子目录</p>
 <figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">add_subdirectory</span>(source_dir [binary_dir] [EXCLUDE_FROM_ALL])</span><br></pre></td></tr></table></figure>
-
 <p>一共有三个参数，后两个是可选参数.</p>
 <ul>
 <li><p>source_dir 源代码目录<br>指定一个包含CMakeLists.txt和代码文件所在的目录，该目录可以是绝对路径，也可以是相对路径，对于后者相对路径的起点是CMAKE_CURRENT_SOURCE_DIR。此外，如果子目录再次包含的CMakeLists.txt，则将继续处理里层的CMakeLists.txt，而不是继续处理当前源代码。</p>
@@ -363,7 +355,6 @@ if (true) {
 </ul>
 <p>add_subdirectory 这个命令用于添加源文件子目录，同时还可以指定中间二进制和目标二进制的生成路径。EXCLUDE_FROM_ALL将会将这个目录从编译中排除，如工程的例子需要等待其他编译完成后再进行单独的编译。通常子目录应该包含自己的project()命令，这样一来整个编译命令将会产生各自的目标文件。如果把CMakeLists.txt与VS IDE比较，总的CMakeLists.txt就相当于解决方案，子CMakeLists.txt就相当于在解决方案下的工程文件。还有一个需要注意的是，如果编译父CMakeLists时依赖了子CMakeLists.txt中的源文件，那么该标志将会被覆盖（也就是也会处理），以满足编译任务。</p>
 <figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> (EXECUTABLE_OUTPUT_PATH <span class="variable">${PROJECT_SOURCE_DIR}</span>/bin)<span class="comment">#设置目标二进制可执行文件存放路径</span></span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>EXECUTABLE_OUTPUT_PATH ：目标二进制可执行文件的存放位置</li>
 <li>PROJECT_SOURCE_DIR：工程的根目录</li>
