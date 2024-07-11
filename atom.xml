@@ -33,9 +33,9 @@
     <category term="GAMES101" scheme="https://yaanlaan.github.io/categories/GAMES101/"/>
     
     
-    <category term="c++" scheme="https://yaanlaan.github.io/tags/c/"/>
-    
     <category term="cmake" scheme="https://yaanlaan.github.io/tags/cmake/"/>
+    
+    <category term="c++" scheme="https://yaanlaan.github.io/tags/c/"/>
     
     <category term="opencv" scheme="https://yaanlaan.github.io/tags/opencv/"/>
     
@@ -140,9 +140,9 @@
     <category term="C++" scheme="https://yaanlaan.github.io/categories/C/"/>
     
     
-    <category term="c++" scheme="https://yaanlaan.github.io/tags/c/"/>
-    
     <category term="tools" scheme="https://yaanlaan.github.io/tags/tools/"/>
+    
+    <category term="c++" scheme="https://yaanlaan.github.io/tags/c/"/>
     
     <category term="stl" scheme="https://yaanlaan.github.io/tags/stl/"/>
     

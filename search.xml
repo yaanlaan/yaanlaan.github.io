@@ -34,8 +34,8 @@ REQUIRED)直接利用宏包含头文件和链接库 对应的宏是</p>
         <category>GAMES101</category>
       </categories>
       <tags>
-        <tag>c++</tag>
         <tag>cmake</tag>
+        <tag>c++</tag>
         <tag>opencv</tag>
       </tags>
   </entry>
@@ -699,8 +699,8 @@ list 容器存储序列。list
         <category>C++</category>
       </categories>
       <tags>
-        <tag>c++</tag>
         <tag>tools</tag>
+        <tag>c++</tag>
         <tag>stl</tag>
       </tags>
   </entry>
