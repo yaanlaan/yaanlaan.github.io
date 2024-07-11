@@ -325,12 +325,14 @@ if (true) {
 <p>vector&lt;类型&gt; a名称(初始化个数);</p>
 <p>例如：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">a</span><span class="params">(n)</span></span>;<span class="comment">//初始化n个元素的向量</span></span><br><span class="line"><span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">a</span><span class="params">(n,x)</span></span>;<span class="comment">//初始化n个元素的向量，每个元素是x</span></span><br><span class="line">vector&lt;<span class="type">int</span>&gt; a = {<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>};<span class="comment">//支持数组声明的方法，自动创建</span></span><br><span class="line"><span class="comment">//二维</span></span><br><span class="line">vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">matrix</span>(n,<span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(m));<span class="comment">//m*n的矩阵</span></span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>其他的构造方式</li>
 <li>拷贝构造：传入其他vector引用</li>
 <li>区间拷贝：传入两个迭代器</li>
 </ul>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">a</span><span class="params">(<span class="number">5</span>)</span></span>;</span><br><span class="line"><span class="comment">//拷贝</span></span><br><span class="line"><span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">b</span><span class="params">(a)</span></span>;</span><br><span class="line"><span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">b</span><span class="params">(a.begin(),a.end())</span></span>;</span><br></pre></td></tr></table></figure>
+
 <h3 id="常用操作"><a href="#常用操作" class="headerlink" title="常用操作"></a>常用操作</h3><ul>
 <li>size()：返回元素多少</li>
 <li>capcity()：返回空间大小</li>
@@ -348,23 +350,30 @@ if (true) {
 </li>
 <li><p>max_size()：当前向量支持到的最大长度，不是capacity</p>
 </li>
-<li>~vector()，析构函数，没必要介绍了吧，销毁向量组，释放所有空间</li>
+<li><p>~vector()，析构函数，没必要介绍了吧，销毁向量组，释放所有空间</p>
+</li>
 </ul>
 <h3 id="迭代器"><a href="#迭代器" class="headerlink" title="迭代器"></a>迭代器</h3><ul>
 <li><p>语法：<code>vector&lt;类型&gt;::itetator</code>，相当于指针，迭代器的加减就相当于指针加减，也需要*解引用</p>
 </li>
 <li><p><code>begin()</code>头迭代器</p>
 </li>
-<li><code>end()</code>尾迭代器，但不是最后一个元素，而是尾部，正如c语言中字符串最后一个是\0一样，而得到的是一个迭代器，++–并不会改变vector自身，所以常用的访问尾部的操作就–a.end()（注意end()–是先end后–所以其实没意义）</li>
-<li><code>insert(position,x)</code>：在迭代器position的前面插入x(如果是后面就没法插入头了嘛)</li>
-<li><code>erase(positon1,[\*position2])</code>：一个参数就是参数那个位置，两个参数就是左闭右开区间，如果是闭区间就把end()也删了，挺不友好的</li>
+<li><p><code>end()</code>尾迭代器，但不是最后一个元素，而是尾部，正如c语言中字符串最后一个是\0一样，而得到的是一个迭代器，++–并不会改变vector自身，所以常用的访问尾部的操作就–a.end()（注意end()–是先end后–所以其实没意义）</p>
+</li>
+<li><p><code>insert(position,x)</code>：在迭代器position的前面插入x(如果是后面就没法插入头了嘛)</p>
+</li>
+<li><p><code>erase(positon1,[\*position2])</code>：一个参数就是参数那个位置，两个参数就是左闭右开区间，如果是闭区间就把end()也删了，挺不友好的</p>
+</li>
 <li><p><code>clear()</code>：清空向量（好像不会清空capacity</p>
 </li>
-<li><p>拷贝：<code>assign(const_iterator first,const_iterator last)</code>：将一个容器中的 <strong>[first，last)</strong>范围内的元素拷贝到另一个容器中</p>
+<li><p>拷贝：<code>assign(const_iterator first,const_iterator last)</code>：将一个容器中的 **[first，last)**范围内的元素拷贝到另一个容器中</p>
 </li>
-<li><code>reverse(const_iterator first,const_iterator last)</code>：反转在<strong>[first,last)</strong>范围内的顺序，reverse函数无返回值</li>
-<li>反向迭代器：使用rbegin和rend就可以了，指针+等于原来的-、</li>
-<li>swap(a,b)，交换ab元素</li>
+<li><p><code>reverse(const_iterator first,const_iterator last)</code>：反转在**[first,last)**范围内的顺序，reverse函数无返回值</p>
+</li>
+<li><p>反向迭代器：使用rbegin和rend就可以了，指针+等于原来的-、</p>
+</li>
+<li><p>swap(a,b)，交换ab元素</p>
+</li>
 </ul>
 <h3 id="常用场景"><a href="#常用场景" class="headerlink" title="常用场景"></a>常用场景</h3><p>就是代替数组吧，可以使用下标访问，排序也是正常排序没啥特殊的，使用sort(a.begin(),a.end(),cmp)；（等会会总结stl的算法部分，比如排序之类的，cmp就是自定义的比较函数，返回值为bool，输入两个同类型变量）。</p>
 <h3 id="assign"><a href="#assign" class="headerlink" title="assign"></a>assign</h3><p>vector的成员assign方法，负责<strong>分配新的内容至vector中，以代替现有的内容并相应的修改其size</strong>。就相当于重新初始化了，不过如果小于原来的长度并不会改变占用的空间。（不改变capacity）</p>
@@ -375,6 +384,7 @@ if (true) {
 </ul>
 <h2 id="string"><a href="#string" class="headerlink" title="string"></a>string</h2><p>字符串处理函数，使用string非常方便，既支持类似于c语言的数组形式，还有更为方便的字符串运算，读入读出都很方便，另外就是有特殊功能的函数，比如寻找子串的功能，比c友好多了。由于都是线性结构，vector，list，string都有异曲同工之妙。</p>
 <h3 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//基本声明</span></span><br><span class="line"><span class="function">string <span class="title">s</span><span class="params">()</span></span>; <span class="comment">//生成一个空字符串s</span></span><br><span class="line">s.~<span class="built_in">string</span>() <span class="comment">//销毁所有字符，释放内存</span></span><br><span class="line">string s=<span class="string">"this is a string."</span></span><br><span class="line">    </span><br><span class="line"><span class="comment">//完全拷贝和部分拷贝</span></span><br><span class="line">string <span class="built_in">s</span>(str) <span class="comment">//拷贝构造函数 生成str的复制品string(const string&amp; str)</span></span><br><span class="line">string <span class="built_in">s</span>(beg,end) <span class="comment">//以区间beg;end(不包含end)内的字符作为字符串s的初值</span></span><br><span class="line">string <span class="built_in">s</span>(str,stridx) <span class="comment">//str为别的string，从strid开始到末尾的部分拷贝（左闭</span></span><br><span class="line">string <span class="built_in">s</span>(<span class="type">const</span> string&amp; str, size_type pos,strlen) <span class="comment">//从pos开始的len个字符，不足不补</span></span><br><span class="line">string <span class="built_in">s</span>(<span class="type">const</span> <span class="type">char</span> *s) <span class="comment">//将C字符串作为s的初值</span></span><br><span class="line">string <span class="built_in">s</span>(<span class="type">const</span> <span class="type">char</span>* cstr, size_type n) <span class="comment">//使用字符串str的前n个字符初始化作为字符串s的初值。</span></span><br><span class="line">    </span><br><span class="line"> <span class="comment">//像向量一样</span></span><br><span class="line">string <span class="built_in">s</span>(<span class="type">int</span> num,<span class="type">char</span> c) <span class="comment">//生成一个字符串，包含num个c字符</span></span><br></pre></td></tr></table></figure>
+
 <p>其实记得s=”this is a string.”这种最基本的方法就差不多了吧，其他的用到了凭感觉试一试，ide会帮助你的。</p>
 <h3 id="常用操作-1"><a href="#常用操作-1" class="headerlink" title="常用操作"></a>常用操作</h3><p>因为string对一些操作符重载了，作用相同的操作符和函数就写在一块吧</p>
 <h4 id="基本操作（和vector很像，看看运算符重载就可以了）"><a href="#基本操作（和vector很像，看看运算符重载就可以了）" class="headerlink" title="基本操作（和vector很像，看看运算符重载就可以了）"></a>基本操作（和vector很像，看看运算符重载就可以了）</h4><ul>
@@ -402,7 +412,8 @@ if (true) {
 </li>
 <li><p>c_str() ：将内容以C_string返回</p>
 </li>
-<li>data() ：将内容以字符数组形式返回</li>
+<li><p>data() ：将内容以字符数组形式返回</p>
+</li>
 </ul>
 <h4 id="迭代器-1"><a href="#迭代器-1" class="headerlink" title="迭代器"></a>迭代器</h4><ul>
 <li>begin() end() ：提供类似STL的迭代器支持</li>
@@ -422,14 +433,15 @@ if (true) {
 </ul>
 <p>例子：寻找str作为子串在s中出现的次数（注意这里的子串指的是连续的）</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">string::iterator pos=s.<span class="built_in">begin</span>();</span><br><span class="line"><span class="type">int</span> times;</span><br><span class="line"><span class="keyword">while</span>(s.<span class="built_in">find</span>(str, pos)!=string::npos){<span class="comment">//当没有子串的时候返回npos</span></span><br><span class="line">    times++;</span><br><span class="line">    cout&lt;&lt;pos&lt;&lt;endl;</span><br><span class="line">    pos = s.<span class="built_in">find</span>(str, pos) + <span class="number">1</span>;<span class="comment">//从后面位置继续匹配</span></span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
 <p>例子：获得小数字符串的整数部分和小数部分</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">string a = <span class="string">"123.456"</span>;</span><br><span class="line"><span class="comment">//al、ar分别为第一个浮点数的整数部分、小数部分</span></span><br><span class="line"><span class="comment">//截取字符串</span></span><br><span class="line">string al = a.<span class="built_in">substr</span>(<span class="number">0</span>, a.<span class="built_in">find</span>(<span class="string">'.'</span>)); <span class="comment">//al = "123"</span></span><br><span class="line">string ar = a.<span class="built_in">substr</span>(a.<span class="built_in">find</span>(<span class="string">'.'</span>) + <span class="number">1</span>); <span class="comment">//ar = "456"</span></span><br></pre></td></tr></table></figure>
+
 <h3 id="其他函数"><a href="#其他函数" class="headerlink" title="其他函数"></a>其他函数</h3><p>除了使用这些函数，stl还提供了to_string()、to_integer()等等函数用来转换变量和string。另外还有许多函数，比如对字符串排序的，转写大小写字母的等等，用到再记吧。</p>
 <h2 id="List"><a href="#List" class="headerlink" title="List"></a>List</h2><p>list底层是以<strong>双向链表</strong>的形式实现的（注意和deque的区别，deque是双端队列，是两条单向链表的合并），插入和删除效率极高，但访问效率低，不能直接访问，需要使用迭代器访问。</p>
 <p>实际场景中，如何<strong>需要对序列进行大量添加或删除元素的操作，而直接访问元素的需求却很少</strong>，这种情况建议使用 list 容器存储序列。list 容器中的元素可以分散存储在内存空间里，而不是必须存储在一整块连续的内存空间中。</p>
 <h3 id="构造函数-1"><a href="#构造函数-1" class="headerlink" title="构造函数"></a>构造函数</h3><p>和vector差不多，从形式上来说，一模一样</p>
-<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><div class="table-container">
-<table>
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><table>
 <thead>
 <tr>
 <th>size()</th>
@@ -437,8 +449,7 @@ if (true) {
 <th>O(1)</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>begin()</td>
 <td>返回指向表开头的迭代器</td>
 <td>O(1)</td>
@@ -513,9 +524,7 @@ if (true) {
 <td>反转容器中元素的顺序</td>
 <td>O(n)</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <blockquote>
 <p>  后面写得有点敷衍，有时间再改吧，主要用的就是vector和string吧，list没咋用过，纯背也没什么意义，有时间修改</p>
 </blockquote>

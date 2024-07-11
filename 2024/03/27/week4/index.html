@@ -319,9 +319,12 @@ if (true) {
 <p>自行了解。有些常用函数这里列出</p>
 <p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/2024/03/27/week4/1710893571587.png" alt="1710893571587"></p>
 <ul>
-<li>[a,b]=max(x)：返回最大值及其下标，a为最大值，b为其下标</li>
-<li>[a,b]=min(x)：返回最小值及其下标，a为最小值，b为小标</li>
-<li>mean(x)：求其元素平均值</li>
+<li><p>[a,b]=max(x)：返回最大值及其下标，a为最大值，b为其下标</p>
+</li>
+<li><p>[a,b]=min(x)：返回最小值及其下标，a为最小值，b为小标</p>
+</li>
+<li><p>mean(x)：求其元素平均值</p>
+</li>
 <li><p>sum(x)：求和</p>
 <blockquote>
 <p>都是相对下一维度的元素，如果对每个元素，则需要嵌套</p>
@@ -330,6 +333,7 @@ if (true) {
 </ul>
 <h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><p>使用单引号对字符串赋值 <code>'str'，每个字符都以ASCII码形式存储。</code></p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str = <span class="string">'This is a string.'</span></span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>length(),size()：length显示含有下一维度的元素长，size显示下一维度的元素长（例如二维，length是向量个数，size是每个向量长度，是个数组）</li>
 <li>字符的存储形式是ASCII码，所以它可以像数字一样运算。</li>
@@ -337,6 +341,7 @@ if (true) {
 </ul>
 <p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/2024/03/27/week4/1710894817455.png" alt="1710894817455"></p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%% 函数法</span></span><br><span class="line">str = <span class="string">'ABc123d4e56Fg9'</span>;</span><br><span class="line">sub_str= str(<span class="number">1</span>:<span class="number">5</span>);</span><br><span class="line">rstr = str(<span class="keyword">end</span>:<span class="number">-1</span>:<span class="number">1</span>);</span><br><span class="line">up_str = upper(str);</span><br><span class="line">count_lower = sum(isstrprop(str,<span class="string">'lower'</span>));</span><br><span class="line"><span class="comment">%% find法</span></span><br><span class="line">str = <span class="string">'ABc123d4e56Fg9'</span>;</span><br><span class="line">sub_str= str(<span class="number">1</span>:<span class="number">5</span>);</span><br><span class="line">rstr = reverse(sub_str);</span><br><span class="line">a = <span class="built_in">find</span>(str&lt;=<span class="string">'z'</span>&amp;str&gt;=<span class="string">'a'</span>);</span><br><span class="line">str(a) = str(a)+<span class="string">'A'</span>-<span class="string">'a'</span>;</span><br><span class="line">count_lower = <span class="built_in">size</span>(a);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>reverse()：字符串翻转</li>
 <li>upper()\lower()：大小写转换</li>
@@ -344,7 +349,8 @@ if (true) {
 <li>find：寻找满足表达式的元素返回下标数组</li>
 </ul>
 <h2 id="单元小结（测试题总结节选）"><a href="#单元小结（测试题总结节选）" class="headerlink" title="单元小结（测试题总结节选）"></a>单元小结（测试题总结节选）</h2><ul>
-<li>对数函数log(x)：是以e为底的对数，log2，log10分别是以2、10为底的对数，如果是其他底数，使用换底公式计算</li>
+<li><p>对数函数log(x)：是以e为底的对数，log2，log10分别是以2、10为底的对数，如果是其他底数，使用换底公式计算</p>
+</li>
 <li><p>矩阵的翻转</p>
 <ul>
 <li>flipud：上下翻转</li>
