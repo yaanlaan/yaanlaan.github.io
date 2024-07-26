@@ -54,7 +54,7 @@
   configTitle: 'Yaan',
   title: '分类',
   postAI: '',
-  pageFillDescription: '文章分类索引',
+  pageFillDescription: '',
   isPost: false,
   isHome: false,
   isHighlightShrink: false,
@@ -429,7 +429,7 @@ queueMicrotask(() => {
   const Log = function () {
     HoldLog.apply(console, arguments);
   }; //在恢复前输出日志
-  const grt = new Date("04/01/2021 00:00:00"); //此处修改你的建站时间或者网站上线时间
+  const grt = new Date("03/14/2024 00:00:00"); //此处修改你的建站时间或者网站上线时间
   now1.setTime(now1.getTime() + 250);
   const days = (now1 - grt) / 1000 / 60 / 60 / 24;
   const dnum = Math.floor(days);
@@ -494,7 +494,7 @@ queueMicrotask(() => {
     console.warn.bind(console, "%c S013-782 %c 你现在正处于监控中.", "color:white; background-color:#d9534f", "")
   );
 });</script><script async src="/anzhiyu/random.js"></script><script async="async">(function () {
-  var grt = new Date("04/01/2021 00:00:00"); //设置网站上线时间
+  var grt = new Date("03/14/2024 00:00:00"); //设置网站上线时间
   var now = new Date();
   var dnum;
   var hnum;
@@ -532,7 +532,7 @@ queueMicrotask(() => {
     let currentTimeHtml = "";
     if (nowHour < 18 && nowHour >= 9) {
       // 如果是上班时间，默认就是"安知鱼-上班摸鱼中.svg"图片，不需要更改
-      currentTimeHtml = `本站居然运行了 ${dnum} 天<span id='runtime'> ${hnum} 小时 ${mnum} 分 ${snum} 秒 </span><i class='anzhiyufont anzhiyu-icon-heartbeat' style='color:red'></i>`;
+      currentTimeHtml = `运行了 ${dnum} 天<span id='runtime'> ${hnum} 小时 ${mnum} 分 ${snum} 秒 </span><i class='anzhiyufont anzhiyu-icon-heartbeat' style='color:red'></i>`;
     } else {
       // 如果是下班时间，插入"安知鱼-下班啦.svg"图片
       let img = document.querySelector("#workboard .workSituationImg");
