@@ -1,48 +1,194 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
-<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/256.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/512.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/256.png">
-  <link rel="mask-icon" href="/images/512.png" color="#222">
-  <link rel="manifest" href="/images/256.png">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><title>数学建模微分方程（一） | Yaan</title><meta name="keywords" content="微分方程"><meta name="author" content="Yaan"><meta name="copyright" content="Yaan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#f7f9fe"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-touch-fullscreen" content="yes"><meta name="apple-mobile-web-app-title" content="数学建模微分方程（一）"><meta name="application-name" content="数学建模微分方程（一）"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="#f7f9fe"><meta property="og:type" content="article"><meta property="og:title" content="数学建模微分方程（一）"><meta property="og:url" content="https://yaanlaan.github.io/2024/07/10/微分方程（一）/index.html"><meta property="og:site_name" content="Yaan"><meta property="og:description" content="数学建模中，微分方程的常见形式"><meta property="og:locale" content="zh-CN"><meta property="og:image" content="https://yaanlaan.github.io/img/postimage/2flower.jpg"><meta property="article:author" content="Yaan"><meta property="article:tag" content="摆烂"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://yaanlaan.github.io/img/postimage/2flower.jpg"><meta name="description" content="数学建模中，微分方程的常见形式"><link rel="shortcut icon" href="/mysitesource/256.png"><link rel="canonical" href="https://yaanlaan.github.io/2024/07/10/%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%EF%BC%88%E4%B8%80%EF%BC%89/"><link rel="preconnect" href="//cdn.cbd.int"/><meta name="google-site-verification" content="xxx"/><meta name="baidu-site-verification" content="code-xxx"/><meta name="msvalidate.01" content="xxx"/><link rel="manifest" href="/manifest.json"/><meta name="msapplication-TileColor" content="var(--anzhiyu-main)"/><link rel="mask-icon" href="/img/mysitesource/256.png" color="#5bbad5"/><link rel="apple-touch-icon" sizes="180x180" href="/img/mysitesource/256.png"/><link rel="apple-touch-icon-precomposed" sizes="180x180" href="/img/mysitesource/256.png"/><link rel="icon" type="image/png" sizes="32x32" href="/img/mysitesource/256.png"/><link rel="icon" type="image/png" sizes="16x16" href="/img/mysitesource/256.png"/><link rel="bookmark" href="/img/mysitesource/256.png"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-2048-2732.jpg" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-2732-2048.jpg" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-1668-2388.jpg" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-2388-1668.jpg" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-1536-2048.jpg" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-2048-1536.jpg" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-1668-2224.jpg" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-2224-1668.jpg" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-1620-2160.jpg" media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-2160-1620.jpg" media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-1290-2796.jpg" media="(device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-2796-1290.jpg" media="(device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-1179-2556.jpg" media="(device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-2556-1179.jpg" media="(device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-1284-2778.jpg" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-2778-1284.jpg" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-1170-2532.jpg" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-2532-1170.jpg" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-1125-2436.jpg" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-2436-1125.jpg" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-1242-2688.jpg" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-2688-1242.jpg" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-828-1792.jpg" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-1792-828.jpg" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-1242-2208.jpg" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-2208-1242.jpg" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-750-1334.jpg" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-1334-750.jpg" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-640-1136.jpg" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-1136-640.jpg" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.cbd.int/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/@fancyapps/ui@5.0.28/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  linkPageTop: undefined,
+  peoplecanvas: undefined,
+  postHeadAiDescription: undefined,
+  diytitle: {"enable":true,"leaveTitle":"(- - )","backTitle":"♪(^∇^*)"},
+  LA51: undefined,
+  greetingBox: {"enable":true,"default":"晚上好👋","list":[{"greeting":"晚安😴","startTime":0,"endTime":5},{"greeting":"早上好鸭👋, 祝你一天好心情！","startTime":6,"endTime":9},{"greeting":"上午好👋, 状态很好，鼓励一下～","startTime":10,"endTime":10},{"greeting":"11点多啦, 在坚持一下就吃饭啦～","startTime":11,"endTime":11},{"greeting":"午安👋, 宝贝","startTime":12,"endTime":14},{"greeting":"🌈充实的一天辛苦啦！","startTime":14,"endTime":18},{"greeting":"19点喽, 奖励一顿丰盛的大餐吧🍔。","startTime":19,"endTime":19},{"greeting":"晚上好👋, 在属于自己的时间好好放松😌~","startTime":20,"endTime":24}]},
+  twikooEnvId: '',
+  commentBarrageConfig:undefined,
+  root: '/',
+  preloader: {"source":3},
+  friends_vue_info: undefined,
+  navMusic: true,
+  mainTone: undefined,
+  authorStatus: {"skills":["🫡 大白白兰兰专业户","😶‍🌫️ 大专天才少年沉淀"]},
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简","rightMenuMsgToTraditionalChinese":"转为繁体","rightMenuMsgToSimplifiedChinese":"转为简体"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":330},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    simplehomepage: true,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"copy":true,"copyrightEbable":false,"limitCount":50,"languages":{"author":"作者: Yaan","link":"链接: ","source":"来源: Yaan","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。","copySuccess":"复制成功，复制和转载请标注本文地址"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#425AEF","bgDark":"#1f1f1f","position":"top-center"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.min.js',
+      css: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  shortcutKey: undefined,
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  configTitle: 'Yaan',
+  title: '数学建模微分方程（一）',
+  postAI: '',
+  pageFillDescription: '数学建模微分方程专题(1), 1.简介, 2.一个例子, 3.边界问题, 二.python求解微分方程, 1.符号计算解析解, 2.代码示例, 三.初值问题, 1.符号替换, 2.使用scipy数学建模微分方程专题常微分方程和偏微分方程是常见的数学模型但事实上这类问题的解析解并不好求因此考虑从数值的角度解决问题也就引申为差分方程其实解决问题的话重要的是提出解决问题的方案也就是把问题表述为微分方程是重要的至于如何求解反正也不用手算的啦一常微分方程简介我们不从实例引入不妨回忆一下高数中经典的常微分方程问题一个微分方程问题可以分解为这几个特性阶数那我们也可以相当对于一阶最通用的是变量代换分离变量齐次多项式等方法对于二阶有齐次情况下的通项公式再加上非齐次的特解即为通解对于一些特殊的高阶常系数微分方程也可以用特殊方法解决比如伯努利方程和可降阶的高阶微分方程一个例子例如肠胃中的酒精含量假设为假设肠胃中的血液含量减少等于血液中的增加且正相关与那么可以得到如下公式取极限即为微分形式显然这是一个最简单的一阶线性常微分方程只需要分离变量即可求解边界问题上述的微分方程求解的目标是获得通解通常会给出点的值这个问题就转换为边界问题或者初值问题这些基础的知识专业课都学过啦就不细说了着重说一下编程问题课上教使用的是但我对更喜好一些当然计算完成后保存数据再到绘图是中很好的方法毕竟可视化的绘图方便设计二求解微分方程符号计算解析解引入库定义好符号和等式使用求解即可当然方便起见可以把结果输出为公式这里详细介绍一下这几个函数定义符号后面的参数可以指定符号的属性比如即为实数即为正数是一个字符串而后面接上即为参数列表使用了类的方法具体的实现是会产生一个示例保存函数和变量列表左式和右式可选参数自己定函数用于求解微分方程表示微分方程的等式对象微分方程中的未知函数可选用于指定求解微分方程的方法如果不指定会尝试使用默认的方法可选布尔值表示是否简化结果可选用于指定初始条件或边界条件其他关键字参数用于影响求解过程方程变量列表默认为一阶都是关于变量的偏导一元可以看成特殊的偏导也可以连续求偏导按顺序给出就可以代码示例符号解符号库定义等式微分方程求解结果转化为形式定义变量和函数使用申明符号变量函数定义等式两个参数分别为等式左右求解微分方程上述代码运行得到的方程的解即是我们也可以解决一些高阶的微分方程例如符号解符号库定义等式微分方程求解结果转化为形式定义变量和函数使用申明符号变量函数定义等式两个参数分别为等式左右求解微分方程得到答案为可以验证一下特征方程三初值问题上面我们根据符号表达得了微分方程的通解一般解但当给定边界条件的时候就可以得到特解这种问题也可以称为初值问题我们给出两条思路的代码一个是继续上面的运算求出参数值另一个是使用使用求解只能用来求数值解通解只能用符号替换定义变量和函数时间变量常数是关于的函数定义微分方程求解微分方程得到通解应用初始条件打印结果通解特解通解特解通解为特解为当然有时候有些特殊的情况比如有个二阶微分方程但是只有一个边界条件那么也可以用相同方法求出约束关系使用可以使用来解决其完整的参数形式下所示通用余下参数功能定义微分方程的函数形式为其中是当前状态变量是当前时间是传递给的额外参数初始条件可以是单个数值或数值数组时间点数组表示求解微分方程的时间范围元组用于传递给的额外参数用于指定的雅可比矩阵的函数默认为已弃用默认为如果为则返回一个包含解和诊断信息的元组默认为和分别是低阶和高阶导数的边界对角线的数量用于配置线性多步方法和分别是相对和绝对误差容忍度时间点的数组指定需要精确求解的时间点初步时间步长默认为和分别是最大和最小时间步长如果为则打印有关积分过程的诊断信息默认为最大允许的步数默认为表示没有限制允许的连续零步长的最大次数默认为和分别是非刚性和刚性问题的最大顺序默认分别为和如果为则在积分完成后打印诊断信息默认为可以看出实际上是使用数值方法求解的第一个参数是微分方程的函数要求返回列表是各阶微分第二个参数则是各阶的初值如果没有初值而是其他值需要便变量代替其实这是通过微分方程组求解的初值实际上是各个函数的初值重点在于是如何定义函数返回和初值的定义微分方程函数这里不妨令其为初始条件时间点求解范围求解微分方程绘制结果可以看出和原来的解一致',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-07-10 19:54:15',
+  postMainColor: '',
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
 
-<link rel="stylesheet" href="/css/main.css">
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
 
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
 
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#18171d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f7f9fe')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
-
-<script class="next-config" data-name="main" type="application/json">{"hostname":"yaanlaan.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width":300,"display":"hide","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":"mac"},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
-
-
-
-<link rel="canonical" href="https://yaanlaan.github.io/2024/07/10/%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%EF%BC%88%E4%B8%80%EF%BC%89/">
-
-
-
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://yaanlaan.github.io/2024/07/10/%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%EF%BC%88%E4%B8%80%EF%BC%89/","path":"2024/07/10/微分方程（一）/","title":"数学建模微分方程（一）"}</script>
-
-<script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>数学建模微分方程（一） | Yaan</title>
-  
-
-
-
-
-
-
-
-
-  <noscript>
-    <link rel="stylesheet" href="/css/noscript.css">
-  </noscript>
-<style>mjx-container[jax="SVG"] {
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.3.0"><style>mjx-container[jax="SVG"] {
   direction: ltr;
 }
 
@@ -155,262 +301,21 @@ mjx-container[display="true"] + br {
   display: none;
 }
 </style><link rel="alternate" href="/atom.xml" title="Yaan" type="application/atom+xml">
-</head>
+</head><body data-type="anzhiyu"><div id="web_bg"></div><div id="an_music_bg"></div><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><img class="loading-img nolazyload" alt="加载头像" src="/img/mysitesource/yaanblog.jpg"/><div class="loading-image-dot"></div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.getElementById('loading-box').classList.add("loaded");
+  },
+  initLoading: () => {
+    document.getElementById('loading-box').classList.remove("loaded")
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+setTimeout(function(){preloader.endLoading();},10000)
 
-<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
-  <div class="headband"></div>
-<!--
-  <link rel="stylesheet" href="/dist/APlayer.min.css">
-  <div id="aplayer"></div>
-  <script type="text/javascript" src="/dist/APlayer.min.js"></script>
-  <script type="text/javascript" src="/dist/music.js"></script>
-  -->
-<!--TODO: 播放器设置 -->
-
-  <main class="main">
-    <div class="column">
-      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏" role="button">
-        <span class="toggle-line"></span>
-        <span class="toggle-line"></span>
-        <span class="toggle-line"></span>
-    </div>
-  </div>
-
-  <div class="site-meta">
-
-    <a href="/" class="brand" rel="start">
-      <i class="logo-line"></i>
-      <p class="site-title">Yaan</p>
-      <i class="logo-line"></i>
-    </a>
-      <p class="site-subtitle" itemprop="description">欢迎光临（￣︶￣）</p>
-  </div>
-
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger" aria-label="搜索" role="button">
-        <i class="fa fa-search fa-fw fa-lg"></i>
-    </div>
-  </div>
-</div>
-
-
-
-<nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
-      <li class="menu-item menu-item-search">
-        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
-        </a>
-      </li>
-  </ul>
-</nav>
-
-
-
-  <div class="search-pop-overlay">
-    <div class="popup search-popup">
-      <div class="search-header">
-        <span class="search-icon">
-          <i class="fa fa-search"></i>
-        </span>
-        <div class="search-input-container">
-          <input autocomplete="off" autocapitalize="off" maxlength="80"
-                placeholder="搜索..." spellcheck="false"
-                type="search" class="search-input">
-        </div>
-        <span class="popup-btn-close" role="button">
-          <i class="fa fa-times-circle"></i>
-        </span>
-      </div>
-      <div class="search-result-container">
-        <div class="search-result-icon">
-          <i class="fa fa-spinner fa-pulse fa-5x"></i>
-        </div>
-      </div>
-    </div>
-  </div>
-
-</header>
-        
-  
-  <aside class="sidebar">
-
-    <div class="sidebar-inner sidebar-overview-active">
-      <ul class="sidebar-nav">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <div class="sidebar-panel-container">
-        <!--noindex-->
-        <div class="post-toc-wrap sidebar-panel">
-        </div>
-        <!--/noindex-->
-
-        <div class="site-overview-wrap sidebar-panel">
-          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="Yaan"
-      src="/images/yaanblog.jpg">
-  <p class="site-author-name" itemprop="name">Yaan</p>
-  <div class="site-description" itemprop="description">草木山石，日月星辰</div>
-</div>
-<div class="site-state-wrap animated">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-        <a href="/archives/">
-          <span class="site-state-item-count">28</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-          <a href="/categories/">
-        <span class="site-state-item-count">10</span>
-        <span class="site-state-item-name">分类</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-          <a href="/tags/">
-        <span class="site-state-item-count">24</span>
-        <span class="site-state-item-name">标签</span></a>
-      </div>
-  </nav>
-</div>
-  <div class="links-of-author animated">
-      <span class="links-of-author-item">
-        <a href="mailto:yanxia2425@gmail.com" title="E-Mail → mailto:yanxia2425@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://www.zhihu.com/people/4-56-20-42" title="Zhihu → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;4-56-20-42" rel="noopener me" target="_blank"><i class="fa fa-coffee fa-fw"></i>Zhihu</a>
-      </span>
-  </div>
-  <div class="cc-license animated" itemprop="license">
-    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
-  </div>
-
-        </div>
-      </div>
-    </div>
-
-    
-    <div class="sidebar-inner sidebar-blogroll">
-      <div class="links-of-blogroll animated">
-        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
-          链接
-        </div>
-        <ul class="links-of-blogroll-list">
-            <li class="links-of-blogroll-item">
-              <a href="https://yaanlaan.github.io/" title="https:&#x2F;&#x2F;yaanlaan.github.io">暂时还没有捏</a>
-            </li>
-        </ul>
-      </div>
-      <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1490973948&auto=1&height=66"></iframe>
-      
-      
-<script type="text/javascript" charset="utf-8" src="/js/tagcloud.js"></script>
-<script type="text/javascript" charset="utf-8" src="/js/tagcanvas.js"></script>
-<div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div id="myCanvasContainer" class="widget tagcloud">
-        <canvas width="250" height="250" id="resCanvas" style="width=100%">
-            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LINGO/" rel="tag">LINGO</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MATLAB/" rel="tag">MATLAB</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mind-Walk/" rel="tag">Mind Walk</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">c++</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmake/" rel="tag">cmake</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/opencv/" rel="tag">opencv</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/stl/" rel="tag">stl</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tools/" rel="tag">tools</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BF%A1%E6%81%AF%E8%AE%BA/" rel="tag">信息论</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B/" rel="tag">微分方程</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8E%92%E5%BA%8F/" rel="tag">排序</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" rel="tag">数字图像处理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" rel="tag">数学建模</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E8%AE%BA/" rel="tag">数论</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%AC%E7%A7%91%E7%AC%94%E8%AE%B0/" rel="tag">本科笔记</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A8%A1%E6%9D%BF/" rel="tag">模板</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%8B%E8%AF%95/" rel="tag">测试</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95%E6%9D%82%E8%B0%88/" rel="tag">算法杂谈</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BA%BF%E6%80%A7%E8%A7%84%E5%88%92/" rel="tag">线性规划</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/" rel="tag">背包问题</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/" rel="tag">计算机图形学</a><span class="tag-list-count">4</span></li></ul>
-        </canvas>
-    </div>
-</div>
-
-    </div>
-  </aside>
-
-
-    </div>
-
-    <div class="main-inner post posts-expand">
-
-
-  
-
-
-<div class="post-block">
-  
-  <div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">
-    
-    <div class="post-gallery-image">
-      <img src="/images/postimage/2flower.jpg" itemprop="contentUrl">
-    </div>
-    </div>
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://yaanlaan.github.io/2024/07/10/%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%EF%BC%88%E4%B8%80%EF%BC%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/yaanblog.jpg">
-      <meta itemprop="name" content="Yaan">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yaan">
-      <meta itemprop="description" content="草木山石，日月星辰">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="数学建模微分方程（一） | Yaan">
-      <meta itemprop="description" content="数学建模中，微分方程的常见形式">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          数学建模微分方程（一）
-        </h1>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2024-07-10 02:01:13 / 修改时间：19:54:15" itemprop="dateCreated datePublished" datetime="2024-07-10T02:01:13+08:00">2024-07-10</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" itemprop="url" rel="index"><span itemprop="name">数学建模</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>2.3k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>8 分钟</span>
-    </span>
-</div>
-
-            <div class="post-description">数学建模中，微分方程的常见形式</div>
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody"><h1 id="数学建模微分方程专题1">数学建模:微分方程专题(1)</h1>
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.10/progress_bar/progress_bar.css"/><script async="async" src="https://cdn.cbd.int/pace-js@1.2.4/pace.min.js" data-pace-options="{ &quot;restartOnRequestAfter&quot;:false,&quot;eventLag&quot;:false}"></script><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><div id="nav-group"><span id="blog_name"><a id="site-name" href="/" accesskey="h"><div class="title">Yaan</div><i class="anzhiyufont anzhiyu-icon-house-chimney"></i></a></span><div class="mask-name-container"><div id="name-container"><a id="page-name" href="javascript:anzhiyu.scrollToDest(0, 500)">PAGE_NAME</a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/archives/"><span> 文章</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/categories/"><span> 分类</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/tags/"><span> 标签</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="javascript:toRandomPost()"><span> 随便逛逛</span></a></div></div></div><div id="nav-right"><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="随机前往一个文章" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-dice"></i></a></div><div class="nav-button" id="search-button"><a class="site-page social-icon search" href="javascript:void(0);" title="搜索🔍" accesskey="s"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span> 搜索</span></a></div><input id="center-console" type="checkbox"/><label class="widget" for="center-console" title="中控台" onclick="anzhiyu.switchConsole();"><i class="left"></i><i class="widget center"></i><i class="widget right"></i></label><div id="console"><div class="console-card-group-reward"><ul class="reward-all console-card"><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png" target="_blank"><img class="post-qr-code-img" alt="微信" src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png" target="_blank"><img class="post-qr-code-img" alt="支付宝" src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div><div class="console-card-group"><div class="console-card-group-left"><div class="console-card" id="card-newest-comments"><div class="card-content"><div class="author-content-item-tips">互动</div><span class="author-content-item-title"> 最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div></div><div class="console-card-group-right"><div class="console-card tags"><div class="card-content"><div class="author-content-item-tips">兴趣点</div><span class="author-content-item-title">寻找你感兴趣的领域</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/C/" style="font-size: 1.05rem;">C++<sup>4</sup></a><a href="/tags/LINGO/" style="font-size: 1.05rem;">LINGO<sup>2</sup></a><a href="/tags/MATLAB/" style="font-size: 1.05rem;">MATLAB<sup>11</sup></a><a href="/tags/Mind-Walk/" style="font-size: 1.05rem;">Mind Walk<sup>1</sup></a><a href="/tags/c/" style="font-size: 1.05rem;">c++<sup>2</sup></a><a href="/tags/cmake/" style="font-size: 1.05rem;">cmake<sup>2</sup></a><a href="/tags/opencv/" style="font-size: 1.05rem;">opencv<sup>1</sup></a><a href="/tags/stl/" style="font-size: 1.05rem;">stl<sup>1</sup></a><a href="/tags/tools/" style="font-size: 1.05rem;">tools<sup>2</sup></a><a href="/tags/%E4%BF%A1%E6%81%AF%E8%AE%BA/" style="font-size: 1.05rem;">信息论<sup>1</sup></a><a href="/tags/%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B/" style="font-size: 1.05rem;">微分方程<sup>2</sup></a><a href="/tags/%E6%8E%92%E5%BA%8F/" style="font-size: 1.05rem;">排序<sup>1</sup></a><a href="/tags/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" style="font-size: 1.05rem;">数字图像处理<sup>1</sup></a><a href="/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" style="font-size: 1.05rem;">数学建模<sup>3</sup></a><a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 1.05rem;">数据结构<sup>1</sup></a><a href="/tags/%E6%95%B0%E8%AE%BA/" style="font-size: 1.05rem;">数论<sup>1</sup></a><a href="/tags/%E6%9C%AC%E7%A7%91%E7%AC%94%E8%AE%B0/" style="font-size: 1.05rem;">本科笔记<sup>13</sup></a><a href="/tags/%E6%A8%A1%E6%9D%BF/" style="font-size: 1.05rem;">模板<sup>1</sup></a><a href="/tags/%E6%B5%8B%E8%AF%95/" style="font-size: 1.05rem;">测试<sup>1</sup></a><a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 1.05rem;">算法<sup>1</sup></a><a href="/tags/%E7%AE%97%E6%B3%95%E6%9D%82%E8%B0%88/" style="font-size: 1.05rem;">算法杂谈<sup>2</sup></a><a href="/tags/%E7%BA%BF%E6%80%A7%E8%A7%84%E5%88%92/" style="font-size: 1.05rem;">线性规划<sup>2</sup></a><a href="/tags/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/" style="font-size: 1.05rem;">背包问题<sup>1</sup></a><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/" style="font-size: 1.05rem;">计算机图形学<sup>4</sup></a></div></div><hr/></div></div><div class="console-card history"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-box-archiv"></i><span>文章</span></div><div class="card-archives"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/08/"><span class="card-archive-list-date">八月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/07/"><span class="card-archive-list-date">七月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">17</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/05/"><span class="card-archive-list-date">五月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">2</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/04/"><span class="card-archive-list-date">四月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">2</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/03/"><span class="card-archive-list-date">三月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">6</span><span>篇</span></div></a></li></ul></div><hr/></div></div></div><div class="button-group"><div class="console-btn-item"><a class="darkmode_switchbutton" title="显示模式切换" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-moon"></i></a></div><div class="console-btn-item" id="consoleHideAside" onclick="anzhiyu.hideAsideBtn()" title="边栏显示控制"><a class="asideSwitch"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></a></div><div class="console-btn-item" id="consoleMusic" onclick="anzhiyu.musicToggle()" title="音乐开关"><a class="music-switch"><i class="anzhiyufont anzhiyu-icon-music"></i></a></div></div><div class="console-mask" onclick="anzhiyu.hideConsole()" href="javascript:void(0);"></div></div><div class="nav-button" id="nav-totop"><a class="totopbtn" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i><span id="percent" onclick="anzhiyu.scrollToDest(0,500)">0</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" title="切换"><i class="anzhiyufont anzhiyu-icon-bars"></i></a></div></div></div></nav><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original">原创</a><span class="post-meta-categories"><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-inbox post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" itemprop="url">数学建模</a></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>微分方程</span></a></span></div></div><h1 class="post-title" itemprop="name headline">数学建模微分方程（一）</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" itemprop="dateCreated datePublished" datetime="2024-07-09T18:01:13.000Z" title="发表于 2024-07-10 02:01:13">2024-07-10</time><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-history post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" itemprop="dateCreated datePublished" datetime="2024-07-10T11:54:15.639Z" title="更新于 2024-07-10 19:54:15">2024-07-10</time></span></div><div class="meta-secondline"><span class="post-meta-separator"></span><span class="post-meta-wordcount"><i class="anzhiyufont anzhiyu-icon-file-word post-meta-icon" title="文章字数"></i><span class="post-meta-label" title="文章字数">字数总计:</span><span class="word-count" title="文章字数">85k</span><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-clock post-meta-icon" title="阅读时长"></i><span class="post-meta-label" title="阅读时长">阅读时长:</span><span>5:11分钟</span></span><span class="post-meta-separator">       </span><span class="post-meta-position" title="作者IP属地为安徽"><i class="anzhiyufont anzhiyu-icon-location-dot"></i>安徽</span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section><div id="post-top-cover"><img class="nolazyload" id="post-top-bg" src="/img/postimage/2flower.jpg"></div></header><main id="blog-container"><div class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container" itemscope itemtype="https://yaanlaan.github.io/2024/07/10/%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%EF%BC%88%E4%B8%80%EF%BC%89/"><header><a class="post-meta-categories" href="/categories/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" itemprop="url">数学建模</a><a href="/tags/%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B/" tabindex="-1" itemprop="url">微分方程</a><h1 id="CrawlerTitle" itemprop="name headline">数学建模微分方程（一）</h1><span itemprop="author" itemscope itemtype="http://schema.org/Person">Yaan</span><time itemprop="dateCreated datePublished" datetime="2024-07-09T18:01:13.000Z" title="发表于 2024-07-10 02:01:13">2024-07-10</time><time itemprop="dateCreated datePublished" datetime="2024-07-10T11:54:15.639Z" title="更新于 2024-07-10 19:54:15">2024-07-10</time></header><h1 id="数学建模微分方程专题1">数学建模:微分方程专题(1)</h1>
 <p>常微分方程和偏微分方程是常见的数学模型,但事实上,这类问题的解析解并不好求,因此考虑从数值的角度解决问题,也就引申为差分方程.
 其实,解决问题的话重要的是提出解决问题的方案,也就是把问题表述为微分方程是重要的,至于如何求解,反正也不用手算的啦(bushi)</p>
 <h2 id="一.常微分方程odeordinary-differential-equation">一.常微分方程ODE(ordinary
@@ -570,161 +475,297 @@ None</td>
 <p>可以看出odeint实际上是使用数值方法求解的,第一个参数是微分方程的函数,要求返回列表是各阶微分,第二个参数则是各阶的初值,如果没有初值而是其他值,需要便变量代替.(其实这是通过微分方程组求解的,初值实际上是各个函数的初值,重点在于是如何定义函数返回和初值的)</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> scipy.integrate <span class="keyword">import</span> odeint</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义微分方程函数，这里dy/dt = -y</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">model</span>(<span class="params">y, t</span>):</span><br><span class="line">    k = -<span class="number">1.0</span></span><br><span class="line">    dydt = k * y + <span class="number">1</span><span class="comment"># 不妨令其为k=1,m=1</span></span><br><span class="line">    <span class="keyword">return</span> dydt</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">solution</span>(<span class="params">t</span>):</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>-np.exp(-t)</span><br><span class="line"><span class="comment"># 初始条件</span></span><br><span class="line">y0 = <span class="number">0</span></span><br><span class="line"><span class="comment"># 时间点(求解范围)</span></span><br><span class="line">t = np.linspace(<span class="number">0</span>, <span class="number">10</span>, <span class="number">101</span>)</span><br><span class="line"><span class="comment"># 求解微分方程</span></span><br><span class="line">y = odeint(model, y0, t)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 绘制结果</span></span><br><span class="line">plt.plot(t, y,<span class="string">'b*'</span>)</span><br><span class="line">plt.plot(t, solution(t),<span class="string">'r'</span>)</span><br><span class="line">plt.xlabel(<span class="string">'Time'</span>)</span><br><span class="line">plt.ylabel(<span class="string">'y(t)'</span>)</span><br><span class="line">plt.title(<span class="string">'Solution of the differential equation'</span>)</span><br><span class="line">plt.show()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <figure>
-<img data-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAjcAAAHHCAYAAABDUnkqAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90bGliIHZlcnNpb24zLjguNCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8fJSN1AAAACXBIWXMAAA9hAAAPYQGoP6dpAABT20lEQVR4nO3deXiTVdrH8W/a0gXoApS2LIWyyb6WZQAdXKoMIg46KCAi4MYgolBHBJVFGanKoCjwwoDKKoKiMo4iiAg6CFN2hRGQtWxSKEsLFLrlvH/EBEpLaaHN06a/z3XlSnJynjx3kpLcnNVmjDGIiIiIeAgvqwMQERERKUxKbkRERMSjKLkRERERj6LkRkRERDyKkhsRERHxKEpuRERExKMouRERERGPouRGREREPIqSGxEREfEoSm7Eo916663ceuuthfqcBw4cwGazMXv27EJ93sK2bNkyWrRogb+/PzabjTNnzhT4OWw2G08//XThB1eA848dO9Z1f/bs2dhsNg4cOJCt3oQJE6hduzbe3t60aNECgMzMTIYPH05kZCReXl50797dbXEXpivfg/xavXo1NpuN1atXF3pMxcnYsWOx2WxWhyHFjJIbKVa2bdtGjx49qFmzJv7+/lSrVo0777yTyZMnuz2WBQsWMGnSJLeftzCcPHmSBx98kICAAKZOncq8efMoV65crnXXrl3L2LFjryv5KQ6++eYbhg8fTseOHZk1axbjx48H4IMPPmDChAn06NGDOXPmMGzYMIsjvbqlS5deVwJTWqSmpjJ27FiPT9SkEBmRYuLHH380vr6+pm7dumbcuHFm5syZZvTo0eauu+4yderUua7n7NSpk+nUqdN1Hdu1a1dTs2bNHOV2u91cuHDBZGZmXtfzusPXX39tALNixYpr1p0wYYIBzP79+3M8BpjBgwcXQYT5A5gxY8a47mdmZpoLFy4Yu93uKnvhhReMl5eXSUtLy3Zsz549TbVq1dwV6g0ZPHiwudrX8YULF0xGRkaBn3PVqlUGMKtWrbrB6Kx34sSJHH8LThkZGebChQvuD0qKNR8L8yqRbF577TWCg4PZsGEDISEh2R47fvy4NUHlwmaz4e/vb3UYeXK+X1e+jyWdt7c33t7e2cqOHz9OQEAAvr6+OcoL8/UbY7h48SIBAQGF9pz5Udz/1qzm4+ODj49+yiQ7dUtJsbF3714aN26c6w9SWFhYtvuZmZmMGzeOOnXq4OfnR1RUFC+++CJpaWl5nuNqYzauHJ9w66238tVXX5GQkIDNZsNmsxEVFQVcfczNd999xy233EK5cuUICQnhz3/+Mzt27MhWxzk+YM+ePfTv35+QkBCCg4MZMGAAqamp13yPAD755BOio6MJCAggNDSUhx9+mCNHjrgev/XWW+nXrx8Abdq0wWaz0b9//1yfa+zYsTz//PMA1KpVy/Var3x/lixZQpMmTfDz86Nx48YsW7Ysx3MdOXKERx99lPDwcFe9Dz74IF+vKS0tjWHDhlG5cmUCAwO59957OXz4cI56V35+NpuNWbNmcf78eVfszjqrVq3if//7n6vc+dna7XYmTZpE48aN8ff3Jzw8nIEDB3L69Ols54qKiuKee+5h+fLltG7dmoCAAP75z38CcObMGYYOHUpkZCR+fn7UrVuXN954A7vd7jre+Xfyj3/8gxkzZrj+Vtu0acOGDRtc9fr378/UqVNdr8d5cbpyzE1CQgJPPfUU9evXJyAggEqVKvHAAw/k+MwKIr+f3eHDh+nevTvlypUjLCyMYcOGsXz58hxje6KionL9m7tyDFx6ejqjR48mOjqa4OBgypUrxy233MKqVatcdQ4cOEDlypUBeOWVV1zvj/M9yW3MTX6/H5yf8Zo1a2jbti3+/v7Url2buXPnFvAdlOJG6a4UGzVr1mTdunVs376dJk2a5Fn38ccfZ86cOfTo0YPnnnuO+Ph44uLi2LFjB59//vkNx/LSSy+RnJzM4cOHefvttwEoX778Vet/++23dOnShdq1azN27FguXLjA5MmT6dixI5s3b3YlRk4PPvggtWrVIi4ujs2bN/Pee+8RFhbGG2+8kWdcs2fPZsCAAbRp04a4uDgSExN55513+PHHH9myZQshISG89NJL1K9fnxkzZvDqq69Sq1Yt6tSpk+vz3X///fz666989NFHvP3224SGhgK4fkwA1qxZw2effcZTTz1FYGAg7777Ln/5y184ePAglSpVAiAxMZE//OEPrgHIlStX5uuvv+axxx4jJSWFoUOH5vm6Hn/8cebPn89DDz1Ehw4d+O677+jatWuexwDMmzePGTNmsH79et577z0AWrZsybx583jttdc4d+4ccXFxADRs2BCAgQMHut7HZ555hv379zNlyhS2bNnCjz/+SJkyZVzPv2vXLnr37s3AgQN54oknqF+/PqmpqXTq1IkjR44wcOBAatSowdq1axk5ciS//fZbjnFaCxYs4OzZswwcOBCbzcabb77J/fffz759+yhTpgwDBw7k6NGjrFixgnnz5l3zNW/YsIG1a9fSq1cvqlevzoEDB5g2bRq33norv/zyC2XLlr3mc1wuv5/dhQsXuOOOOzh48CDPPPMMVatWZd68eXz33XcFOt/lUlJSeO+99+jduzdPPPEEZ8+e5f3336dz586sX7+eFi1aULlyZaZNm8agQYO47777uP/++wFo1qzZVZ+3IN8Pe/bsoUePHjz22GP069ePDz74gP79+xMdHU3jxo2v+7WJxazuFxNx+uabb4y3t7fx9vY27du3N8OHDzfLly836enp2ept3brVAObxxx/PVv63v/3NAOa7775zlV055mbWrFm5ji/JbXzC1cbc7N+/3wBm1qxZrrIWLVqYsLAwc/LkSVfZTz/9ZLy8vMwjjzziKhszZowBzKOPPprtOe+77z5TqVKlq701xhhj0tPTTVhYmGnSpEm2MQZffvmlAczo0aNzvM4NGzbk+ZzGXHvMja+vr9mzZ0+21wWYyZMnu8oee+wxU6VKFZOUlJTt+F69epng4GCTmpp61fM7P8+nnnoqW/lDDz2UY5xFbp9fv379TLly5XI8b6dOnUzjxo2zlf3nP/8xgPnwww+zlS9btixHec2aNQ1gli1blq3uuHHjTLly5cyvv/6arXzEiBHG29vbHDx40Bhz6e+kUqVK5tSpU656//rXvwxg/v3vf7vK8hpzc+V7kNt7uW7dOgOYuXPnusryO+Ymv5/dpEmTDGA+/vhjV53z58+bunXr5jhPzZo1Tb9+/XKc68p/j5mZmTnGSp0+fdqEh4dn+zeS15gb578pp4J8Pzg/4x9++MFVdvz4cePn52eee+65HOeSkkPdUlJs3Hnnnaxbt457772Xn376iTfffJPOnTtTrVo1vvjiC1e9pUuXAhAbG5vt+Oeeew6Ar776yn1BA7/99htbt26lf//+VKxY0VXerFkz7rzzTle8l/vrX/+a7f4tt9zCyZMnSUlJuep5Nm7cyPHjx3nqqaeyjcPo2rUrDRo0KLLXHRMTk63lp1mzZgQFBbFv3z7AMRbl008/pVu3bhhjSEpKcl06d+5McnIymzdvvurzO9+fZ555Jlv5tVp7rscnn3xCcHAwd955Z7Y4o6OjKV++fLbuEHB01XXu3DnHc9xyyy1UqFAh23PExMSQlZXFDz/8kK1+z549qVChguv+LbfcAuB6/wrq8jE/GRkZnDx5krp16xISEpLn+5ybgnx2S5cupUqVKvTo0cN1fNmyZXnyySev63WAYwyVc6yU3W7n1KlTZGZm0rp16wK/FqeCfj80atTI9ZmAo9Wyfv361/35SPGgbikpVtq0acNnn31Geno6P/30E59//jlvv/02PXr0YOvWrTRq1IiEhAS8vLyoW7dutmMjIiIICQkhISHBrTE7z1e/fv0cjzVs2JDly5dz/vz5bFOxa9Soka2e88fv9OnTBAUFFfg8DRo0YM2aNdf3Aq7hyljBEa9zjMqJEyc4c+YMM2bMYMaMGbk+R14Dwp2f55VdZ7m9zhu1e/dukpOTc4zhcroyzlq1auX6HD///HO2rru8niOvz/p6XLhwgbi4OGbNmsWRI0cwxrgeS05OLtBzFeSzS0hIoG7dujnGt9zo5zRnzhwmTpzIzp07ycjIcJXn9t7nR0G/H6719y0lk5IbKZZ8fX1p06YNbdq04aabbmLAgAF88sknjBkzxlXnehbuutoxWVlZ1x3r9bhyxo/T5T9UxcW1YnUOon344YddA5mvlNf4CHey2+2EhYXx4Ycf5vr4lQlLbjOj7HY7d955J8OHD8/1OW666aZs9wv7sx4yZAizZs1i6NChtG/fnuDgYGw2G7169co2oDk/iuqzy+vf2eXvx/z58+nfvz/du3fn+eefJywsDG9vb+Li4ti7d2+Bz5ufGK5Ukv4tSv4puZFir3Xr1oCj+wccA4/tdju7d+92DRIFx8DIM2fOULNmzas+l/N/zVcuWJdba09+vxyd59u1a1eOx3bu3EloaOhVF9AriMvPc/vtt2d7bNeuXXm+7rzc6OquzhlOWVlZxMTEFPh45+e5d+/ebK0Aub2fN6pOnTp8++23dOzY8bqndNepU4dz585d12u9moJ8BosXL6Zfv35MnDjRVXbx4sXrWoSxIJ9dzZo12b59O8aYbPHm9jlVqFAh13gSEhKoXbt2ttdSu3ZtPvvss2zPefl/YqBg78+NfD+I59CYGyk2Vq1alev/lpx96M4fvrvvvhsgx6yUt956CyDPWTbOro/Lx0VkZWXl2iRfrly5fDXzV6lShRYtWjBnzpxsX+jbt2/nm2++ccV7o1q3bk1YWBjTp0/PNqX166+/ZseOHfmaXZQbZ+J1vSsUe3t785e//IVPP/2U7du353j8xIkTeR7fpUsXAN59991s5UWxOvSDDz5IVlYW48aNy/FYZmZmvt6DBx98kHXr1rF8+fIcj505c4bMzMwCx1WQz8Db2zvHv5PJkydfV+tjQT67u+++m6NHj7J48WJXWWpqaq7/durUqcN///tf0tPTXWVffvklhw4dynF+yN5KEh8fz7p167LVc84Ay8/7cyPfD+I51HIjxcaQIUNITU3lvvvuo0GDBqSnp7N27VoWLVpEVFQUAwYMAKB58+b069ePGTNmcObMGTp16sT69euZM2cO3bt357bbbrvqORo3bswf/vAHRo4cyalTp6hYsSILFy7M9QcpOjqaRYsWERsbS5s2bShfvjzdunXL9XknTJhAly5daN++PY899phrKnhwcHChLatfpkwZ3njjDQYMGECnTp3o3bu3ayp4VFTUdW8vEB0dDTimv/fq1YsyZcrQrVu3ArU2vf7666xatYp27drxxBNP0KhRI06dOsXmzZv59ttvOXXq1FWPbdGiBb179+b//u//SE5OpkOHDqxcuZI9e/Zc1+vJS6dOnRg4cCBxcXFs3bqVu+66izJlyrB7924++eQT3nnnnWwDZnPz/PPP88UXX3DPPfe4pgyfP3+ebdu2sXjxYg4cOOCaUp9fzs/gmWeeoXPnznh7e9OrV69c695zzz3MmzeP4OBgGjVqxLp16/j2229d0/ILKr+f3RNPPMGUKVN45JFH2LRpE1WqVGHevHm5Tj1//PHHWbx4MX/605948MEH2bt3L/Pnz88xruqee+7hs88+47777qNr167s37+f6dOn06hRI86dO+eqFxAQQKNGjVi0aBE33XQTFStWpEmTJrkuGXEj3w/iQSyZoyWSi6+//to8+uijpkGDBqZ8+fKurRiGDBliEhMTs9XNyMgwr7zyiqlVq5YpU6aMiYyMNCNHjjQXL17MVi+37Rf27t1rYmJijJ+fnwkPDzcvvviiWbFiRY7prOfOnTMPPfSQCQkJMYBrWnhuU8GNMebbb781HTt2NAEBASYoKMh069bN/PLLL9nqOKetnjhxIlv51aao52bRokWmZcuWxs/Pz1SsWNH06dPHHD58ONfny89UcGMc05urVatmvLy8ssXBVbZfyG2qb2Jiohk8eLCJjIw0ZcqUMREREeaOO+4wM2bMuOb5L1y4YJ555hlTqVIlU65cOdOtWzdz6NChQp8K7jRjxgwTHR1tAgICTGBgoGnatKkZPny4OXr0aLbX2LVr11yPP3v2rBk5cqSpW7eu8fX1NaGhoaZDhw7mH//4h2vpAuffyYQJE3Icf+XryszMNEOGDDGVK1c2Npst29TmK+uePn3aDBgwwISGhpry5cubzp07m507d+b4TAqy/UJ+P7uEhARz7733mrJly5rQ0FDz7LPPuqbRX3meiRMnmmrVqhk/Pz/TsWNHs3Hjxhz/Hu12uxk/frypWbOm8fPzMy1btjRffvml6devX45lGNauXWuio6ONr69vtvfkyqngxuT/++Fqn/GNbNsixYPNGI2aEhGR67N69Wpuu+02Vq1alW31YREracyNiIiIeBQlNyIiIuJRlNyIiIiIR9GYGxEREfEoarkRERERj6LkRkRERDxKqVvEz263c/ToUQIDA2942XkRERFxD2MMZ8+epWrVqnh55d02U+qSm6NHjxIZGWl1GCIiInIdDh06RPXq1fOsU+qSm8DAQMDx5gQFBVkcjYiIiORHSkoKkZGRrt/xvJS65MbZFRUUFKTkRkREpITJz5ASDSgWERERj6LkRkRERDyKkhsRERHxKEpuRERExKMouRERERGPouRGREREPIqSGxEREfEoSm5ERETEoyi5EREREY+i5EZEREQ8iqXJzQ8//EC3bt2oWrUqNpuNJUuWXPOY1atX06pVK/z8/Khbty6zZ88u8jhFRIq7jRvh9tsd11crK4l1rD6/6hTOZ+h2xkJLly41L730kvnss88MYD7//PM86+/bt8+ULVvWxMbGml9++cVMnjzZeHt7m2XLluX7nMnJyQYwycnJNxi9iHiqDRuMue02x/XVyopbnSFDjAFjnnnmUp0ry0piHavPrzqF8xkWhoL8flua3FwuP8nN8OHDTePGjbOV9ezZ03Tu3Dnf51FyI+I5lCgY06uXMZs2GRMW5rhfqZIx8+c7LpUqOcoqVHDcr1Ch5NS5vuPspmJIlvlwbqapFJJpvMkw4RXTzYez082C2WmmSsWLxpeLJiLkglnwwQUTEXLB+JNqqlc8bz56/7z56L1zpkbFs6YcZ01kSIpZODPFRIakmECS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" alt="png">
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/2024/07/10/%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%EF%BC%88%E4%B8%80%EF%BC%89/output_10_0.png" alt="png">
 <figcaption aria-hidden="true">png</figcaption>
 </figure>
 <p>可以看出和原来的解一致</p>
+</article><div class="post-copyright"><div class="copyright-cc-box"><i class="anzhiyufont anzhiyu-icon-copyright"></i></div><div class="post-copyright__author_box"><a class="post-copyright__author_img" href="/" title="头像"><img class="post-copyright__author_img_back" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/mysitesource/yaanblog.jpg" title="头像" alt="头像"><img class="post-copyright__author_img_front" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/mysitesource/yaanblog.jpg" title="头像" alt="头像"></a><div class="post-copyright__author_name">Yaan</div><div class="post-copyright__author_desc">欢迎光临（￣︶￣）</div></div><div class="post-copyright__post__info"><a class="post-copyright__original" title="该文章为原创文章，注意版权协议" href="https://yaanlaan.github.io/2024/07/10/%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%EF%BC%88%E4%B8%80%EF%BC%89/">原创</a><a class="post-copyright-title"><span onclick="rm.copyPageUrl('https://yaanlaan.github.io/2024/07/10/微分方程（一）/')">数学建模微分方程（一）</span></a></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div class="rewardLeftButton"></div><div class="shareRight"><div class="share-link mobile"><div class="share-qrcode"><div class="share-button" title="使用手机访问这篇文章"><i class="anzhiyufont anzhiyu-icon-qrcode"></i></div><div class="share-main"><div class="share-main-all"><div id="qrcode" title="https://yaanlaan.github.io/2024/07/10/%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%EF%BC%88%E4%B8%80%EF%BC%89/"></div><div class="reward-dec">使用手机访问这篇文章</div></div></div></div></div><script>function copyCurrentPageUrl() {
+  var currentPageUrl = window.location.href;
+  var input = document.createElement("input");
+  input.setAttribute("value", currentPageUrl);
+  document.body.appendChild(input);
+  input.select();
+  input.setSelectionRange(0, 99999);
+  document.execCommand("copy");
+  document.body.removeChild(input);
+}</script><div class="share-link copyurl"><div class="share-button" id="post-share-url" title="复制链接" onclick="copyCurrentPageUrl()"><i class="anzhiyufont anzhiyu-icon-link"></i></div></div></div></div></div><div class="post-copyright__notice"><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://yaanlaan.github.io" target="_blank">Yaan</a>！</span></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__box"><div class="post-meta__box__category-list"><a class="post-meta__box__categoryes" href="/categories/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/"><span class="categoryes-punctuation"> <i class="anzhiyufont anzhiyu-icon-inbox"></i></span>数学建模<span class="categoryesPageCount">3</span></a></div><div class="post-meta__box__tag-list"><a class="post-meta__box__tags" href="/tags/%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>微分方程<span class="tagsPageCount">2</span></a></div></div></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/07/09/week5-5/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/postimage/cat_w.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">MATLABweek5.5(绘图专栏)</div></div></a></div><div class="next-post pull-right"><a href="/2024/07/10/%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%EF%BC%88%E4%BA%8C%EF%BC%89/"><img class="next-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/postimage/1412.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">数学建模微分方程（二）</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="anzhiyufont anzhiyu-icon-thumbs-up fa-fw" style="font-size: 1.5rem; margin-right: 4px"></i><span>喜欢这篇文章的人也看了</span></div><div class="relatedPosts-list"><div><a href="/2024/07/10/%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%EF%BC%88%E4%BA%8C%EF%BC%89/" title="数学建模微分方程（二）"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/postimage/1412.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2024-07-10</div><div class="title">数学建模微分方程（二）</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="author-info__sayhi" id="author-info__sayhi" onclick="anzhiyu.changeSayHelloText()"></div><div class="author-info-avatar"><img class="avatar-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/mysitesource/yaanblog.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-status"><img class="g-status" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://bu.dusays.com/2021/01/15/591aaf707ee3c.png" alt="status"/></div></div><div class="author-info__description">草木山石，日月星辰</div><div class="author-info__bottom-group"><a class="author-info__bottom-group-left" href="/"><h1 class="author-info__name">Yaan</h1><div class="author-info__desc">欢迎光临（￣︶￣）</div></a><div class="card-info-social-icons is-center"><a class="social-icon faa-parent animated-hover" href="https://github.com/yaanlaan" target="_blank" title="Github"><i class="anzhiyufont anzhiyu-icon-github"></i></a><a class="social-icon faa-parent animated-hover" href="https://www.zhihu.com/people/4-56-20-42" target="_blank" title="Zhihu"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-zhihu-circle-fill"></use></svg></a></div></div></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bullhorn anzhiyu-shake"></i><span>公告</span></div><div class="announcement_content">小破站今天也在苟活QAQ</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bars"></i><span>文章目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E4%B8%93%E9%A2%981"><span class="toc-text">数学建模:微分方程专题(1)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80.%E5%B8%B8%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8Bodeordinary-differential-equation"><span class="toc-text">一.常微分方程ODE(ordinary
+differential equation)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-text">1.简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E4%B8%AA%E4%BE%8B%E5%AD%90"><span class="toc-text">2.一个例子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%B9%E7%95%8C%E9%97%AE%E9%A2%98"><span class="toc-text">3.边界问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C.python%E6%B1%82%E8%A7%A3%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B"><span class="toc-text">二.python求解微分方程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%A6%E5%8F%B7%E8%AE%A1%E7%AE%97%E8%A7%A3%E6%9E%90%E8%A7%A3"><span class="toc-text">1.符号计算解析解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B"><span class="toc-text">2.代码示例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89.%E5%88%9D%E5%80%BC%E9%97%AE%E9%A2%98"><span class="toc-text">三.初值问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%A6%E5%8F%B7%E6%9B%BF%E6%8D%A2"><span class="toc-text">1.符号替换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8scipy"><span class="toc-text">2.使用scipy</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-history"></i><span>最近发布</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/08/04/games101lab3/" title="games101lab3"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/postimage/listen.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="games101lab3"/></a><div class="content"><a class="title" href="/2024/08/04/games101lab3/" title="games101lab3">games101lab3</a><time datetime="2024-08-03T19:19:04.000Z" title="发表于 2024-08-04 03:19:04">2024-08-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/07/15/matlab_nap/" title="图像滤波python（划水"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/postimage/%E7%AB%A0%E9%B1%BC%E5%93%A5.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="图像滤波python（划水"/></a><div class="content"><a class="title" href="/2024/07/15/matlab_nap/" title="图像滤波python（划水">图像滤波python（划水</a><time datetime="2024-07-14T16:41:40.000Z" title="发表于 2024-07-15 00:41:40">2024-07-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/07/14/games101lab2/" title="games101lab2"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/postimage/%E4%B8%9C%E5%B1%B1%E5%B0%8F%E7%BA%A2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="games101lab2"/></a><div class="content"><a class="title" href="/2024/07/14/games101lab2/" title="games101lab2">games101lab2</a><time datetime="2024-07-13T20:08:36.000Z" title="发表于 2024-07-14 04:08:36">2024-07-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/07/13/games101lab1/" title="games101lab1"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/postimage/%E4%B8%89%E9%B9%B0%E6%9C%9D%E5%A4%9C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="games101lab1"/></a><div class="content"><a class="title" href="/2024/07/13/games101lab1/" title="games101lab1">games101lab1</a><time datetime="2024-07-12T17:12:36.000Z" title="发表于 2024-07-13 01:12:36">2024-07-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/07/11/games%E8%B8%A9%E5%9D%91/" title="games踩坑"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/postimage/games%E8%B8%A9%E5%9D%91.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="games踩坑"/></a><div class="content"><a class="title" href="/2024/07/11/games%E8%B8%A9%E5%9D%91/" title="games踩坑">games踩坑</a><time datetime="2024-07-11T15:17:57.000Z" title="发表于 2024-07-11 23:17:57">2024-07-11</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div id="workboard"><div id="runtimeTextTip"></div></div></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div id="footer-bar-tips"><div class="copyright">&copy;2024 By <a class="footer-bar-link" href="/" title="Yaan" target="_blank">Yaan</a></div></div><div id="footer-type-tips"></div><div class="js-pjax"><script>function subtitleType () {
+  fetch('https://v1.hitokoto.cn')
+    .then(response => response.json())
+    .then(data => {
+      if (true) {
+        const from = '出自 ' + data.from
+        const sub = []
+        sub.unshift(data.hitokoto, from)
+        window.typed = new Typed('#footer-type-tips', {
+          strings: sub,
+          startDelay: 300,
+          typeSpeed: 150,
+          loop: true,
+          backSpeed: 50,
+        })
+      } else {
+        document.getElementById('footer-type-tips').innerHTML = data.hitokoto
+      }
+    })
+}
 
-    </div>
+if (true) {
+  if (typeof Typed === 'function') {
+    subtitleType()
+  } else {
+    getScript('https://cdn.cbd.int/typed.js@2.1.0/dist/typed.umd.js').then(subtitleType)
+  }
+} else {
+  subtitleType()
+}
+</script></div></div><div class="footer-bar-right"><a class="footer-bar-link" target="_blank" rel="noopener" href="https://github.com/anzhiyu-c/hexo-theme-anzhiyu" title="主题">主题</a></div></div></div></footer></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="sidebar-site-data site-data is-center"><a href="/archives/" title="archive"><div class="headline">文章</div><div class="length-num">28</div></a><a href="/tags/" title="tag"><div class="headline">标签</div><div class="length-num">24</div></a><a href="/categories/" title="category"><div class="headline">分类</div><div class="length-num">10</div></a></div><span class="sidebar-menu-item-title">功能</span><div class="sidebar-menu-item"><a class="darkmode_switchbutton menu-child" href="javascript:void(0);" title="显示模式"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span>显示模式</span></a></div><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://blog.anheyu.com/" title="博客"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="博客"/><span class="back-menu-item-text">博客</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">项目</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://image.anheyu.com/" title="安知鱼图床"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://image.anheyu.com/favicon.ico" alt="安知鱼图床"/><span class="back-menu-item-text">安知鱼图床</span></a></div></div></div><div class="menus_items"><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/archives/"><span> 文章</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/categories/"><span> 分类</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/tags/"><span> 标签</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="javascript:toRandomPost()"><span> 随便逛逛</span></a></div></div><span class="sidebar-menu-item-title">标签</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/C/" style="font-size: 0.88rem;">C++<sup>4</sup></a><a href="/tags/LINGO/" style="font-size: 0.88rem;">LINGO<sup>2</sup></a><a href="/tags/MATLAB/" style="font-size: 0.88rem;">MATLAB<sup>11</sup></a><a href="/tags/Mind-Walk/" style="font-size: 0.88rem;">Mind Walk<sup>1</sup></a><a href="/tags/c/" style="font-size: 0.88rem;">c++<sup>2</sup></a><a href="/tags/cmake/" style="font-size: 0.88rem;">cmake<sup>2</sup></a><a href="/tags/opencv/" style="font-size: 0.88rem;">opencv<sup>1</sup></a><a href="/tags/stl/" style="font-size: 0.88rem;">stl<sup>1</sup></a><a href="/tags/tools/" style="font-size: 0.88rem;">tools<sup>2</sup></a><a href="/tags/%E4%BF%A1%E6%81%AF%E8%AE%BA/" style="font-size: 0.88rem;">信息论<sup>1</sup></a><a href="/tags/%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B/" style="font-size: 0.88rem;">微分方程<sup>2</sup></a><a href="/tags/%E6%8E%92%E5%BA%8F/" style="font-size: 0.88rem;">排序<sup>1</sup></a><a href="/tags/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" style="font-size: 0.88rem;">数字图像处理<sup>1</sup></a><a href="/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" style="font-size: 0.88rem;">数学建模<sup>3</sup></a><a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 0.88rem;">数据结构<sup>1</sup></a><a href="/tags/%E6%95%B0%E8%AE%BA/" style="font-size: 0.88rem;">数论<sup>1</sup></a><a href="/tags/%E6%9C%AC%E7%A7%91%E7%AC%94%E8%AE%B0/" style="font-size: 0.88rem;">本科笔记<sup>13</sup></a><a href="/tags/%E6%A8%A1%E6%9D%BF/" style="font-size: 0.88rem;">模板<sup>1</sup></a><a href="/tags/%E6%B5%8B%E8%AF%95/" style="font-size: 0.88rem;">测试<sup>1</sup></a><a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 0.88rem;">算法<sup>1</sup></a><a href="/tags/%E7%AE%97%E6%B3%95%E6%9D%82%E8%B0%88/" style="font-size: 0.88rem;">算法杂谈<sup>2</sup></a><a href="/tags/%E7%BA%BF%E6%80%A7%E8%A7%84%E5%88%92/" style="font-size: 0.88rem;">线性规划<sup>2</sup></a><a href="/tags/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/" style="font-size: 0.88rem;">背包问题<sup>1</sup></a><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/" style="font-size: 0.88rem;">计算机图形学<sup>4</sup></a></div></div><hr/></div></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="anzhiyufont anzhiyu-icon-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="anzhiyufont anzhiyu-icon-gear"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="anzhiyufont anzhiyu-icon-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></button></div></div><div id="nav-music"><a id="nav-music-hoverTips" onclick="anzhiyu.musicToggle()" accesskey="m">播放音乐</a><div id="console-music-bg"></div><meting-js id="8152976493" server="netease" type="playlist" mutex="true" preload="none" theme="var(--anzhiyu-main)" data-lrctype="0" order="random"></meting-js></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="anzhiyufont anzhiyu-icon-xmark"></i></button></nav><div class="is-center" id="loading-database"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-pulse-icon"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="anzhiyufont anzhiyu-icon-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="anzhiyufont anzhiyu-icon-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right" style="font-size: 1rem;"></i></div><div class="rightMenu-item" id="menu-top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制选中文本</span></div><div class="rightMenu-item" id="menu-pastetext"><i class="anzhiyufont anzhiyu-icon-paste"></i><span>粘贴文本</span></div><a class="rightMenu-item" id="menu-commenttext"><i class="anzhiyufont anzhiyu-icon-comment-medical"></i><span>引用到评论</span></a><div class="rightMenu-item" id="menu-newwindow"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="anzhiyufont anzhiyu-icon-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="anzhiyufont anzhiyu-icon-images"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="anzhiyufont anzhiyu-icon-download"></i><span>下载此图片</span></div><div class="rightMenu-item" id="menu-newwindowimg"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开图片</span></div><div class="rightMenu-item" id="menu-search"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>站内搜索</span></div><div class="rightMenu-item" id="menu-searchBaidu"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>百度搜索</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="anzhiyufont anzhiyu-icon-play"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="anzhiyufont anzhiyu-icon-backward"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="anzhiyufont anzhiyu-icon-forward"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-playlist" onclick="window.open(&quot;https://y.qq.com/n/ryqq/playlist/8802438608&quot;, &quot;_blank&quot;);" style="display: none;"><i class="anzhiyufont anzhiyu-icon-radio"></i><span>查看所有歌曲</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-link" id="menu-randomPost"><i class="anzhiyufont anzhiyu-icon-shuffle"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="anzhiyufont anzhiyu-icon-cube"></i><span>博客分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags"></i><span>文章标签</span></a></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item" id="menu-copy" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制地址</span></a><a class="rightMenu-item" id="menu-commentBarrage" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-message"></i><span class="menu-commentBarrage-text">关闭热评</span></a><a class="rightMenu-item" id="menu-darkmode" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span class="menu-darkmode-text">深色模式</span></a><a class="rightMenu-item" id="menu-translate" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-language"></i><span>轉為繁體</span></a></div></div><div id="rightmenu-mask"></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.cbd.int/@fancyapps/ui@5.0.28/dist/fancybox/fancybox.umd.js"></script><script src="https://cdn.cbd.int/instant.page@5.2.0/instantpage.js" type="module"></script><script src="https://cdn.cbd.int/vanilla-lazyload@17.8.5/dist/lazyload.iife.min.js"></script><script src="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.cbd.int/pangu@4.0.7/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
 
-    
-    
-    
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
 
-    <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B/" rel="tag"># 微分方程</a>
-          </div>
-
+document.addEventListener('DOMContentLoaded', panguInit)</script><canvas id="universe"></canvas><script async src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/dark/dark.js"></script><script>// 消除控制台打印
+var HoldLog = console.log;
+console.log = function () {};
+let now1 = new Date();
+queueMicrotask(() => {
+  const Log = function () {
+    HoldLog.apply(console, arguments);
+  }; //在恢复前输出日志
+  const grt = new Date("03/14/2024 00:00:00"); //此处修改你的建站时间或者网站上线时间
+  now1.setTime(now1.getTime() + 250);
+  const days = (now1 - grt) / 1000 / 60 / 60 / 24;
+  const dnum = Math.floor(days);
+  const ascll = [
+    `欢迎使用安知鱼!`,
+    `生活明朗, 万物可爱`,
+    `
         
+       █████╗ ███╗   ██╗███████╗██╗  ██╗██╗██╗   ██╗██╗   ██╗
+      ██╔══██╗████╗  ██║╚══███╔╝██║  ██║██║╚██╗ ██╔╝██║   ██║
+      ███████║██╔██╗ ██║  ███╔╝ ███████║██║ ╚████╔╝ ██║   ██║
+      ██╔══██║██║╚██╗██║ ███╔╝  ██╔══██║██║  ╚██╔╝  ██║   ██║
+      ██║  ██║██║ ╚████║███████╗██║  ██║██║   ██║   ╚██████╔╝
+      ╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝╚═╝   ╚═╝    ╚═════╝
+        
+        `,
+    "已上线",
+    dnum,
+    "天",
+    "©2024 By 安知鱼 V1.6.12",
+  ];
+  const ascll2 = [`NCC2-036`, `调用前置摄像头拍照成功，识别为【小笨蛋】.`, `Photo captured: `, `🤪`];
 
-          <div class="post-nav">
-            <div class="post-nav-item">
-                <a href="/2024/07/09/week5-5/" rel="prev" title="MATLABweek5.5(绘图专栏)">
-                  <i class="fa fa-angle-left"></i> MATLABweek5.5(绘图专栏)
-                </a>
-            </div>
-            <div class="post-nav-item">
-                <a href="/2024/07/10/%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%EF%BC%88%E4%BA%8C%EF%BC%89/" rel="next" title="数学建模微分方程（二）">
-                  数学建模微分方程（二） <i class="fa fa-angle-right"></i>
-                </a>
-            </div>
-          </div>
-    </footer>
-  </article>
-</div>
+  setTimeout(
+    Log.bind(
+      console,
+      `\n%c${ascll[0]} %c ${ascll[1]} %c ${ascll[2]} %c${ascll[3]}%c ${ascll[4]}%c ${ascll[5]}\n\n%c ${ascll[6]}\n`,
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      ""
+    )
+  );
+  setTimeout(
+    Log.bind(
+      console,
+      `%c ${ascll2[0]} %c ${ascll2[1]} %c \n${ascll2[2]} %c\n${ascll2[3]}\n`,
+      "color:white; background-color:#4fd953",
+      "",
+      "",
+      'background:url("https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/tinggge.gif") no-repeat;font-size:450%'
+    )
+  );
 
+  setTimeout(Log.bind(console, "%c WELCOME %c 你好，小笨蛋.", "color:white; background-color:#4f90d9", ""));
 
+  setTimeout(
+    console.warn.bind(
+      console,
+      "%c ⚡ Powered by 安知鱼 %c 你正在访问 Yaan 的博客.",
+      "color:white; background-color:#f0ad4e",
+      ""
+    )
+  );
 
+  setTimeout(Log.bind(console, "%c W23-12 %c 你已打开控制台.", "color:white; background-color:#4f90d9", ""));
 
+  setTimeout(
+    console.warn.bind(console, "%c S013-782 %c 你现在正处于监控中.", "color:white; background-color:#d9534f", "")
+  );
+});</script><script async src="/anzhiyu/random.js"></script><script async="async">(function () {
+  var grt = new Date("03/14/2024 00:00:00"); //设置网站上线时间
+  var now = new Date();
+  var dnum;
+  var hnum;
+  var mnum;
+  var snum;
+  var nowHour;
 
-
-    <div class="comments gitalk-container"></div>
-</div>
-  </main>
-
-  <footer class="footer">
-    <div class="footer-inner">
-
-  <div class="copyright">
-    &copy; 
-    <span itemprop="copyrightYear">2024</span>
-    <span class="with-love">
-      <i class="fa fa-pencil"></i>
-    </span>
-    <span class="author" itemprop="copyrightHolder">Yaan</span>
-  </div>
-<div class="wordcount">
-  <span class="post-meta-item">
-    <span class="post-meta-item-icon">
-      <i class="fa fa-chart-line"></i>
-    </span>
-    <span title="站点总字数">37k</span>
-  </span>
-  <span class="post-meta-item">
-    <span class="post-meta-item-icon">
-      <i class="fa fa-coffee"></i>
-    </span>
-    <span title="站点阅读时长">2:15</span>
-  </span>
-</div>
-
-<!-- <br /> -->
-<!-- 网站运行时间的设置 -->
-<span id="timeDate">载入天数...</span>
-<!-- <span id="times">载入时分秒...</span> -->
-<script>
-    var now = new Date();
-    function createtime() {
-        var grt= new Date("3/14/2024 0:00:00");//此处修改你的建站时间或者网站上线时间
-        now.setTime(now.getTime()+250);
-        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
-        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
-        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
-        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
-        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
-        snum = Math.round(seconds); 
-        if(String(snum).length ==1 ){snum = "0" + snum;}
-        // var times = document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
-        document.getElementById("timeDate").innerHTML = "小破站已经苟活 "+dnum+" 天 "+hnum + " 小时 " + mnum + " 分 " + snum + " 秒 QAQ";
+  // 计算并更新天数、小时数、分钟数和秒数
+  function updateTime() {
+    now = new Date(); // 更新 now 的值
+    nowHour = now.getHours(); // 更新 nowHour 的值
+    var days = (now - grt) / 1000 / 60 / 60 / 24;
+    dnum = Math.floor(days);
+    var hours = (now - grt) / 1000 / 60 / 60 - 24 * dnum;
+    hnum = Math.floor(hours);
+    if (String(hnum).length == 1) {
+      hnum = "0" + hnum;
     }
-setInterval("createtime()",250);
-</script>
+    var minutes = (now - grt) / 1000 / 60 - 24 * 60 * dnum - 60 * hnum;
+    mnum = Math.floor(minutes);
+    if (String(mnum).length == 1) {
+      mnum = "0" + mnum;
+    }
+    var seconds = (now - grt) / 1000 - 24 * 60 * 60 * dnum - 60 * 60 * hnum - 60 * mnum;
+    snum = Math.round(seconds);
+    if (String(snum).length == 1) {
+      snum = "0" + snum;
+    }
+  }
 
-    </div>
-  </footer>
+  // 更新网页中显示的网站运行时间
+  function updateHtml() {
+    const footer = document.getElementById("footer");
+    if (!footer) return
+    let currentTimeHtml = "";
+    if (nowHour < 18 && nowHour >= 9) {
+      // 如果是上班时间，默认就是"安知鱼-上班摸鱼中.svg"图片，不需要更改
+      currentTimeHtml = `运行了 ${dnum} 天<span id='runtime'> ${hnum} 小时 ${mnum} 分 ${snum} 秒 </span><i class='anzhiyufont anzhiyu-icon-heartbeat' style='color:red'></i>`;
+    } else {
+      // 如果是下班时间，插入"安知鱼-下班啦.svg"图片
+      let img = document.querySelector("#workboard .workSituationImg");
+      if (img != null) {
+        img.src = "";
+        img.title = "";
+        img.alt = "";
+      }
 
+      currentTimeHtml = `本站居然运行了 ${dnum} 天<span id='runtime'> ${hnum} 小时 ${mnum} 分 ${snum} 秒 </span><i class='anzhiyufont anzhiyu-icon-heartbeat' style='color:red'></i>`;
+    }
+
+    if (document.getElementById("runtimeTextTip")) {
+      document.getElementById("runtimeTextTip").innerHTML = currentTimeHtml;
+    }
+  }
+
+  setInterval(() => {
+    updateTime();
+    updateHtml();
+  }, 1000);
+})();</script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>(() => {
+  const $mermaid = document.querySelectorAll('#article-container .mermaid-wrap')
+  if ($mermaid.length === 0) return
+  const runMermaid = () => {
+    window.loadMermaid = true
+    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+    Array.from($mermaid).forEach((item, index) => {
+      const mermaidSrc = item.firstElementChild
+      const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+      const mermaidID = 'mermaid-' + index
+      const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+
+      const renderFn = mermaid.render(mermaidID, mermaidDefinition)
+
+      const renderV10 = () => {
+        renderFn.then(({svg}) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svg)
+        })
+      }
+
+      const renderV9 = svg => {
+        mermaidSrc.insertAdjacentHTML('afterend', svg)
+      }
+
+      typeof renderFn === 'string' ? renderV9(renderFn) : renderV10()
+    })
+  }
+
+  const loadMermaid = () => {
+    window.loadMermaid ? runMermaid() : getScript('https://cdn.cbd.int/mermaid@10.2.4/dist/mermaid.min.js').then(runMermaid)
+  }
+
+  anzhiyu.addGlobalFn('themeChange', runMermaid, 'mermaid')
+
+  window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+})()</script><input type="hidden" name="page-type" id="page-type" value="post"></div><script async data-pjax src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.1/bubble/bubble.js"></script><script async data-pjax src="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/waterfall/waterfall.js"></script><script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/qrcodejs/1.0.0/qrcode.min.js"></script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.9/icon/ali_iconfont_css.css"><script async src="https://at.alicdn.com/t/c/font_4614032_rt5w4p7bq3i.js?spm=a313x.manage_type_myprojects.i1.10.372c3a817mQWHJ&amp;file=font_4614032_rt5w4p7bq3i.js"></script><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.cbd.int/butterfly-extsrc@1.1.3/dist/fireworks.min.js"></script><script src="https://cdn.cbd.int/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+  // removeEventListener scroll 
+  anzhiyu.removeGlobalFnEvent('pjax')
+  anzhiyu.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
   
-  <div class="toggle sidebar-toggle" role="button">
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-  </div>
-  <div class="sidebar-dimmer"></div>
-  <div class="back-to-top" role="button" aria-label="返回顶部">
-    <i class="fa fa-arrow-up fa-lg"></i>
-    <span>0%</span>
-  </div>
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
 
-<noscript>
-  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
-</noscript>
+  typeof typed === 'object' && typed.destroy()
 
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+})
 
-  
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/medium-zoom/1.1.0/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
-<script src="/js/third-party/search/local-search.js"></script>
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
 
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
 
+  typeof panguInit === 'function' && panguInit()
 
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
 
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
 
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
 
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
 
-  
-
-
-
-
-  
-
-  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"mhchem":false,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
-<script src="/js/third-party/math/mathjax.js"></script>
-
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
-  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":false,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://yaanlaan.github.io/2024/07/10/%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%EF%BC%88%E4%B8%80%EF%BC%89/"}</script>
-  <script src="/js/third-party/quicklink.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
-
-<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"yaanlaan","repo":"yaanlaan.github.io","client_id":"Ov23liWsJQGUJbveD4qj","client_secret":"6784948246bb9610cd435bf3541c7734bdf2b8af","admin_user":"yaanlaan","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-CN","distractionFreeMode":true,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"78f244a31632d5e49ea45de56cacb1af"}</script>
-<script src="/js/third-party/comments/gitalk.js"></script>
-
-  
-
-
-   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
-   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
-   <script type="text/javascript" src="/js/src/fireworks.js"></script>
-
-
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/haru01.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
-</html>
-
-
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404')
+  }
+})</script><script charset="UTF-8" src="https://cdn.cbd.int/anzhiyu-theme-static@1.1.5/accesskey/accesskey.js"></script></div><div id="popup-window"><div class="popup-window-title">通知</div><div class="popup-window-divider"></div><div class="popup-window-content"><div class="popup-tip">你好呀</div><div class="popup-link"><i class="anzhiyufont anzhiyu-icon-arrow-circle-right"></i></div></div></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/haru01.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body></html>
